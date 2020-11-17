@@ -33,7 +33,7 @@ if(isset($_SESSION["kullanici"])){
 						<tr height="30">
 							<td colspan="5" style="border-bottom: 1px solid #CCCCCC;" class="">Hesabına ilişkin adreslerin burada. </td>
 						</tr>
-						<tr height="30" bgcolor="#F1F1F1" style="color: black; ">
+						<tr height="40" bgcolor="#F8FFA7" style="color: black; ">
 							<td colspan="1" align="left" style="padding: 0px 5px;"><b>Adreslerim </b></td>
 							<td colspan="4" align="right" style="padding: 0px 5px;"><b><a class="hesabimlink" href="index.php?SK=70"> + Yeni Adres Ekle</a></b></td>
 						</tr>
@@ -58,10 +58,10 @@ if(isset($_SESSION["kullanici"])){
 								?>
 								<tr height="40" bgcolor="<?php echo $arkaplanrenk; ?>">
 									<td><?php echo $k["adsoyad"];?> - <?php echo $k["adres"]; ?>  <?php echo $k["ilce"]; ?> / <?php echo $k["sehir"]; ?> - <?php echo $k["telno"]; ?></td>
-									<td width="25"><a  href="index.php?SK=62&id=<?php echo $k["uyeid"]; ?>"><img src="Resimler/Guncelleme20x20.png" style="margin-top: 5px;"></a></td>
-									<td width="70"><a class="hesabimlink" href="index.php?SK=62&id=<?php echo $k["uyeid"]; ?>">Güncelle</a></td>
-									<td width="25"><a  href="index.php?SK=67&id=<?php echo $k["uyeid"]; ?>"><img src="Resimler/Sil20x20.png" style="margin-top: 5px;"></a></td>
-									<td width="25"><a class="hesabimlink" href="index.php?SK=67&id=<?php echo $k["uyeid"]; ?>">Sil</a></td>
+									<td width="25"><a  href="index.php?SK=62&id=<?php echo $k["id"]; ?>"><img src="Resimler/Guncelleme20x20.png" style="margin-top: 5px;"></a></td>
+									<td width="70"><a class="hesabimlink" href="index.php?SK=62&id=<?php echo $k["id"]; ?>">Güncelle</a></td>
+									<td width="25"><a  href="index.php?SK=67&id=<?php echo $k["id"]; ?>"><img src="Resimler/Sil20x20.png" style="margin-top: 5px;"></a></td>
+									<td width="25"><a class="hesabimlink" href="index.php?SK=67&id=<?php echo $k["id"]; ?>">Sil</a></td>
 								</tr>
 								<?php
 								$sayi++;
