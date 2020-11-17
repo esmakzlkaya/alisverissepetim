@@ -1,0 +1,8 @@
+
+ANASAYFA
+
+
+BANNER ALANI
+
+
+İÇERİK ALANI

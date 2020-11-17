@@ -1,0 +1,170 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	font-family: "Open Sans", Arial, "sans-serif";
+	color: #646464;
+	background: #FFFFFF;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-decoration: none;
+}
+ .mansetalti a:link,  .mansetalti a:hover, .mansetalti a:active, .mansetalti a:visited{
+	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
+	font-size: 14px;
+	color: #FFFFFF;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-decoration: none;	
+}
+
+ .anamenu a:link,  .anamenu a:hover, .anamenu a:active, .anamenu a:visited{
+	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
+	font-size: 14px;
+	color: black;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-decoration: none;	
+}
+
+.altmenu a:link, .altmenu a:hover, .altmenu a:active, .altmenu a:visited{
+	text-decoration: none;
+	color: black;
+	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
+	font-size: 14px;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+}
+.sonucsayfalari a:link, .sonucsayfalari a:hover, .sonucsayfalari a:active, .sonucsayfalari a:visited{
+	text-decoration: none;
+	color: black;
+	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
+	font-size: 14px;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+}
+.uyelikFormu a:link, .uyelikFormu a:hover, .uyelikFormu a:active, .uyelikFormu a:visited{
+	text-decoration: none;
+	color: black;
+	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
+	font-size: 14px;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+}
+.acilirmenu a:link, .acilirmenu a:hover, .acilirmenu a:active, .acilirmenu a:visited{
+	text-decoration: none;
+	color: black;
+	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
+	font-size: 14px;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+}
+.hesabimlink{
+	text-decoration: none;
+	color: black;
+	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
+	font-size: 14px;
+	line-height: 1.5;
+	font-style: normal;
+	font-variant: normal;
+}
+.sifremiunuttumformu a:link, .sifremiunuttumformu a:hover, .sifremiunuttumformu a:active, .sifremiunuttumformu a:visited{
+	text-decoration: none;
+	color: black;
+	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
+	font-size: 14px;
+	line-height: 1.5;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	width: 90%;
+}
+.inputAlanlari{
+	width: 90%;
+	height: 40px;
+	padding: 0px 10px;
+}
+.sifremiunuttumInputalanlari{
+	width: 100%;
+	height: 40px;
+	padding: 0px 10px;
+}
+.selectAlanlari{
+	padding: 0px 10px;
+	width: 95%;
+	height: 40px;
+}
+.textareaalanlari{
+	padding: 0px 10px;
+	width: 91%;
+	height: 100px;	
+}
+.yesilbuton{
+	height: 30px;
+	color: white;
+	background: #009900;
+	border: 1px solid #00FF00;
+	text-decoration: none;
+}
+.kargotakipinput{
+	width: 75%;
+	height: 35px;
+	padding: 0px 10px;	
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	text-decoration: none;
+}
+.kargotakipbutonu{
+	height: 30px;
+	color: white;
+	background: #FF9900;
+	border: 1px solid #CCCCCC;
+	text-decoration: none;
+}
+.bilgilerimiguncellebutonu{
+	height: 30px;
+
+	padding: 5px 30px;
+	color: white;
+	background: #009900;
+	border: 1px solid #00FF00;
+	text-decoration: none;
+}
+.sorualani{
+	width: 100%;
+	height: 30px;
+	padding-top: 10px;
+	font-weight: bold;
+	color: black;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 1.5;
+	text-decoration: none;
+	border-bottom: 1px solid #CCCCCC;
+}
+.sorualani:hover{
+	cursor: pointer;
+	background: #F1F1F1;
+}
+.cevapalani{
+	width: 100%;
+	margin-top: 10px;
+	line-height: 1.5;
+}
