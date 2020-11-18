@@ -1,5 +1,5 @@
-<?php 
-if ($_SESSION["kullanici"]) {
+<?php
+if(isset($_SESSION["kullanici"])){
 	?>
 	<table width="1065" align="center" border="0" cellpadding="0" cellspacing="0">
 		<tr>
@@ -24,70 +24,69 @@ if ($_SESSION["kullanici"]) {
 			<td colspan="3"><hr/></td>
 		</tr>
 		<tr height="">
-			<td width="500" valign="top">
-				<form action="index.php?SK=51" method="post">
-					<table  width="500" align="center" border="0" cellspacing="0" cellpadding="0">
-						<tr height="40">
-							<td colspan="2" style="color: #FF9900" ><h3>HESABIM > ÜYELİK BİLGİLERİM</h3></td>
-						</tr>
-						<tr height="30">
-							<td colspan="2" style="border-bottom: 1px solid #CCCCCC;" class="">Hesabın ile alakalı tüm bilgilerin burada. </td>
-						</tr>
-						<tr height="30">
-							<td colspan="2"  valign="bottom" ><b>İsim soyisim : </b> </td>
-						</tr>
-						<tr height="30">
-							<td  colspan="2" valign="top" ><?php echo $adsoyad; ?></td>
-						</tr>
-						<tr height="30">
-							<td  colspan="2"  valign="bottom"  ><b>E-mail adresi : </b> </td>
-						</tr>
-						<tr height="30">
-							<td colspan="2" valign="top" ><?php echo $mail; ?></td>
-						</tr>
-						<tr height="30">
-							<td  colspan="2" valign="bottom" ><b>Telefon Numarası : </b></td>
-						</tr>
-						<tr height="30">
-							<td  colspan="2" valign="top" ><?php echo $telno; ?></td>
-						</tr>
-						<tr height="30">
-							<td valign="bottom" colspan="2"><b>Cinsiyet : </b></td>
-						</tr>
-						<tr height="30">
-							<td valign="top" colspan="2"><?php echo $cinsiyet; ?></td>
-						</tr>
-						<tr height="30">
-							<td  colspan="2" valign="bottom"><b>Kayıt Tarihi : </b> </td>
-						</tr>
-						<tr height="30">
-							<td  colspan="2" valign="bottom"><?php echo TarihBul($kayitTarihi); ?></td>
-						</tr>
-						<tr height="40">
-							<td align="center" colspan="2"><input type="submit" value="BİLGİLERİMİ DEĞİŞTİRMEK İSTİYORUM" class="bilgilerimiguncellebutonu"></td>
-						</tr>
-					</table>
-				</form>
-			</td>
-			<td width="20">&nbsp;</td>
-			<td width="545"  valign="top">
-				<table width="545" align="center" border="0" cellspacing="0" cellpadding="0">
-					<tr height="40">
-						<td style="color: #FF9900" ><h3>REKLAM</h3></td>
+			<td width="1065" valign="top">
+				<table  width="1065" align="left" border="0" cellspacing="0" cellpadding="0">
+					<tr height="30">
+						<td colspan="8" style="color: #FF9900" ><h3>HESABIM > SİPARİŞLER</h3></td>
 					</tr>
 					<tr height="30">
-						<td style="border-bottom: 1px solid #CCCCCC;">REKLAM</td>
+						<td colspan="8" style="border-bottom: 1px solid #CCCCCC;" class="">Siparişlerine ilişkin bütün bilgiler burada. </td>
 					</tr>
-					<tr height="30">
-						<td align="left" width="30"><img src="Resimler/545x340Reklam.jpg" border="0" style="margin-top: 3px;"></td>
+					<tr height="40" bgcolor="#F8FFA7" style="color: black; ">
+						<td width="150" align="center" style="padding: 0px 5px;"><b>Sipariş Numarası </b></td>
+						<td width="100" align="center" ><b>Ürün Resmi </b></td>
+						<td width="80" align="center" ><b>Yorum </b></td>
+						<td width="205" align="center" ><b>Ürün Adı </b></td>
+						<td width="100" align="center" ><b>Ürün Fiyatı </b></td>
+						<td width="90" align="center" ><b>Ürün Adedi </b></td>
+						<td width="150" align="center" ><b>Toplam Ürün Fiyatı </b></td>
+						<td width="190" align="center" style="padding: 0px 5px;"><b>Kargo Durumu / Takip </b></td>
 					</tr>
+					<?php 
+					$adressorgusu=$DBConnection->prepare("SELECT * FROM adresler WHERE uyeid=?");
+					$adressorgusu->execute([$id]);
+					$adressayisi=$adressorgusu->rowCount();
+					$adres=$adressorgusu->fetchAll(PDO::FETCH_ASSOC);
+
+					$ilkrenk="#FFFFFF";
+					$ikincirenk="#F1F1F1";
+					$sayi=1;
+
+					if($adressayisi>0){
+						foreach ($adres as $k) {
+							if ($sayi%2) {
+								$arkaplanrenk=$ilkrenk;
+							}
+							else{
+								$arkaplanrenk=$ikincirenk;
+							}
+							?>
+							<tr height="40" bgcolor="<?php echo $arkaplanrenk; ?>">
+								<td><?php echo $k["adsoyad"];?> - <?php echo $k["adres"]; ?>  <?php echo $k["ilce"]; ?> / <?php echo $k["sehir"]; ?> - <?php echo $k["telno"]; ?></td>
+								<td width="25"><a  href="index.php?SK=62&id=<?php echo $k["id"]; ?>"><img src="Resimler/Guncelleme20x20.png" style="margin-top: 5px;"></a></td>
+								<td width="70"><a class="hesabimlink" href="index.php?SK=62&id=<?php echo $k["id"]; ?>">Güncelle</a></td>
+								<td width="25"><a  href="index.php?SK=67&id=<?php echo $k["id"]; ?>"><img src="Resimler/Sil20x20.png" style="margin-top: 5px;"></a></td>
+								<td width="25"><a class="hesabimlink" href="index.php?SK=67&id=<?php echo $k["id"]; ?>">Sil</a></td>
+							</tr>
+							<?php
+							$sayi++;
+						}
+					}else{
+						?>
+						<tr height="50">
+							<td colspan="8" align="left">Sisteme kayıtlı siparişiniz bulunamadı.</td>
+						</tr>
+
+						<?php 
+
+					}
+					?>
 				</table>
 			</td>
 		</tr>
 	</table>
 	<?php 
-} 
-else{
+}else{
 	header("Location:index.php");
 	exit();
 } 
