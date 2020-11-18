@@ -61,17 +61,14 @@
 	$sayfakodu[59]="hesabimfavoriler.php";
 	$sayfakodu[60]="hesabimyorumlar.php";
 	$sayfakodu[61]="hesabimsiparisler.php";
-
 	$sayfakodu[62]="hesabimadreslerguncelle.php";
 	$sayfakodu[63]="hesabimadreslerguncellesonuc.php";
 	$sayfakodu[64]="hesabimadreslerguncellesonuctamam.php";
 	$sayfakodu[65]="hesabimadreslerguncellehata.php";
 	$sayfakodu[66]="hesabimadreslerguncelleeksikalan.php";
-
 	$sayfakodu[67]="hesabimadreslersil.php";
 	$sayfakodu[68]="hesabimadreslersiltamam.php";
 	$sayfakodu[69]="hesabimadreslersilhata.php";
-	
 	$sayfakodu[70]="hesabimadreslerekle.php";
 	$sayfakodu[71]="hesabimadreslereklesonuc.php";
 	$sayfakodu[72]="hesabimadreslereklesonuctamam.php";
