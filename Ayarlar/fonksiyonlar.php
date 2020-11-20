@@ -49,7 +49,6 @@
 		return $birblok ." ".$ikiblok." ".$ucblok." ".$dortblok." ".$besblok." ".$altiblok." ".$yediblok;
 
 	}
-
 	function AktivasyonKoduuret(){
 		$ilkbes=rand(10000,99999);
 		$ikincibes=rand(10000,99999);
@@ -57,5 +56,8 @@
 		$birlestir=$ilkbes ."-". $ikincibes ."-". $ucuncubes;
 		return $birlestir;
 	}
-
+	function fiyatbicimlendir($deger){
+		$bicimlendir=number_format($deger,"2",",",".");
+		return $bicimlendir;
+	}
  ?>

@@ -43,42 +43,56 @@ if(isset($_SESSION["kullanici"])){
 						<td width="190" align="center" style="padding: 0px 5px;"><b>Kargo Durumu / Takip </b></td>
 					</tr>
 					<?php 
-					$adressorgusu=$DBConnection->prepare("SELECT * FROM adresler WHERE uyeid=?");
-					$adressorgusu->execute([$id]);
-					$adressayisi=$adressorgusu->rowCount();
-					$adres=$adressorgusu->fetchAll(PDO::FETCH_ASSOC);
+					$siparisnosorgu=$DBConnection->prepare("SELECT DISTINCT siparisnumarasi FROM siparisler WHERE uyeid=? ORDER BY siparisnumarasi DESC ");
+					$siparisnosorgu->execute([$id]);
+					$siparisnosayisi=$siparisnosorgu->rowCount();
+					$siparisnokayitlar=$siparisnosorgu->fetchAll(PDO::FETCH_ASSOC);
+					if ($siparisnosayisi>0) {
+						foreach ($siparisnokayitlar as $sipno) {
+							$siparisno=DonusumleriGeriDondur($sipno["siparisnumarasi"]);
 
-					$ilkrenk="#FFFFFF";
-					$ikincirenk="#F1F1F1";
-					$sayi=1;
+							$adressorgusu=$DBConnection->prepare("SELECT * FROM siparisler WHERE uyeid=? and siparisnumarasi=? ORDER BY id ASC");
+							$adressorgusu->execute([$id,$siparisno]);
+							$adressayisi=$adressorgusu->rowCount();
+							$adres=$adressorgusu->fetchAll(PDO::FETCH_ASSOC);
 
-					if($adressayisi>0){
-						foreach ($adres as $k) {
-							if ($sayi%2) {
-								$arkaplanrenk=$ilkrenk;
+							if ($adressayisi>0) {
+								foreach ($adres as $adress) {
+									$urunturu=DonusumleriGeriDondur($adress["urunturu"]);
+									if ($urunturu=="Erkek Ayakkabısı") {
+										$klasoradi="Erkek";
+									}elseif ($urunturu=="Kadın Ayakkabısı") {
+										$klasoradi="Kadin";
+									}else{
+										$klasoradi="Cocuk";
+									}
+									$kargodurumu=DonusumleriGeriDondur($adress["kargodurumu"]);
+									if ($kargodurumu==0) {
+										$kargodurumuyazdir="Beklemede";
+									}else{
+										$kargodurumuyazdir=DonusumleriGeriDondur($adress["kargogonderino"]);
+									}
+									?>
+									<tr height="40" bgcolor="" style="color: black; ">
+										<td width="150" align="center" style="padding: 0px 5px;"><?php echo DonusumleriGeriDondur($adress["siparisnumarasi"]); ?></td>
+										<td width="100" align="center" ><img src="Resimler/UrunResimleri/<?php echo $klasoradi; ?>/<?php echo DonusumleriGeriDondur($adress["urunresmibir"]) ?>" width="60" height="80" border="0"></td>
+										<td width="80" align="center" ><a href="xxxxx"><img src="Resimler/DokumanKirmiziKalemli20x20.png"></a></td>
+										<td width="205" align="center" ><?php echo DonusumleriGeriDondur($adress["urunadi"]); ?></td>
+										<td width="100" align="center" ><?php echo DonusumleriGeriDondur($adress["urunfiyati"]); ?></td>
+										<td width="90" align="center" ><?php echo DonusumleriGeriDondur($adress["urunadedi"]); ?></td>
+										<td width="150" align="center" ><?php echo DonusumleriGeriDondur($adress["toplamurunfiyati"]); ?></td>
+										<td width="190" align="center" style="padding: 0px 5px;"><?php echo $kargodurumuyazdir; ?></td>
+									</tr>
+									<?php
+								}
+							}else{
+								?>
+								<tr height="50">
+									<td colspan="8" align="left">Sisteme kayıtlı siparişiniz bulunamadı.</td>
+								</tr>
+								<?php 
 							}
-							else{
-								$arkaplanrenk=$ikincirenk;
-							}
-							?>
-							<tr height="40" bgcolor="<?php echo $arkaplanrenk; ?>">
-								<td><?php echo $k["adsoyad"];?> - <?php echo $k["adres"]; ?>  <?php echo $k["ilce"]; ?> / <?php echo $k["sehir"]; ?> - <?php echo $k["telno"]; ?></td>
-								<td width="25"><a  href="index.php?SK=62&id=<?php echo $k["id"]; ?>"><img src="Resimler/Guncelleme20x20.png" style="margin-top: 5px;"></a></td>
-								<td width="70"><a class="hesabimlink" href="index.php?SK=62&id=<?php echo $k["id"]; ?>">Güncelle</a></td>
-								<td width="25"><a  href="index.php?SK=67&id=<?php echo $k["id"]; ?>"><img src="Resimler/Sil20x20.png" style="margin-top: 5px;"></a></td>
-								<td width="25"><a class="hesabimlink" href="index.php?SK=67&id=<?php echo $k["id"]; ?>">Sil</a></td>
-							</tr>
-							<?php
-							$sayi++;
 						}
-					}else{
-						?>
-						<tr height="50">
-							<td colspan="8" align="left">Sisteme kayıtlı siparişiniz bulunamadı.</td>
-						</tr>
-
-						<?php 
-
 					}
 					?>
 				</table>
