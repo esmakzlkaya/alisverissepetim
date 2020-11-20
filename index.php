@@ -13,7 +13,12 @@ if(isset($_REQUEST["SK"])){
 }
 else{
 	$sayfakodudegeri=0;
-
+}
+if(isset($_REQUEST["page"])){
+	$sayfalama=RakamliIfadeler($_REQUEST["page"]);
+}
+else{
+	$sayfalama=1;
 }
 
 ?>
@@ -85,11 +90,8 @@ else{
 			}else{
 				include($sayfakodu[$sayfakodudegeri]);
 			}
-
 			?>
-
-
-		</td>
+			</td>
 	</tr>
 	<tr height="210">	
 		<td><table width="1065"  height="" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F9F9F9">

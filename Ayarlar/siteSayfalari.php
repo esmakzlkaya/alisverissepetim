@@ -74,3 +74,8 @@
 	$sayfakodu[72]="hesabimadreslereklesonuctamam.php";
 	$sayfakodu[73]="hesabimadreslereklesonuchata.php";
 	$sayfakodu[74]="hesabimadreslereklesonuceksikalan.php";
+	$sayfakodu[75]="hesabimyorumyap.php";
+	$sayfakodu[76]="hesabimyorumyapsonuc.php";
+	$sayfakodu[77]="hesabimyorumyapsonuctamam.php";
+	$sayfakodu[78]="hesabimyorumyapsonuchata.php";
+	$sayfakodu[79]="hesabimyorumyapsonuceksikalan.php";

@@ -115,6 +115,11 @@ html,body{
 	width: 91%;
 	height: 100px;	
 }
+.Yorumtextareaalanlari{
+	padding: 0px 10px;
+	width: 100%;
+	height: 250px;	
+}
 .yesilbuton{
 	height: 30px;
 	color: white;
@@ -167,4 +172,69 @@ html,body{
 	width: 100%;
 	margin-top: 10px;
 	line-height: 1.5;
+}
+.sayfalamaalanikapsayici{
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	text-align: center;
+	text-decoration: none;
+}
+.metinalanikapsayici{
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	text-align: center;
+	text-decoration: none;
+}
+.numaraalanikapsayici{
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	text-align: center;
+	text-decoration: none;
+}
+.sayfalamaaktif{
+	display:inline-block;
+	width: auto;
+	height: 20px;
+	margin: 0px 0.5px;
+	padding: 5px 7.5px;
+	background: #F6F6F6;
+	border: 1px solid #DADADA;
+	outline: 0;
+	color: #FF0000;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+}
+.sayfalamapasif{
+	display:inline-block;
+	width: auto;
+	height: 20px;
+	margin: 0px 0.5px;
+	padding: 5px 7.5px;
+	background: #F6F6F6;
+	border: 1px solid #DADADA;
+	outline: 0;
+	color: #646464;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+}
+.sayfalamapasif a:link, .sayfalamapasif a:hover, .sayfalamapasif a:active, .sayfalamapasif a:visited{
+	color: #646464;
+	text-decoration: none;
 }
