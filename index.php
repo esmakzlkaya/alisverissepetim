@@ -74,9 +74,9 @@ else{
 						<tr bgcolor="">
 							<td width="456">&nbsp;</td>
 							<td width="90" class="anamenu"><b><a href="index.php?SK=0">Ana Sayfa</a></b></td>
-							<td width="100" class="anamenu"><b><a href="xxxxx">Kadın Giyim</a></b></td>
-							<td width="110" class="anamenu"><b><a href="xxxxx">Çocuk Giyim</a></b></td>
-							<td width="120" class="anamenu"><b><a href="index.php?SK=1">Erkek Giyim</a></b></td>
+							<td width="100" class="anamenu"><b><a href="index.php?SK=85">Kadın Giyim</a></b></td>
+							<td width="110" class="anamenu"><b><a href="index.php?SK=87">Çocuk Giyim</a></b></td>
+							<td width="120" class="anamenu"><b><a href="index.php?SK=83">Erkek Giyim</a></b></td>
 						</tr>
 					</table></td>
 				</tr>

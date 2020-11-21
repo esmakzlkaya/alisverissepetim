@@ -81,4 +81,14 @@
 	$sayfakodu[79]="hesabimyorumyapsonuceksikalan.php";
 	$sayfakodu[80]="hesabimfavorilersil.php";
 	$sayfakodu[81]="hesabimfavorilersilhata.php";
+
 	$sayfakodu[82]="urundetay.php";
+
+	$sayfakodu[83]="erkekgiyim.php";
+	$sayfakodu[84]="erkekgiyimaramasonuc.php";
+
+	$sayfakodu[85]="kadingiyim.php";
+	$sayfakodu[86]="kadingiyimaramasonuc.php";
+
+	$sayfakodu[87]="cocukgiyim.php";
+	$sayfakodu[88]="cocukgiyimaramasonuc.php";
