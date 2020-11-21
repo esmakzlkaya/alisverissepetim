@@ -79,3 +79,6 @@
 	$sayfakodu[77]="hesabimyorumyapsonuctamam.php";
 	$sayfakodu[78]="hesabimyorumyapsonuchata.php";
 	$sayfakodu[79]="hesabimyorumyapsonuceksikalan.php";
+	$sayfakodu[80]="hesabimfavorilersil.php";
+	$sayfakodu[81]="hesabimfavorilersilhata.php";
+	$sayfakodu[82]="urundetay.php";
