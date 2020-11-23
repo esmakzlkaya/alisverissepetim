@@ -1,15 +1,6 @@
-<table width="1065" align="center" border="0" cellpadding="0" cellspacing="0">
-	<tr height="50" bgcolor="#FF9900">
-		<td align="left"><h2 style="color: white;">&nbsp;BANKA HESAPLARIMIZ</h2></td>
-	</tr>
-	<tr height="50">
-		<td align="left" style="border-bottom: 1px solid #CCCCCC;">Ödemeleriniz için çalışmakta olduğumuz tüm banka bilgileri aşağıdadır.</td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-	<tr>
+
 		<td>
+
 			<table width="1065" cellspacing="0" cellpadding="0" border="0" align="center">
 				<tr>
 					<?php 
@@ -53,7 +44,7 @@
 								</tr>
 								<tr height="25" >
 									<td width="5"><b>&nbsp;</td>
-									<td width="80"><b>Şube</td></td>
+									<td width="80"><b>Şube</td>
 									<td width="10">:</td>
 									<td width="253"><?php echo $subeadi ." / ". $subekodu; ?></td>
 								</tr>
@@ -82,6 +73,7 @@
 									<td width="253" style="font-size: 14px;"><?php echo ibanbicimlendir($ibanno); ?></td>
 								</tr>
 							</table>
+
 						</td>
 						<?php 
 						if($dongusayisi<$sutunadedi){
@@ -98,8 +90,5 @@
 						}
 					}
 					?>
-				</tr>
-			</table>
-		</td>
-	</tr>
-</table>
+
+			
