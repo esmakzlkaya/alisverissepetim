@@ -1,13 +1,17 @@
 <?php 
-if (isset($_GET["id"])) {
-	$gelenmenuid=Guvenlik($_GET["id"]);
+if (isset($_REQUEST["id"])) {
+	$gelenmenuid=Guvenlik($_REQUEST["id"]);
+	$menukosulu=" AND menuid='".$gelenmenuid."' ";
+	$sayfalamamenukosulu="&menuid=".$gelenmenuid;
 }else{
 	$gelenmenuid="";
+	$menukosulu="";
+	$sayfalamamenukosulu="";
 }
 $sayfalamaSagsolbutonsayisi=2;
-$birsayfadagosterilecekkayit=4;
+$birsayfadagosterilecekkayit=1;
 
-$toplamkayitSorgusu=$DBConnection->prepare("SELECT * FROM urunler WHERE urunturu='Erkek Ayakkabısı' AND durumu='1' ORDER BY id DESC");
+$toplamkayitSorgusu=$DBConnection->prepare("SELECT * FROM urunler WHERE urunturu='Erkek Ayakkabısı' AND durumu='1' $menukosulu ORDER BY id DESC");
 $toplamkayitSorgusu->execute();
 $toplamkayitsayisi=$toplamkayitSorgusu->rowCount();
 
@@ -85,10 +89,10 @@ $bulunansayfasayisi=ceil($toplamkayitsayisi/$birsayfadagosterilecekkayit);
 				<td colspan="2">&nbsp;</td>
 			</tr>
 			<tr>
-				<td><table width="795" cellspacing="0" cellpadding="0" border="0" align="center">
+				<td colspan="2"><table width="795" cellspacing="0" cellpadding="0" border="0" align="center">
 					<tr>
 						<?php 
-						$urunlersorgusu=$DBConnection->prepare("SELECT * FROM urunler WHERE urunturu='Erkek Ayakkabısı' AND durumu='1' ORDER BY id DESC LIMIT $sayfalamayabaslanacakkayitsayisi,$birsayfadagosterilecekkayit"); 
+						$urunlersorgusu=$DBConnection->prepare("SELECT * FROM urunler WHERE urunturu='Erkek Ayakkabısı' AND durumu='1' $menukosulu ORDER BY id DESC LIMIT $sayfalamayabaslanacakkayitsayisi,$birsayfadagosterilecekkayit"); 
 						$urunlersorgusu->execute();
 						$urunlersayisi=$urunlersorgusu->rowCount();
 						$urunler=$urunlersorgusu->fetchAll(PDO::FETCH_ASSOC);
@@ -133,14 +137,14 @@ $bulunansayfasayisi=ceil($toplamkayitsayisi/$birsayfadagosterilecekkayit);
 				}else{
 					?>
 					<tr height="40" align="center">
-						<td colspan="">Sisteme kayıtlı yorum bulunmamaktadır.</td>
+						<td colspan="2">Sisteme kayıtlı yorum bulunmamaktadır.</td>
 					</tr>
 					<?php
 				}
 				if ($bulunansayfasayisi>1) {
 					?>
 					<tr height="50">
-						<td colspan="5" align="center">
+						<td colspan="2" align="center">
 							<div class="sayfalamaalanikapsayici">
 								<div class="metinalanikapsayici">
 									Toplam <?php echo $bulunansayfasayisi; ?> sayfada <?php echo $toplamkayitsayisi; ?> adet kayıt bulunmaktadır.
@@ -148,23 +152,23 @@ $bulunansayfasayisi=ceil($toplamkayitsayisi/$birsayfadagosterilecekkayit);
 								<div class="numaraalanikapsayici">
 									<?php 
 									if ($sayfalama>1) {
-										echo "<span class='sayfalamapasif'><a href='index.php?SK=83&page=1'> << </a></span>";
+										echo "<span class='sayfalamapasif'><a href='index.php?SK=83" . $sayfalamamenukosulu . "&page=1'> << </a></span>";
 										$gerial=$sayfalama-1;
-										echo "<span class='sayfalamapasif'><a href='index.php?SK=83&page=".$gerial."'> < </a></span>";
+										echo "<span class='sayfalamapasif'><a href='index.php?SK=83" . $sayfalamamenukosulu . "&page=".$gerial."'> < </a></span>";
 									}
 									for ($i=$sayfalama-$sayfalamaSagsolbutonsayisi; $i <=$sayfalama+$sayfalamaSagsolbutonsayisi; $i++) { 
 										if (($i>0) and ($i<=$bulunansayfasayisi)) {
 											if ($i==$sayfalama) {
-												echo "<span class='sayfalamaaktif'>" . $sayfalama . "</span>";
+												echo "<span class='sayfalamaaktif'>" . $i . "</span>";
 											}else{
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=83&page=".$i."'>" . $i . "</a></span>";
+												echo "<span class='sayfalamapasif'><a href='index.php?SK=83" . $sayfalamamenukosulu . "&page=".$i."'>" . $i . "</a></span>";
 											}
 										}
 									}
 									if ($sayfalama!=$bulunansayfasayisi) {
 										$ilerial=$sayfalama+1;
-										echo "<span class='sayfalamapasif'><a href='index.php?SK=83&page=".$ilerial."'> > </a></span>";
-										echo "<span class='sayfalamapasif'><a href='index.php?SK=83&page=".$bulunansayfasayisi."'> >> </a></span>";
+										echo "<span class='sayfalamapasif'><a href='index.php?SK=83" . $sayfalamamenukosulu . "&page=" . $ilerial . "'> > </a></span>";
+										echo "<span class='sayfalamapasif'><a href='index.php?SK=83 " . $sayfalamamenukosulu . "&page=" . $bulunansayfasayisi . "'> >> </a></span>";
 									}
 									?>
 								</div>
