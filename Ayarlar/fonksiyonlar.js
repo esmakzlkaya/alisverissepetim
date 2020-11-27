@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$.cevapgoster=function(ElemanID){
 
 		var soruID=ElemanID;
@@ -6,5 +7,12 @@ $(document).ready(function(){
 
 		$(".cevapalani").slideUp();
 		$(islenecekalan).parent().find(".cevapalani").slideToggle();
+	}
+
+		$.urundetayresmidegistir=function(klasor,resimdegeri){
+
+		var resimdosyayolu="Resimler/UrunResimleri/" + klasor +"/"+ resimdegeri; 
+		$("#buyukresim").attr("src",resimdosyayolu);
+		
 	}
 });
