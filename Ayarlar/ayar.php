@@ -28,6 +28,8 @@ if($ayarsayisi>0){
 	$youtubelinki=$ayar["youtubelinki"];
 	$twitterlinki=$ayar["twitterlinki"];
 	$pinterestlinki=$ayar["pinterestlinki"];
+	$dolarkuru=$ayar["dolarkuru"];
+	$eurokuru=$ayar["eurokuru"];
 }
 else{
  		//echo "Ayar sorgusu hatası"->getMessage();
