@@ -81,9 +81,12 @@
 	$sayfakodu[79]="hesabimyorumyapsonuceksikalan.php";
 	$sayfakodu[80]="hesabimfavorilersil.php";
 	$sayfakodu[81]="hesabimfavorilersilhata.php";
-
 	$sayfakodu[82]="urundetay.php";
-
 	$sayfakodu[83]="erkekgiyim.php";
 	$sayfakodu[84]="kadingiyim.php";
 	$sayfakodu[85]="cocukgiyim.php";
+	$sayfakodu[86]="favorilereekle.php";
+	$sayfakodu[87]="favorilereekletamam.php";
+	$sayfakodu[88]="favorilereeklehata.php";
+	$sayfakodu[89]="favorilereekletekrarlanan.php";
+	$sayfakodu[90]="sepeteekle.php";

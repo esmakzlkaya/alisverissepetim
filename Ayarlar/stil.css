@@ -315,3 +315,29 @@ border: 1px solid #646464;
 outline: 0;
 text-align: left;
 }
+.sepeteeklebutonu{
+	width: 200px;
+	height: 35px;
+	margin: 0;
+	padding: 5px 0px;
+	background-color: #d53e07;
+	border: solid 1px #f13a13;
+	color: #FFFFFF;
+	outline: none;
+	font-weight: bold;
+	text-align: center;
+}
+.sepeteeklebutonu:hover{ 
+	width: 200px;
+	height: 35px;
+	margin: 0;
+	padding: 5px 0px;
+	background-color: #f13a13;
+	border: solid 1px #d53e07;
+	border: 0;
+	color: #FFFFFF;
+	outline: none;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}

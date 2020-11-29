@@ -4,10 +4,16 @@
 	$tarihSaat=date("d.m.Y H:i:s",$zamanDamgasi);
 
 	function TarihBul($deger){
-		$cevir=date("d.m.Y H:i:s",$deger);
+		$cevir=date("d.m.Y",$deger);
 		return $cevir;		
 	}
-
+	function ucgunileritarihbul(){
+		global $zamanDamgasi;
+		$birgun=86400; //saniye
+		$hesapla=$zamanDamgasi+(3*$birgun);
+		$cevir=date("d.m.Y",$zamanDamgasi);
+		return $cevir;		
+	}
 	function RakamHaricSil($deger){
 		$islem=preg_replace("/[^0-9]/","",$deger);
 		return $islem;
