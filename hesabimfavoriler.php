@@ -52,7 +52,7 @@ if(isset($_SESSION["kullanici"])){
 						<td width="250" align="center" ><b>Puan </b></td>
 					</tr>
 					<?php
-					$favorilersorgusu=$DBConnection->prepare("SELECT * FROM favoriler WHERE uyeid=? ORDER BY id ASC  LIMIT $sayfalamayabaslanacakkayitsayisi,$birsayfadagosterilecekkayit");
+					$favorilersorgusu=$DBConnection->prepare("SELECT * FROM favoriler WHERE uyeid=? ORDER BY id DESC  LIMIT $sayfalamayabaslanacakkayitsayisi,$birsayfadagosterilecekkayit");
 					$favorilersorgusu->execute([$id]);
 					$favorisayisi=$favorilersorgusu->rowCount();
 					$favoriler=$favorilersorgusu->fetchAll(PDO::FETCH_ASSOC);
@@ -66,6 +66,18 @@ if(isset($_SESSION["kullanici"])){
 							$urunler=$urunsorgusu->fetchAll(PDO::FETCH_ASSOC);
 							if ($urunsayisi>0) {
 								foreach ($urunler as $urun) {
+									$UrununFiyati		=	DonusumleriGeriDondur($urun["urunfiyati"]);
+									$UrununParaBirimi	=	DonusumleriGeriDondur($urun["parabirimi"]);
+									$UrununToplamYorumSayisi	=	DonusumleriGeriDondur($urun["yorumsayisi"]);
+									$UrununToplamYorumPuani		=	DonusumleriGeriDondur($urun["toplamyorumpuani"]);
+
+									if ($UrununParaBirimi=="USD") {
+										$urunfiyatihesapla=($UrununFiyati*$dolarkuru);
+									}elseif ($UrununParaBirimi=="EUR") {
+										$urunfiyatihesapla=($UrununFiyati*$eurokuru);
+									}else{
+										$urunfiyatihesapla=$UrununFiyati;
+									}
 
 									$urunturu=DonusumleriGeriDondur($urun["urunturu"]);
 									if ($urunturu=="Erkek Ayakkabısı") {
@@ -77,23 +89,28 @@ if(isset($_SESSION["kullanici"])){
 									}
 									$verilenpuan=$urun["toplamyorumpuani"];
 									$yapilanyorumsayisi=$urun["yorumsayisi"];
-									if (($verilenpuan/$yapilanyorumsayisi)==5) {
-										$puanresmi="YildizBesDolu.png";
-									}elseif (($verilenpuan/$yapilanyorumsayisi)==4) {
-										$puanresmi="YildizDortDolu.png";
-									}elseif (($verilenpuan/$yapilanyorumsayisi)==3) {
-										$puanresmi="YildizUcDolu.png";
-									}elseif (($verilenpuan/$yapilanyorumsayisi)==2) {
-										$puanresmi="YildizIkiDolu.png";
+									if ($yapilanyorumsayisi!=0) {
+										if (($verilenpuan/$yapilanyorumsayisi)==5) {
+											$puanresmi="YildizBesDolu.png";
+										}elseif (($verilenpuan/$yapilanyorumsayisi)==4) {
+											$puanresmi="YildizDortDolu.png";
+										}elseif (($verilenpuan/$yapilanyorumsayisi)==3) {
+											$puanresmi="YildizUcDolu.png";
+										}elseif (($verilenpuan/$yapilanyorumsayisi)==2) {
+											$puanresmi="YildizIkiDolu.png";
+										}else{
+											$puanresmi="YildizBirDolu.png";
+										}
 									}else{
-										$puanresmi="YildizBirDolu.png";
+										$puanresmi="YildizCizgiliBos.png";
 									}
+									
 									?>
 									<tr height="40" bgcolor="" style="color: black; ">
 										<td width="250" align="center" style="padding: 0px 5px;"><a href="index.php?SK=80&id=<?php echo $favori["id"]; ?>"><img src="Resimler/Sil20x20.png"></a></td>
 										<td width="250" align="center" ><a href="index.php?SK=82&id=<?php echo $urun["id"]; ?>"><img width="60" height="80" src="Resimler/UrunResimleri/<?php echo $klasoradi; ?>/<?php echo DonusumleriGeriDondur($urun["resimbir"]); ?>"></a></td>
 										<td  width="250" align="center" style="padding: 0px 5px;"><a class="hesabimlink" href="index.php?SK=82&id=<?php echo $urun["id"]; ?>"><?php echo DonusumleriGeriDondur($urun["urunadi"]); ?></a></td>
-										<td width="250" align="center" ><?php echo DonusumleriGeriDondur($urun["urunfiyati"]); ?> TL </td>
+										<td width="250" align="center" ><?php echo fiyatbicimlendir($urunfiyatihesapla); ?> TL </td>
 										<td width="85" align="center" ><img  src="Resimler/<?php echo $puanresmi; ?>"></td>
 									</tr>
 									<tr>

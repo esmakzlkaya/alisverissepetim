@@ -63,8 +63,8 @@ else{
 						<?php
 					}
 					?>
-					<td width="20"><a href="xxxxx"><img src="Resimler/SepetBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
-					<td width="103" class="mansetalti"><a href="xxxxx">Sepetim</a></td>
+					<td width="20"><?php if(isset($_SESSION["kullanici"])){ ?><a href="index.php?SK=92"><img src="Resimler/SepetBeyaz16x16.png" border="0" style="margin-top: 5px;"></a><?php }else{ ?><img src="Resimler/SepetBeyaz16x16.png" border="0" style="margin-top: 5px;"> <?php } ?></td>
+					<td width="103" class="mansetalti"><?php if(isset($_SESSION["kullanici"])){ ?> <a href="index.php?SK=92">Sepet</a> <?php }else{ ?> Sepet <?php } ?></td>
 				</tr>
 			</table>
 			<table width="1065"  height="60" border="0" cellspacing="0" cellpadding="0" align="center">

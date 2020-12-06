@@ -20,7 +20,7 @@ if(isset($_REQUEST["aramaicerigi"])){
 }
 
 $SayfalamaIcinSolVeSagButonSayisi		=	2;
-$SayfaBasinaGosterilecekKayitSayisi		=	4;
+$SayfaBasinaGosterilecekKayitSayisi		=	8;
 $ToplamKayitSayisiSorgusu				=	$DBConnection->prepare("SELECT * FROM urunler WHERE urunturu = 'Kadın Ayakkabısı' AND durumu = '1' $MenuKosulu $aramakosulu ORDER BY id DESC");
 $ToplamKayitSayisiSorgusu->execute();
 $ToplamKayitSayisiSorgusu				=	$ToplamKayitSayisiSorgusu->rowCount();

@@ -90,3 +90,11 @@
 	$sayfakodu[88]="favorilereeklehata.php";
 	$sayfakodu[89]="favorilereekletekrarlanan.php";
 	$sayfakodu[90]="sepeteekle.php";
+	$sayfakodu[91]="sepeteeklehata.php";
+	$sayfakodu[92]="sepet.php";
+	$sayfakodu[93]="sepettenurunsil.php";
+	$sayfakodu[94]="sepettenurunazalt.php";
+	$sayfakodu[95]="sepettenurunarttir.php";
+	$sayfakodu[96]="sepetadresvekargo.php";
+	$sayfakodu[97]="sepetodemesecimi.php";
+	$sayfakodu[98]="sepetodemesecimisonuc.php";

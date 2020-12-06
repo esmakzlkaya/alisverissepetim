@@ -113,14 +113,13 @@ if(isset($_GET["id"])){
 						<td style="font-size: 5px;">&nbsp;</td>
 					</tr>
 					<tr>
-						<td><form method="post" action="index.php?SK=90&id=<?php echo $$urundetaykaydi["id"]; ?>"><table width="705" border="0" cellpadding="0" cellspacing="0" align="center">
+						<td><form method="post" action="index.php?SK=90&id=<?php echo $urundetaykaydi["id"]; ?>"><table width="705" border="0" cellpadding="0" cellspacing="0" align="center">
 							<tr height="45">
 								<td width="30">
-									<?php if (isset($_SESSION["kullanici"])) {?><a href="index.php?SK=86&id=<?php echo $$urundetaykaydi["id"]; ?>"><img src="Resimler/KalpKirmiziDaireliBeyaz24x24.png" border="0" style="margin-top: 5px;"></a>
-								<?php }else{ ?> <img src="Resimler/KalpKirmiziDaireliBeyaz24x24.png" border="0" style="margin-top: 5px;"><?php } ?>
+									<?php if (isset($_SESSION["kullanici"])) {?><a href="index.php?SK=86&id=<?php echo $urundetaykaydi["id"]; ?>"><img src="Resimler/KalpKirmiziDaireliBeyaz24x24.png" border="0" style="margin-top: 5px;"></a><?php }else{ ?> <img src="Resimler/KalpKirmiziDaireliBeyaz24x24.png" border="0" style="margin-top: 5px;"><?php } ?>
 							</td>
 							<td width="10">&nbsp;</td>
-							<td width="665" align="right"><input type="submit" value="SEPETE EKLE" class="sepeteeklebutonu"></td>
+							<td width="665" align="right"><a href="index.php?SK=90"><input type="submit" value="SEPETE EKLE" class="sepeteeklebutonu"></a></td>
 						</tr>
 						<tr>
 							<td colspan="3"><table width="705" align="center" border="0" cellspacing="0" cellpadding="0">
@@ -134,8 +133,10 @@ if(isset($_GET["id"])){
 										$varyantlar=$varyantsorgusu->fetchAll(PDO::FETCH_ASSOC);
 										if ($varyantsayisi>0) {
 											foreach ($varyantlar as $urunvaryantlari) {
+												$varyantid=$urunvaryantlari["id"];
+												$varyantadi=$urunvaryantlari["varyantadi"];
 												?>
-												<option value="<?php echo $urunvaryantlari["id"]; ?>"><?php echo $urunvaryantlari["varyantadi"]; ?></option>
+												<option value="<?php echo $varyantid; ?>"><?php echo $varyantadi; ?></option>
 												<?php
 											}
 											?>

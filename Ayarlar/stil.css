@@ -13,7 +13,7 @@ html,body{
 	font-variant: normal;
 	text-decoration: none;
 }
- .mansetalti a:link,  .mansetalti a:hover, .mansetalti a:active, .mansetalti a:visited{
+.mansetalti, .mansetalti a:link,  .mansetalti a:hover, .mansetalti a:active, .mansetalti a:visited{
 	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
 	font-size: 14px;
 	color: #FFFFFF;
@@ -24,7 +24,7 @@ html,body{
 	text-decoration: none;	
 }
 
- .anamenu a:link,  .anamenu a:hover, .anamenu a:active, .anamenu a:visited{
+.anamenu a:link,  .anamenu a:hover, .anamenu a:active, .anamenu a:visited{
 	font-family: "Open Sans", Arial, "Helvetica Neue",Helvetica, "sans-serif";
 	font-size: 14px;
 	color: black;
@@ -239,81 +239,81 @@ html,body{
 	text-decoration: none;
 }
 .aramaalani{
-display: block;
-width: 100%;
-height:35px;
-margin: 0;
-padding: 0;
-overflow: hidden;
-border: 0;
-outline: 0;
-vertical-align: top;
+	display: block;
+	width: 100%;
+	height:35px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	outline: 0;
+	vertical-align: top;
 
 }
 .aramaalanibuton{
-display: inline-block;
-float: right;
-width: 60px;
-height: 35px;
-margin: 0;
-padding: 0;
-overflow: hidden;
-border: 0;
-outline: 0;
-text-align: left;
+	display: inline-block;
+	float: right;
+	width: 60px;
+	height: 35px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	outline: 0;
+	text-align: left;
 }
 .aramaalaniinput{
-display: inline-block;
-float: right;
-width: -webkit-calc(100%-60px);
-width: -moz-calc(100%-60px);
-width: -o-calc(100%-60px);
-width: -ms-calc(100%-60px);
-width: calc(100%-60px);
-height: 35px;
-margin: 0;
-padding: 0;
-overflow: hidden;
-border: 0;
-outline: 0;
-text-align: left;
+	display: inline-block;
+	float: right;
+	width: -webkit-calc(100%-60px);
+	width: -moz-calc(100%-60px);
+	width: -o-calc(100%-60px);
+	width: -ms-calc(100%-60px);
+	width: calc(100%-60px);
+	height: 35px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	outline: 0;
+	text-align: left;
 }
 .aramabutonu{
-display: block;
-float: right;
-width: 60px;
-height: 35px;
-margin: 0;
-padding: 0;
-background: url(../Resimler/AraButonuIciBuyuteci.png);
-background-repeat: no-repeat;
-background-position: center left 19px;
-border: 1px solid #646464;
-outline: 0;
-text-align: left;
+	display: block;
+	float: right;
+	width: 60px;
+	height: 35px;
+	margin: 0;
+	padding: 0;
+	background: url(../Resimler/AraButonuIciBuyuteci.png);
+	background-repeat: no-repeat;
+	background-position: center left 19px;
+	border: 1px solid #646464;
+	outline: 0;
+	text-align: left;
 }
 .aramabutonu:hover{
 	cursor: pointer;
 }
 .aramainput{
-display: block;
-float: left;
-width: -webkit-calc(100%-42px);
-width: -moz-calc(100%-42px);
-width: -o-calc(100%-42px);
-width: -ms-calc(100%-42px);
-width: calc(100%-42px);
-height: 33px;
-margin: 0;
-padding: 0;
-padding-left: 30px;
-padding-right: 10px;
-background: url(../Resimler/AramaTextInputuIciSoruIsareti.png);
-background-repeat: no-repeat;
-background-position: center left 10px;
-border: 1px solid #646464;
-outline: 0;
-text-align: left;
+	display: block;
+	float: left;
+	width: -webkit-calc(100%-42px);
+	width: -moz-calc(100%-42px);
+	width: -o-calc(100%-42px);
+	width: -ms-calc(100%-42px);
+	width: calc(100%-42px);
+	height: 33px;
+	margin: 0;
+	padding: 0;
+	padding-left: 30px;
+	padding-right: 10px;
+	background: url(../Resimler/AramaTextInputuIciSoruIsareti.png);
+	background-repeat: no-repeat;
+	background-position: center left 10px;
+	border: 1px solid #646464;
+	outline: 0;
+	text-align: left;
 }
 .sepeteeklebutonu{
 	width: 200px;
@@ -341,3 +341,57 @@ text-align: left;
 	text-align: center;
 	cursor: pointer;
 }
+.sepeticidevametvealisverisitamamlabutonu{
+	width: 100%;
+	height: 35px;
+	margin : 0;
+	padding: 5px 0px 5px 0px;
+	background: #FF9900;
+	color: white;
+	border: 1px solid #f5770a;
+	outline: none;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+.sepeticidevametvealisverisitamamlabutonu:hover{
+	width: 100%;
+	height: 35px;
+	margin : 0;
+	padding: 5px 0px 5px 0px;
+	background: #f5770a;
+	color: white;
+	border: 1px solid #FF9900;
+	outline: none;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.AlisverisiTamamlaButonu{
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	padding: 10px 0px 10px 0px;
+	background: #FF9900;
+	color: white;
+	border: 1px solid #FF9900;
+	border-radius: 3px;
+	outline: none;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.AlisverisiTamamlaButonu:hover{
+	color: black;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+
+

@@ -30,6 +30,7 @@ if($ayarsayisi>0){
 	$pinterestlinki=$ayar["pinterestlinki"];
 	$dolarkuru=$ayar["dolarkuru"];
 	$eurokuru=$ayar["eurokuru"];
+	$ucretsizkargobarajı=$ayar["ucretsizkargobarajı"];
 }
 else{
  		//echo "Ayar sorgusu hatası"->getMessage();

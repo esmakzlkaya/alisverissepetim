@@ -15,4 +15,13 @@ $(document).ready(function(){
 		$("#buyukresim").attr("src",resimdosyayolu);
 		
 	}
+
+	$.kredikartisecildi=function(){
+		$(".KKalanlari").css("display","block");
+		$(".BHalanlari").css("display","none");
+	}
+	$.havalesecildi=function(){
+		$(".KKalanlari").css("display","none");
+		$(".BHalanlari").css("display","block");
+	}
 });
