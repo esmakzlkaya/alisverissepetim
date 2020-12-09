@@ -103,7 +103,7 @@ if(isset($_SESSION["kullanici"])){
 								<tr>
 									<td width="80" align="left" style="border-bottom: 1px solid #CCCCCC;"><a href="index.php?SK=82&id=<?php echo $sepeturunid; ?>"><img  width="60" height="80" src="Resimler/UrunResimleri/<?php echo $klasoradi; ?>/<?php echo $urunlerurunresmi; ?>"></a></td>
 									<td width="40" align="left" style="border-bottom: 1px solid #CCCCCC;"><a href="index.php?SK=93&id=<?php echo $sepetid; ?>"><img style="margin-top: 5px;" src="Resimler/SilDaireli20x20.png"></a></td>
-									<td width="590" align="left" style="border-bottom: 1px solid #CCCCCC;"><?php echo $urunlerurunadi;?><br/> <?php echo $urunlerurunvaryantbasligi; echo " : ".$varyantlarvaryantadi; ?></td>
+									<td width="590" align="left" style="border-bottom: 1px solid #CCCCCC;"><?php echo $urunlerurunadi; ?><br/> <?php echo $urunlerurunvaryantbasligi; echo " : ".$varyantlarvaryantadi; ?></td>
 									<td width="90" align="left" style="border-bottom: 1px solid #CCCCCC;"><table table width="90" align="center" border="0" cellpadding="0" cellspacing="0">
 										<tr>
 											<td align="center" width="30"><?php if($sepeturunadedi>1){?> <a href="index.php?SK=94&id=<?php echo $sepetid; ?>"><img  style=" margin-top: 5px;" border="0" src="Resimler/AzaltDaireli20x20.png"></a> <?php }else{?>&nbsp;<?php } ?></td>
@@ -148,8 +148,7 @@ if(isset($_SESSION["kullanici"])){
 					</tr>
 				</table>
 				<?php 
-			} 
-			else{
+			}else{
 				header("Location:index.php");
 				exit();
 			} 

@@ -98,3 +98,5 @@
 	$sayfakodu[96]="sepetadresvekargo.php";
 	$sayfakodu[97]="sepetodemesecimi.php";
 	$sayfakodu[98]="sepetodemesecimisonuc.php";
+	$sayfakodu[99]="sepethavaleodemetamam.php";
+	$sayfakodu[100]="sepethavaleodemehata.php";
