@@ -13,7 +13,6 @@
 		<tr height="30">
 			<td align="center"><b>Gönderi Takip No : </b></td>
 		</tr>
-
 		<tr>
 			<td align="center"><input class="kargotakipinput" type="text" name="kargotakipno"></td>
 		</tr>

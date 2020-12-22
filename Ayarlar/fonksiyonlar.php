@@ -1,14 +1,13 @@
 <?php 
-	$IPAdresi = $_SERVER["REMOTE_ADDR"];
-	$zamanDamgasi=time();
-	$tarihSaat=date("d.m.Y H:i:s",$zamanDamgasi);
-
-	function TarihBul($deger){
-		$cevir=date("d.m.Y",$deger);
-		return $cevir;		
-	}
-	function ucgunileritarihbul(){
-		global $zamanDamgasi;
+$IPAdresi = $_SERVER["REMOTE_ADDR"];
+$zamanDamgasi=time();
+$tarihSaat=date("d.m.Y H:i:s",$zamanDamgasi);
+function TarihBul($deger){
+	$cevir=date("d.m.Y",$deger);
+	return $cevir;		
+}
+function ucgunileritarihbul(){
+	global $zamanDamgasi;
 		$birgun=86400; //saniye
 		$hesapla=$zamanDamgasi+(3*$birgun);
 		$cevir=date("d.m.Y",$zamanDamgasi);
@@ -22,19 +21,16 @@
 		$islem=preg_replace("/\s|&nbsp;/", "", $deger);
 		return $islem;
 	}
-
 	function DonusumleriGeriDondur($deger){
 		$islem=htmlspecialchars_decode($deger,ENT_QUOTES);
 		return $islem;
 	}
-
 	function Guvenlik($deger){
 		$boslukSil=trim($deger);
 		$etiketleriTemizle=strip_tags($boslukSil);
 		$tirnaklariEtkisizYap=htmlspecialchars($etiketleriTemizle,ENT_QUOTES);
 		return $tirnaklariEtkisizYap;
 	}
-
 	function RakamliIfadeler($deger){
 		$boslukSil=trim($deger);
 		$etiketleriTemizle=strip_tags($boslukSil);
@@ -53,7 +49,6 @@
 		$altiblok=substr($tumboslukSil,20,4);
 		$yediblok=substr($tumboslukSil,24,2);
 		return $birblok ." ".$ikiblok." ".$ucblok." ".$dortblok." ".$besblok." ".$altiblok." ".$yediblok;
-
 	}
 	function AktivasyonKoduuret(){
 		$ilkbes=rand(10000,99999);
@@ -66,4 +61,4 @@
 		$bicimlendir=number_format($deger,"2",",",".");
 		return $bicimlendir;
 	}
- ?>
+	?>

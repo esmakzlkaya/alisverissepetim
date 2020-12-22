@@ -8,7 +8,6 @@
 	<tr>
 		<td>&nbsp;</td>
 	</tr>
-	
 	<tr>
 		<td><table width="1065" cellspacing="0" cellpadding="0" border="0" align="center">
 			<tr>
@@ -20,7 +19,6 @@
 
 				$dongusayisi=1;
 				$sutunadedi=3;
-
 				foreach ($banka as $b) {
 					$bankaadi=$b["bankaadi"];
 					$konumsehir=$b["konumsehir"];
@@ -32,7 +30,6 @@
 					$hesapno=$b["hesapno"];
 					$ibanno=$b["ibanno"];
 					$bankalogo=$b["bankalogo"];
-
 					?>
 					<td width="348" style="">
 						<table width="348" align="center" cellspacing="0" cellpadding="0" border="0" style="border: 1px solid #CCCCCC; margin-bottom: 10px;">
@@ -89,9 +86,7 @@
 								<td width="10">&nbsp;</td>	
 								<?php
 							}
-
 							$dongusayisi++;
-
 							if($dongusayisi>$sutunadedi){
 								echo "</tr><tr>";
 								$dongusayisi=1;
@@ -102,4 +97,3 @@
 				</table></td>
 			</tr>
 		</table>
-

@@ -2,7 +2,6 @@
 session_start(); ob_start();
 require_once("Ayarlar/ayar.php");
 require_once("Ayarlar/fonksiyonlar.php");
-
 if(isset($_GET["mail"])){
 	$gelenmail=Guvenlik($_GET["mail"]);	
 }else{
@@ -13,8 +12,6 @@ if(isset($_GET["aktivasyonKodu"])){
 }else{
 	$gelenaktivasyonkodu="";
 }
-
-
 if(($gelenmail!="") and ($gelenaktivasyonkodu!="")){
 	$kontrolSorgusu=$DBConnection->prepare("SELECT * FROM uyeler WHERE mail= ? AND aktivasyonKodu = ? AND durumu = ? LIMIT 1");
 	$kontrolSorgusu->execute([$gelenmail,$gelenaktivasyonkodu,0]);
@@ -41,7 +38,5 @@ else{
 	header("Location:" . $sitelinki);
 	exit();
 }
-
 $DBConnection=null;
-
 ?>

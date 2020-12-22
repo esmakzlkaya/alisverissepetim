@@ -1,7 +1,4 @@
 <?php
-
-
-
 if(isset($_POST["adsoyad"])){
 	$gelenisim=Guvenlik($_POST["adsoyad"]);	
 }else{
@@ -27,8 +24,6 @@ if(isset($_POST["Aciklama"])){
 }else{
 	$GelenAciklama			=	"";
 }
-
-
 if(($gelenisim!="") and ($gelenmail!="") and ($gelentel!="") and ($gelenbankaid!="")){
 	$HavaleBildirimiKaydet			=	$DBConnection->prepare("INSERT INTO havalebildirimleri (bankaid, adsoyad, email, telno, aciklama, islemtarihi, durum) values (?, ?, ?, ?, ?, ?, ?)");
 	$HavaleBildirimiKaydet->execute([$gelenbankaid, $gelenisim, $gelenmail, $gelentel, $GelenAciklama, $zamanDamgasi, 0]);
@@ -45,6 +40,4 @@ if(($gelenisim!="") and ($gelenmail!="") and ($gelentel!="") and ($gelenbankaid!
 	header("Location:index.php?SK=13");
 	exit();
 }
-
-
 ?>

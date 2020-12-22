@@ -62,8 +62,6 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
-
-
 			<tr>
 				<td><table width="250" align="center" border="0" cellpadding="0" cellspacing="0">
 					<tr height="50">
@@ -85,9 +83,6 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 				</table></td>
 			</tr>
 		</table></td>
-
-
-
 		<td width="11" align="left">&nbsp;</td>
 		<td width="795" align="left" valign="top"><table width="795" align="center" border="0" cellpadding="0" cellspacing="0">
 			<tr>
@@ -103,7 +98,6 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 			<tr>
 				<td>&nbsp;</td>
 			</tr>
-
 			<tr>
 				<td width="795" align="left" valign="top"><table width="795" align="center" border="0" cellpadding="0" cellspacing="0">
 					<tr>
@@ -170,88 +164,73 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 													<tr height="25">
 														<td width="191" align="center"><a href="index.php?SK=82&id=<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: #990000; text-decoration: none; font-weight: bold;"><div style="width: 191px; max-width: 191px; height: 28px; overflow: hidden; line-height: 14px;"><?php echo fiyatbicimlendir($urunfiyatihesapla); ?> TL </div></a></td>
 													</tr>
+												</table>
+											</td>
+											<?php
+											if($DonguSayisi<$SutunAdetSayisi){
+												?>
+												<td width="10">&nbsp;</td>
+												<?php
+											}
+											?>
+											<?php
+											$DonguSayisi++;
 
-									<!-- ÇERÇEVELİ KULLANACAKSANIZ BURAYI AÇIN
-									<tr height="25">
-										<td width="191" align="center">&nbsp;</td>
-									</tr>
-								-->
-							</table>
-						</td>
-
-
-						<?php
-						if($DonguSayisi<$SutunAdetSayisi){
-							?>
-							<td width="10">&nbsp;</td>
+											if($DonguSayisi>$SutunAdetSayisi){
+												echo "</tr><tr>";
+												$DonguSayisi	=	1;
+											}
+										}	
+									}else{
+										?>
+										<td  width="795" align="center" valign="top">Sisteme kayıtlı ürün bulunamadı.</td>
+										<?php
+									}
+									?></tr>
+								</table></td>
+							</tr>
 							<?php
-						}
-						?>
-						<?php
-						$DonguSayisi++;
+							if($BulunanSayfaSayisi>1){
+								?>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+								<tr height="50">
+									<td align="center"><div class="sayfalamaalanikapsayici">
+										<div class="metinalanikapsayici">
+											Toplam <?php echo $BulunanSayfaSayisi; ?> sayfada, <?php echo $ToplamKayitSayisiSorgusu; ?> adet kayıt bulunmaktadır.
+										</div>
 
-						if($DonguSayisi>$SutunAdetSayisi){
-							echo "</tr><tr>";
-							$DonguSayisi	=	1;
-						}
-					}	
-				}else{
-					?>
-					<td  width="795" align="center" valign="top">Sisteme kayıtlı ürün bulunamadı.</td>
-					<?php
-				}
-				?></tr>
-			</table></td>
-		</tr>
-
-
-		<?php
-		if($BulunanSayfaSayisi>1){
-			?>
-			<tr>
-				<td>&nbsp;</td>
-			</tr>
-
-			<tr height="50">
-				<td align="center"><div class="sayfalamaalanikapsayici">
-					<div class="metinalanikapsayici">
-						Toplam <?php echo $BulunanSayfaSayisi; ?> sayfada, <?php echo $ToplamKayitSayisiSorgusu; ?> adet kayıt bulunmaktadır.
-					</div>
-
-					<div class="numaraalanikapsayici">
-						<?php
-						if($sayfalama>1){
-							echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=1'><<</a></span>";
-							$SayfalamaIcinSayfaDegeriniBirGeriAl	=	$sayfalama-1;
-							echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaDegeriniBirGeriAl . "'><</a></span>";
-						}
-
-						for($SayfalamaIcinSayfaIndexDegeri=$sayfalama-$SayfalamaIcinSolVeSagButonSayisi; $SayfalamaIcinSayfaIndexDegeri<=$sayfalama+$SayfalamaIcinSolVeSagButonSayisi; $SayfalamaIcinSayfaIndexDegeri++){
-							if(($SayfalamaIcinSayfaIndexDegeri>0) and ($SayfalamaIcinSayfaIndexDegeri<=$BulunanSayfaSayisi)){
-								if($sayfalama==$SayfalamaIcinSayfaIndexDegeri){
-									echo "<span class='sayfalamaaktif'>" . $SayfalamaIcinSayfaIndexDegeri . "</span>";
-								}else{
-									echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaIndexDegeri . "'> " . $SayfalamaIcinSayfaIndexDegeri . "</a></span>";
-								}
+										<div class="numaraalanikapsayici">
+											<?php
+											if($sayfalama>1){
+												echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=1'><<</a></span>";
+												$SayfalamaIcinSayfaDegeriniBirGeriAl	=	$sayfalama-1;
+												echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaDegeriniBirGeriAl . "'><</a></span>";
+											}
+											for($SayfalamaIcinSayfaIndexDegeri=$sayfalama-$SayfalamaIcinSolVeSagButonSayisi; $SayfalamaIcinSayfaIndexDegeri<=$sayfalama+$SayfalamaIcinSolVeSagButonSayisi; $SayfalamaIcinSayfaIndexDegeri++){
+												if(($SayfalamaIcinSayfaIndexDegeri>0) and ($SayfalamaIcinSayfaIndexDegeri<=$BulunanSayfaSayisi)){
+													if($sayfalama==$SayfalamaIcinSayfaIndexDegeri){
+														echo "<span class='sayfalamaaktif'>" . $SayfalamaIcinSayfaIndexDegeri . "</span>";
+													}else{
+														echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaIndexDegeri . "'> " . $SayfalamaIcinSayfaIndexDegeri . "</a></span>";
+													}
+												}
+											}
+											if($sayfalama!=$BulunanSayfaSayisi){
+												$SayfalamaIcinSayfaDegeriniBirIleriAl	=	$sayfalama+1;
+												echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaDegeriniBirIleriAl . "'>></a></span>";
+												echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $BulunanSayfaSayisi . "'>>></a></span>";
+											}
+											?>
+										</div>
+									</div></td>
+								</tr>
+								<?php
 							}
-						}
-
-						if($sayfalama!=$BulunanSayfaSayisi){
-							$SayfalamaIcinSayfaDegeriniBirIleriAl	=	$sayfalama+1;
-							echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaDegeriniBirIleriAl . "'>></a></span>";
-							echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $BulunanSayfaSayisi . "'>>></a></span>";
-						}
-						?>
-					</div>
-				</div></td>
+							?>
+						</table></td>
+					</tr>
+				</table></td>
 			</tr>
-			<?php
-		}
-		?>
-	</table></td>
-</tr>
-
-</table></td>
-
-</tr>
-</table>
+		</table>

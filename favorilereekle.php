@@ -7,7 +7,6 @@ if(isset($_SESSION["kullanici"])){
 	}else{
 		$gelenurunid="";
 	}
-
 	if(($id!="")){
 		$favorikontrolsorgusu=$DBConnection->prepare("SELECT * FROM favoriler WHERE urunid=? AND uyeid=? LIMIT 1");
 		$favorikontrolsorgusu->execute([$gelenurunid,$id]);

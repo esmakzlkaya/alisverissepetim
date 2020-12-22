@@ -1,12 +1,9 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
 require 'Frameworks/PHPMailer/src/Exception.php';
 require 'Frameworks/PHPMailer/src/PHPMailer.php';
 require 'Frameworks/PHPMailer/src/SMTP.php';
-
-
 if(isset($_POST["adsoyad"])){
 	$gelenisim=Guvenlik($_POST["adsoyad"]);	
 }else{
@@ -28,11 +25,8 @@ if(isset($_POST["mesaj"])){
 }else{
 	$Gelenmesaj			=	"";
 }
-
 if(($gelenisim!="") and ($gelenmail!="") and ($gelentel!="") and ($Gelenmesaj!="")){
-
 	$mesajicerigihazirla = "İsim Soyisim : " . $gelenisim . "<br/>E-mail adresi : " . $gelenmail . "<br/>Telefon numarası : " .$gelentel . "<br/>Mesajı : " . $Gelenmesaj;
-
 	$mailGonder = new PHPMailer(true);
 	try {
     $mailGonder->SMTPDebug = 0;                      // Enable verbose debug output
@@ -72,6 +66,4 @@ catch (Exception $e) {
 	header("Location:index.php?SK=20");
 	exit();
 }
-
-
 ?>

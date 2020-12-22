@@ -100,3 +100,9 @@
 	$sayfakodu[98]="sepetodemesecimisonuc.php";
 	$sayfakodu[99]="sepethavaleodemetamam.php";
 	$sayfakodu[100]="sepethavaleodemehata.php";
+	$sayfakodu[101]="sepetkredikartiodeme.php";
+	$sayfakodu[102]="sepetkredikartiodemesonuc.php";
+	$sayfakodu[103]="sepetkredikartiodemesonuctamam.php";
+	$sayfakodu[104]="sepetkredikartiodemesonuchata.php";
+	$sayfakodu[105]=".php";
+	$sayfakodu[106]=".php";

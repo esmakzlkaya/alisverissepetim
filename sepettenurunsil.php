@@ -5,7 +5,6 @@ if (isset($_SESSION["kullanici"])) {
 	}else{
 		$sepetid="";
 	}
-
 	if ($sepetid!="") {
 		$silsorgusu=$DBConnection->prepare("DELETE FROM sepet WHERE id=? AND uyeid=? LIMIT 1");
 		$silsorgusu->execute([$sepetid,$id]);
@@ -21,7 +20,6 @@ if (isset($_SESSION["kullanici"])) {
 		header("Location:index.php?SK=92");
 		exit();
 	}
-	
 }else{
 	header("Location:index.php");
 	exit();

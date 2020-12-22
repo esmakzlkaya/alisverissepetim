@@ -1,5 +1,5 @@
 <?php 
-unset($_SESSION["kullanici"]);
+unset($_SESSION["yonetici"]);
 session_destroy();
 header("Location:index.php");
 exit();

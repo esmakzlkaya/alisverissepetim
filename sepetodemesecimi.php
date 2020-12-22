@@ -10,8 +10,6 @@ if(isset($_SESSION["kullanici"])){
 	}else{
 		$gelenkargosecimi="";
 	}
-
-
 	if (($gelenkargosecimi!="")and($gelenadressecimi!="")) {
 
 		$kargoadresguncellesorgusu=$DBConnection->prepare("UPDATE sepet SET kargofirmasiid=?, adresid=? WHERE uyeid=?");
@@ -37,7 +35,6 @@ if(isset($_SESSION["kullanici"])){
 				if ($stokvaryantstokadedi==0) {
 					$silsorgusu=$DBConnection->prepare("DELETE FROM sepet WHERE id=? AND uyeid=? LIMIT 1");
 					$silsorgusu->execute([$stoksepetid,$id]);
-
 				}
 				elseif ($stoksepeturunadedi>$stokvaryantstokadedi) {
 					$sepetguncellemesorgusu=$DBConnection->prepare("UPDATE sepet SET urunadedi=? WHERE id=? AND uyeid=? LIMIT 1");
@@ -45,7 +42,6 @@ if(isset($_SESSION["kullanici"])){
 				}
 			}
 		}
-
 		$sepettekitoplamurunsayisi=0;
 		$sepettekitoplamurunfiyati=0;
 		$odenecektoplamtutar=0;
@@ -96,9 +92,7 @@ if(isset($_SESSION["kullanici"])){
 			}else{
 				$urunlerurunkargoucreti=DonusumleriGeriDondur($urunlerkaydi["kargoucreti"]);
 			}
-
 			$odenecektoplamtutar=$sepettekitoplamurunfiyati+$urunlerurunkargoucreti;
-
 			$ikitaksitaylikodemetutari=($odenecektoplamtutar/2);
 			$uctaksitaylikodemetutari=($odenecektoplamtutar/3);
 			$dorttaksitaylikodemetutari=($odenecektoplamtutar/4);
@@ -107,7 +101,6 @@ if(isset($_SESSION["kullanici"])){
 			$yeditaksitaylikodemetutari=($odenecektoplamtutar/7);
 			$sekiztaksitaylikodemetutari=($odenecektoplamtutar/8);
 			$dokuztaksitaylikodemetutari=($odenecektoplamtutar/9);
-
 		}
 		?>
 		<form action="index.php?SK=98" method="post">
@@ -273,10 +266,8 @@ if(isset($_SESSION["kullanici"])){
 										</tr>
 									</table></td>
 								</tr>
-
 							</table></td>
 						</tr>
-
 						<tr class="KKalanlari" height="30" bgcolor="#ffa420" style="color: black;">
 							<td  class=""><b>&nbsp;Taksit Seçimi</b></td>
 						</tr>
@@ -362,10 +353,8 @@ if(isset($_SESSION["kullanici"])){
 						<tr class="BHalanlari" style="display:none;">
 							<td>&nbsp;</td>
 						</tr>
-
 					</table></td>
 					<td width="15">&nbsp;</td>
-
 					<td width="250"  valign="top"><table width="250" align="center" border="0" cellspacing="0" cellpadding="0">
 						<tr height="40">
 							<td colspan="2" valign="top" style="color: #FF9900" ><h3>SİPARİŞ ÖZETİ</h3></td>

@@ -12,7 +12,7 @@
 		<td align="center">Tekrar deneyiniz.</td>
 	</tr>
 	<tr>
-		<td align="center" class="sonucsayfalari">İletişim Formu sayfasına dönmek için <a href="index.php?SK=16"> buraya tıklayınız</a>.Anasayfaya dönmek için <a href="index.php">tıklayınız</a>.</td>
+		<td align="center" class="sonucsayfalari">İletişim Formu sayfasına dönmek için <a href="index.php?SK=16"> buraya tıklayınız</a>. Anasayfaya dönmek için <a href="index.php">tıklayınız</a>.</td>
 	</tr>
 	<tr>
 		<td height="50">&nbsp;</td>

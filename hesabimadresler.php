@@ -67,8 +67,8 @@ if(isset($_SESSION["kullanici"])){
 						}
 					}else{
 						?>
-						<tr height="50">
-							<td colspan="5" align="left">Sisteme kayıtlı adresiniz bulunamadı.</td>
+						<tr height="50" align="center">
+							<td colspan="5" >Sisteme kayıtlı adresiniz bulunmamaktadır. </td>
 						</tr>
 
 						<?php 

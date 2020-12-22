@@ -1,6 +1,5 @@
 <?php
 if(isset($_SESSION["kullanici"])){
-
 	if(isset($_POST["odemeturusecimi"])){
 		$gelenodemeturusecimi		=	Guvenlik($_POST["odemeturusecimi"]);
 	}else{
@@ -11,11 +10,37 @@ if(isset($_SESSION["kullanici"])){
 	}else{
 		$gelentaksitsecimi		=	"";
 	}
-
 	if ($gelenodemeturusecimi!="") {
 		if ($gelenodemeturusecimi=="Kredi Kartı") {
 			if ($gelentaksitsecimi!="") {
-				echo "KREDİ KARTI İŞLEMLERİ";
+				$sepetguncelmisorgusu=$DBConnection->prepare("SELECT * FROM sepet WHERE uyeid=? ORDER BY id DESC");
+				$sepetguncelmisorgusu->execute([$id]);
+				$sepetguncelmi=$sepetguncelmisorgusu->rowCount();
+				$sepetguncelmi=$sepetguncelmisorgusu->fetchAll(PDO::FETCH_ASSOC);
+				if ($sepetguncelmi>0) {
+					foreach ($sepetguncelmi as $key) {
+						if (($key["taksitsecimi"]!=$gelentaksitsecimi) or ($key["odemesecimi"]!=$gelenodemeturusecimi)) {
+
+							$taksitsecimiguncellesorgusu=$DBConnection->prepare("UPDATE sepet SET taksitsecimi=?, odemesecimi=? WHERE uyeid=?");
+							$taksitsecimiguncellesorgusu->execute([$gelentaksitsecimi,$gelenodemeturusecimi,$id]);
+							$taksitsecimiguncellekontrol=$taksitsecimiguncellesorgusu->rowCount();
+							if ($taksitsecimiguncellekontrol>0) {
+						//	echo "guncelleme yaptı da geldi";
+								header("Location:index.php?SK=101");
+								exit();	
+							}else{
+							// echo "guncelleme yapamadı hata";
+								header("Location:index.php");
+								exit();
+							}
+							echo "KREDİ KARTI İŞLEMLERİ";
+						}else{
+					//	echo "guncelleme yapmadan geldi";
+							header("Location:index.php?SK=101");
+							exit();	
+						}
+					}
+				}
 			}else{
 				header("Location:index.php");
 				exit();
@@ -26,12 +51,9 @@ if(isset($_SESSION["kullanici"])){
 			$sepeturunsayisi=$sepeturunlerisorgusu->rowCount();
 			$sepeturunlerkaydi=$sepeturunlerisorgusu->fetchAll(PDO::FETCH_ASSOC);
 			if ($sepeturunsayisi>0) {
-
 				$sepettekitoplamurunfiyati=0;
 				$sepetkargoucreti=0;
-
 				foreach ($sepeturunlerkaydi as $sepeturunkaydi) {
-
 					$sepetid=DonusumleriGeriDondur($sepeturunkaydi["id"]);
 					$sepetnumarasi=DonusumleriGeriDondur($sepeturunkaydi["sepetnumarasi"]);
 					$sepetuyeid=DonusumleriGeriDondur($sepeturunkaydi["uyeid"]);
@@ -110,15 +132,13 @@ if(isset($_SESSION["kullanici"])){
 					}else{
 						$sepetkargoucreti=$urunlerkargoucreti;
 					}
-					
-
 					$sepeturunlerisorgusu=$DBConnection->prepare("INSERT INTO siparisler (uyeid,siparisnumarasi,urunid,urunturu,urunadi,urunfiyati,kdvorani,urunadedi,toplamurunfiyati,kargofirmasisecimi,kargoucreti,urunresmibir,varyantbasligi,varyantsecimi,adresadsoyad,adresdetay,adrestelno,odemesecimi,taksitsecimi,siparistarihi,siparisIpAdresi,onaydurumu,kargodurumu,kargogonderino) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 					$sepeturunlerisorgusu->execute([$sepetuyeid,$sepetnumarasi,$sepeturunid,$urunlerurunturu,$urunlerurunadi,$urunfiyatihesapla,$urunlerkdvorani,$sepeturunadedi,$urununtoplamfiyati,$urunlerurunkargofirmasiadi,$sepetkargoucreti,$urunlerurunresmi,$urunlerurunvaryantbasligi,$varyantlarvaryantadi,$adresadsoyad,$adrestoplam,$adrestelno,$gelenodemeturusecimi,0,$zamanDamgasi,$IPAdresi,0,0,0]);
 					$sepeturunsayisi=$sepeturunlerisorgusu->rowCount();
 					if ($sepeturunsayisi>0) {
 						$sepetsiparissilsorgusu=$DBConnection->prepare("DELETE FROM sepet WHERE id=? AND uyeid=? LIMIT 1");
 						$sepetsiparissilsorgusu->execute([$sepetid,$sepetuyeid]);
-						
+
 					}else{
 						header("Location:index.php?SK=100");
 						exit();

@@ -4,7 +4,6 @@ if(isset($_GET["id"])){
 
 	$urunhitiguncelle=$DBConnection->prepare("UPDATE urunler SET goruntulenmesayisi=goruntulenmesayisi+1 WHERE id=? AND durumu=? LIMIT 1");
 	$urunhitiguncelle->execute([$gelenurunid,1]);
-	
 	$urundetaysorgusu=$DBConnection->prepare("SELECT * FROM urunler WHERE id=? AND durumu=? LIMIT 1");
 	$urundetaysorgusu->execute([$gelenurunid,1]);
 	$urundetaysayisi=$urundetaysorgusu->rowCount();
@@ -13,7 +12,6 @@ if(isset($_GET["id"])){
 	if ($urundetaysayisi>0) {
 		$UrununFiyati		=	DonusumleriGeriDondur($urundetaykaydi["urunfiyati"]);
 		$UrununParaBirimi	=	DonusumleriGeriDondur($urundetaykaydi["parabirimi"]);
-
 		$gelenurunturu=$urundetaykaydi["urunturu"];
 		if ($gelenurunturu=="Erkek Ayakkabısı") {
 			$urunklasoradi="Erkek";
@@ -117,151 +115,149 @@ if(isset($_GET["id"])){
 							<tr height="45">
 								<td width="30">
 									<?php if (isset($_SESSION["kullanici"])) {?><a href="index.php?SK=86&id=<?php echo $urundetaykaydi["id"]; ?>"><img src="Resimler/KalpKirmiziDaireliBeyaz24x24.png" border="0" style="margin-top: 5px;"></a><?php }else{ ?> <img src="Resimler/KalpKirmiziDaireliBeyaz24x24.png" border="0" style="margin-top: 5px;"><?php } ?>
-							</td>
-							<td width="10">&nbsp;</td>
-							<td width="665" align="right"><a href="index.php?SK=90"><input type="submit" value="SEPETE EKLE" class="sepeteeklebutonu"></a></td>
-						</tr>
-						<tr>
-							<td colspan="3"><table width="705" align="center" border="0" cellspacing="0" cellpadding="0">
-								<tr height="45">
-									<td width="500" align="left"><select class="selectAlanlari" name="varyantselect">
-										<option value="">Lütfen <?php echo $urundetaykaydi["varyantbasligi"]; ?> seçiniz. </option>
-										<?php 
-										$varyantsorgusu=$DBConnection->prepare("SELECT * FROM urunvaryantlari WHERE urunid=? AND stokadedi>0 ORDER BY varyantadi ASC ");
-										$varyantsorgusu->execute([$urundetaykaydi["id"]]);
-										$varyantsayisi=$varyantsorgusu->rowCount();
-										$varyantlar=$varyantsorgusu->fetchAll(PDO::FETCH_ASSOC);
-										if ($varyantsayisi>0) {
-											foreach ($varyantlar as $urunvaryantlari) {
-												$varyantid=$urunvaryantlari["id"];
-												$varyantadi=$urunvaryantlari["varyantadi"];
+								</td>
+								<td width="10">&nbsp;</td>
+								<td width="665" align="right"><a href="index.php?SK=90"><input type="submit" value="SEPETE EKLE" class="sepeteeklebutonu"></a></td>
+							</tr>
+							<tr>
+								<td colspan="3"><table width="705" align="center" border="0" cellspacing="0" cellpadding="0">
+									<tr height="45">
+										<td width="500" align="left"><select class="selectAlanlari" name="varyantselect">
+											<option value="">Lütfen <?php echo $urundetaykaydi["varyantbasligi"]; ?> seçiniz. </option>
+											<?php 
+											$varyantsorgusu=$DBConnection->prepare("SELECT * FROM urunvaryantlari WHERE urunid=? AND stokadedi>0 ORDER BY varyantadi ASC ");
+											$varyantsorgusu->execute([$urundetaykaydi["id"]]);
+											$varyantsayisi=$varyantsorgusu->rowCount();
+											$varyantlar=$varyantsorgusu->fetchAll(PDO::FETCH_ASSOC);
+											if ($varyantsayisi>0) {
+												foreach ($varyantlar as $urunvaryantlari) {
+													$varyantid=$urunvaryantlari["id"];
+													$varyantadi=$urunvaryantlari["varyantadi"];
+													?>
+													<option value="<?php echo $varyantid; ?>"><?php echo $varyantadi; ?></option>
+													<?php
+												}
 												?>
-												<option value="<?php echo $varyantid; ?>"><?php echo $varyantadi; ?></option>
+											</select></td>
+											<?php 
+										} ?>
+										<td width="205" align="right" style="font-size: 25px; font-weight: bold; color: black;"><?php echo fiyatbicimlendir($urunfiyatihesapla); ?> TL </td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></form>
+					</td>
+				</tr>
+				<tr>
+					<td><hr/></td>
+				</tr>
+				<tr>
+					<td>
+						<tr height="40">
+							<td style="color:#d53e07; border-bottom: 1px solid #d84b20;"><b>ÜRÜN AÇIKLAMASI</b></td>
+						</tr>
+						<tr><td>&nbsp;</td></tr>
+						<tr>
+							<td height="30"><?php echo $urundetaykaydi["urunaciklamasi"]; ?></td>
+						</tr>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<tr height="40">
+							<td style="color:#d53e07; margin-top: 20px 0px; border-bottom: 1px solid #d84b20;" ><b>YORUMLAR</b></td>
+						</tr>
+						<tr height="50">
+							<td><div style="width: 705px;  max-height: 300px; overflow-y :scroll;">
+								<table width="685" align="center" border="0" cellspacing="0" cellpadding="0">
+									<?php 
+									$yorumsorgusu=$DBConnection->prepare("SELECT * FROM yorumlar WHERE urunid=? ORDER BY yorumtarihi DESC");
+									$yorumsorgusu->execute([$urundetaykaydi["id"]]);
+									$yorumsayisi=$yorumsorgusu->rowCount();
+									$yorumlar=$yorumsorgusu->fetchAll(PDO::FETCH_ASSOC);
+									if ($yorumsayisi>0) {
+										foreach ($yorumlar as $urunyorumlari) {
+											$yorumyapanuyeID=$urunyorumlari["uyeid"];
+											$yorumpuani=$urunyorumlari["puan"];
+
+											if ($yorumpuani==0) {
+												?>
+												<tr>
+													<td>&nbsp;</td>
+												</tr>
+												<?php
+											}elseif(($yorumpuani>0) and ($yorumpuani<=1)){
+												$puanresmi="YildizBirDolu.png";
+											}elseif(($yorumpuani>1) and ($yorumpuani<=2)){
+												$puanresmi="YildizIkiDolu.png";
+											}elseif(($yorumpuani>2) and ($yorumpuani<=3)){
+												$puanresmi="YildizUcDolu.png";
+											}elseif(($yorumpuani>3) and ($yorumpuani<=4)){
+												$puanresmi="YildizDortDolu.png";
+											}elseif(($yorumpuani>4)){
+												$puanresmi="YildizBesDolu.png";
+											}
+
+											$uyesorgusu=$DBConnection->prepare("SELECT * FROM uyeler WHERE id=? LIMIT 1");
+											$uyesorgusu->execute([$yorumyapanuyeID]);
+											$uyesayisi=$uyesorgusu->rowCount();
+											$uyeler=$uyesorgusu->fetch(PDO::FETCH_ASSOC);
+											if ($uyesayisi) {
+												?>
+												<tr height="40">
+													<td width="64"><img src="Resimler/<?php echo $puanresmi; ?>"></td>
+													<td width="10">&nbsp;</td>
+													<td width="451"><?php echo $uyeler["adsoyad"]; ?></td>
+													<td width="10">&nbsp;</td>
+													<td width="150" style="margin-top: 0px 30px ;" align="right"><?php echo TarihBul($urunyorumlari["yorumtarihi"]); ?>&nbsp;</td>
+												</tr>
+												<tr height="30">
+													<td colspan="5"><?php echo $urunyorumlari["yorummetni"]; ?></td>
+												</tr>
 												<?php
 											}
-											?>
-										</select></td>
-										<?php 
-									} ?>
-									<td width="205" align="right" style="font-size: 25px; font-weight: bold; color: black;"><?php echo fiyatbicimlendir($urunfiyatihesapla); ?> TL </td>
-								</tr>
-							</table></td>
-						</tr>
-					</table></form>
-				</td>
-			</tr>
-			<tr>
-				<td><hr/></td>
-			</tr>
-			<tr>
-				<td>
-					<tr height="40">
-						<td style="color:#d53e07; border-bottom: 1px solid #d84b20;"><b>ÜRÜN AÇIKLAMASI</b></td>
-					</tr>
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td height="30"><?php echo $urundetaykaydi["urunaciklamasi"]; ?></td>
-					</tr>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					<tr height="40">
-						<td style="color:#d53e07; margin-top: 20px 0px; border-bottom: 1px solid #d84b20;" ><b>YORUMLAR</b></td>
-					</tr>
-					<tr height="50">
-						<td><div style="width: 705px;  max-height: 300px; overflow-y :scroll;">
-							<table width="685" align="center" border="0" cellspacing="0" cellpadding="0">
-								<?php 
-								$yorumsorgusu=$DBConnection->prepare("SELECT * FROM yorumlar WHERE urunid=? ORDER BY yorumtarihi DESC");
-								$yorumsorgusu->execute([$urundetaykaydi["id"]]);
-								$yorumsayisi=$yorumsorgusu->rowCount();
-								$yorumlar=$yorumsorgusu->fetchAll(PDO::FETCH_ASSOC);
-								if ($yorumsayisi>0) {
-									foreach ($yorumlar as $urunyorumlari) {
-										$yorumyapanuyeID=$urunyorumlari["uyeid"];
-										$yorumpuani=$urunyorumlari["puan"];
-
-										if ($yorumpuani==0) {
-											?>
-											<tr>
-												<td>&nbsp;</td>
-											</tr>
-											<?php
-										}elseif(($yorumpuani>0) and ($yorumpuani<=1)){
-											$puanresmi="YildizBirDolu.png";
-										}elseif(($yorumpuani>1) and ($yorumpuani<=2)){
-											$puanresmi="YildizIkiDolu.png";
-										}elseif(($yorumpuani>2) and ($yorumpuani<=3)){
-											$puanresmi="YildizUcDolu.png";
-										}elseif(($yorumpuani>3) and ($yorumpuani<=4)){
-											$puanresmi="YildizDortDolu.png";
-										}elseif(($yorumpuani>4)){
-											$puanresmi="YildizBesDolu.png";
 										}
-
-										$uyesorgusu=$DBConnection->prepare("SELECT * FROM uyeler WHERE id=? LIMIT 1");
-										$uyesorgusu->execute([$yorumyapanuyeID]);
-										$uyesayisi=$uyesorgusu->rowCount();
-										$uyeler=$uyesorgusu->fetch(PDO::FETCH_ASSOC);
-										if ($uyesayisi) {
-											?>
-											<tr height="40">
-												<td width="64"><img src="Resimler/<?php echo $puanresmi; ?>"></td>
-												<td width="10">&nbsp;</td>
-												<td width="451"><?php echo $uyeler["adsoyad"]; ?></td>
-												<td width="10">&nbsp;</td>
-												<td width="150" style="margin-top: 0px 30px ;" align="right"><?php echo TarihBul($urunyorumlari["yorumtarihi"]); ?>&nbsp;</td>
-											</tr>
-											<tr height="30">
-												<td colspan="5"><?php echo $urunyorumlari["yorummetni"]; ?></td>
-											</tr>
-											<?php
-										}
+									}else{
+										?>
+										<tr height="40">
+											<td>Ürün için henüz yorum yapılmamış. </td>
+										</tr>
+										<?php
 									}
-								}else{
 									?>
-									<tr height="40">
-										<td>Ürün için henüz yorum yapılmamış. </td>
-									</tr>
-									<?php
-								}
-								?>
-							</table>
-						</div></td>
-					</tr>
-				</td>
-			</tr>
-			<tr>
-				<td><hr/></td>
-			</tr>
-			<tr>
-				<td><table width="705" align="center" border="0" cellspacing="0" cellpadding="0">
-					<tr><td>&nbsp;</td></tr>
-					<tr height="30">
-						<td><img src="Resimler/SaatEsnetikGri20x20.png"></td>
-						<td>Siparişiniz <?php echo ucgunileritarihbul(); ?> tarihine kadar kargoya verilecektir. </td>
-					</tr>
-					<tr height="30">
-						<td><img src="Resimler/SaatHizCizgiliLacivert20x20.png"></td>
-						<td>Ürün süper hızlı gönderi kapsamındadır, aynı gün kargoya verilir. </td>
-					</tr>
-					<tr height="30">
-						<td><img src="Resimler/KrediKarti20x20.png"></td>
-						<td>Tüm banka kartları ile peşin veya taksitli ödeme seçeneği. </td>
-					</tr>
-					<tr height="30">
-						<td><img src="Resimler/Banka20x20.png"></td>
-						<td>Tüm bankalar ile havale / EFT seçeneği. </td>
-					</tr>
-				</table></td>
-			</tr>
-		</table></td>
-	</tr>
-</table>
-<?php
-
+								</table>
+							</div></td>
+						</tr>
+					</td>
+				</tr>
+				<tr>
+					<td><hr/></td>
+				</tr>
+				<tr>
+					<td><table width="705" align="center" border="0" cellspacing="0" cellpadding="0">
+						<tr><td>&nbsp;</td></tr>
+						<tr height="30">
+							<td><img src="Resimler/SaatEsnetikGri20x20.png"></td>
+							<td>Siparişiniz <?php echo ucgunileritarihbul(); ?> tarihine kadar kargoya verilecektir. </td>
+						</tr>
+						<tr height="30">
+							<td><img src="Resimler/SaatHizCizgiliLacivert20x20.png"></td>
+							<td>Ürün süper hızlı gönderi kapsamındadır, aynı gün kargoya verilir. </td>
+						</tr>
+						<tr height="30">
+							<td><img src="Resimler/KrediKarti20x20.png"></td>
+							<td>Tüm banka kartları ile peşin veya taksitli ödeme seçeneği. </td>
+						</tr>
+						<tr height="30">
+							<td><img src="Resimler/Banka20x20.png"></td>
+							<td>Tüm bankalar ile havale / EFT seçeneği. </td>
+						</tr>
+					</table></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table>
+	<?php
 }
 else{
 	header("Location:index.php");

@@ -122,7 +122,6 @@ if(isset($_SESSION["kullanici"])){
 							<?php
 						}
 						?>
-
 						<tr height="30" bgcolor="#ffa420">
 							<td colspan="2" style="border-bottom: 1px solid #CCCCCC; color: black;" class=""><b>&nbsp;Kargo Seçimi</b></td>
 						</tr>
@@ -181,7 +180,6 @@ if(isset($_SESSION["kullanici"])){
 								</tr>
 							</table></td>
 						</tr>
-
 						<?php
 
 					}else{

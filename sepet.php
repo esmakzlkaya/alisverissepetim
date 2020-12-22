@@ -28,13 +28,10 @@ if(isset($_SESSION["kullanici"])){
 			}
 		}
 	}
-
-
-
 	?>
 	<table width="1065" align="center" border="0" cellpadding="0" cellspacing="0">
 		<tr height="">
-			<td width="800" valign="top"><form action="index.php?SK=xxxx" method="post"><table  width="800" align="center" border="0" cellspacing="0" cellpadding="0">
+			<td width="800" valign="top"><form action="index.php?SK=96" method="post"><table  width="800" align="center" border="0" cellspacing="0" cellpadding="0">
 				<tr height="40">
 					<td  style="color: #FF9900" ><h3>ALIŞVERİŞ SEPETİ</h3></td>
 				</tr>
@@ -123,7 +120,7 @@ if(isset($_SESSION["kullanici"])){
 							<?php
 						}
 						?>
-					</table></form></td>
+					</table></td>
 
 					<td width="15">&nbsp;</td>
 					<td width="250"  valign="top"><table width="250" align="center" border="0" cellspacing="0" cellpadding="0">
@@ -140,16 +137,16 @@ if(isset($_SESSION["kullanici"])){
 						</tr>
 						
 						<tr>
-							<td colspan="2"><div class="sepeticidevametvealisverisitamamlabutonu"><a href="index.php?SK=96" style="color: white; font-size: 18px; font-weight: bold; text-decoration: none;">
-								<img style="margin-top: 5px;" src="Resimler/SepetBeyaz21x20.png" border="0" > DEVAM ET </a></div></td>
-							</tr>
+							<td align="right"><input type="submit" value="DEVAM ET" class="AlisverisiTamamlaButonu"></td>
+						</tr>
 
-						</table></td>
-					</tr>
-				</table>
-				<?php 
-			}else{
-				header("Location:index.php");
-				exit();
-			} 
-			?>
+					</table></td>
+				</tr>
+			</table>
+		</form>
+		<?php 
+	}else{
+		header("Location:index.php");
+		exit();
+	} 
+	?>

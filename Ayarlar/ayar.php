@@ -5,12 +5,10 @@ try {
 		// echo $e->getMessage();
 	die();
 }
-
 $ayarlarSorgusu=$DBConnection->prepare("SELECT * FROM ayarlar");
 $ayarlarSorgusu->execute();
 $ayarsayisi=$ayarlarSorgusu->rowCount();
 $ayar=$ayarlarSorgusu->fetch(PDO::FETCH_ASSOC);
-
 if($ayarsayisi>0){
 	$siteadi=$ayar["siteAdi"];
 	$sitebaslik=$ayar["siteTitle"];
@@ -31,16 +29,18 @@ if($ayarsayisi>0){
 	$dolarkuru=$ayar["dolarkuru"];
 	$eurokuru=$ayar["eurokuru"];
 	$ucretsizkargobarajı=$ayar["ucretsizkargobarajı"];
+	$clientID=$ayar["clientid"];
+	$storeKey=$ayar["storekey"];
+	$apikullanicisi=$ayar["apikullanicisi"];
+	$apisifresi=$ayar["apisifresi"];
 }
 else{
  		//echo "Ayar sorgusu hatası"->getMessage();
 }
-
 $metinlerSorgusu=$DBConnection->prepare("SELECT * FROM sozlesmelervemetinler");
 $metinlerSorgusu->execute();
 $metinsayisi=$metinlerSorgusu->rowCount();
 $metin=$metinlerSorgusu->fetch(PDO::FETCH_ASSOC);
-
 if($metinsayisi>0){
 	$hakkimizdametni=$metin["hakkimizdametni"];
 	$uyeliksozlesmesimetni=$metin["uyeliksozlesmesimetni"];
@@ -49,18 +49,15 @@ if($metinsayisi>0){
 	$mesafelisatisozlesmesimetni=$metin["mesafelisatisozlesmesimetni"];
 	$teslimatmetni=$metin["teslimatmetni"];
 	$iptaliadedegisimmetni=$metin["iptaliadedegisimmetni"];
-
 }
 else{
  		//echo "Ayar sorgusu hatası"->getMessage();
 }
-
 if(isset($_SESSION["kullanici"])){
 	$kullaniciSorgusu=$DBConnection->prepare("SELECT * FROM uyeler WHERE mail='".$_SESSION["kullanici"]."' LIMIT 1 ");
 	$kullaniciSorgusu->execute();
 	$kullaniciSayisi=$kullaniciSorgusu->rowCount();
 	$kullanici=$kullaniciSorgusu->fetch(PDO::FETCH_ASSOC);
-
 	if($kullaniciSayisi>0){
 		$id=$kullanici["id"];
 		$mail=$kullanici["mail"];
@@ -74,10 +71,25 @@ if(isset($_SESSION["kullanici"])){
 	}
 	else{
  		//echo "Ayar sorgusu hatası"->getMessage();
- 		die();
-
+		die();
 	}
 }
-
-
+if(isset($_SESSION["yonetici"])){
+	$yoneticiSorgusu=$DBConnection->prepare("SELECT * FROM yoneticiler WHERE kullaniciadi='".$_SESSION["yonetici"]."' LIMIT 1 ");
+	$yoneticiSorgusu->execute();
+	$yoneticiSayisi=$yoneticiSorgusu->rowCount();
+	$yonetici=$yoneticiSorgusu->fetch(PDO::FETCH_ASSOC);
+	if($yoneticiSayisi>0){
+		$id=$yonetici["id"];
+		$mail=$yonetici["kullaniciadi"];
+		$sifre=$yonetici["sifre"];
+		$adsoyad=$yonetici["isimsoyisim"];
+		$telno=$yonetici["mail"];
+		$cinsiyet=$yonetici["telno"];
+	}
+	else{
+ 		//echo "Ayar sorgusu hatası"->getMessage();
+		die();
+	}
+}
 ?>

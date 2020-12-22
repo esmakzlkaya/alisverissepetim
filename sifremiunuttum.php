@@ -9,7 +9,6 @@
 					<tr height="30">
 						<td colspan="2" style="border-bottom: 1px solid #CCCCCC;" class="">Telefon numaran veya e-mail adresin ile şifre yenileme kodu alabilirsin.</td>
 					</tr>
-					
 					<tr height="30">
 						<td  colspan="2"  valign=""  >E-mail adresi </td>
 					</tr>
@@ -34,6 +33,5 @@
 	</tr>
 </table>
 <?php 
-
 $DBConnection=null;
 ?>

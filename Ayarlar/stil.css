@@ -371,7 +371,6 @@ html,body{
 	text-decoration: none;
 	cursor: pointer;
 }
-
 .AlisverisiTamamlaButonu{
 	width: 100%;
 	height: 50px;
@@ -385,13 +384,10 @@ html,body{
 	text-align: center;
 	font-weight: bold;
 	text-decoration: none;
+	
 }
-
 .AlisverisiTamamlaButonu:hover{
 	color: black;
 	cursor: pointer;
 	text-decoration: none;
 }
-
-
-

@@ -21,8 +21,6 @@ if (isset($_GET["aktivasyonKodu"])){
 }else{
 	$gelenaktivasyonkodu="";
 }
-
-
 $md5lisifre=md5($gelensifre);
 
 if(($gelenmail!="") and ($gelenaktivasyonkodu!="") and ($gelensifre!="") and ($gelensifretekrar!="")){
@@ -46,5 +44,4 @@ if(($gelenmail!="") and ($gelenaktivasyonkodu!="") and ($gelensifre!="") and ($g
 	header("Location:index.php?SK=48");
 	exit();
 }
-
 ?>

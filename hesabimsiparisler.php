@@ -141,6 +141,9 @@ if(isset($_SESSION["kullanici"])){
 						}
 					}else{
 						?>
+						<tr height="40" align="center">
+							<td colspan="8">Sisteme kayıtlı siparişiniz bulunmamaktadır.</td>
+						</tr>
 						<?php 
 					}
 					?>

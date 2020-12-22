@@ -1,13 +1,9 @@
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
 require 'Frameworks/PHPMailer/src/Exception.php';
 require 'Frameworks/PHPMailer/src/PHPMailer.php';
 require 'Frameworks/PHPMailer/src/SMTP.php';
-
-
 if(isset($_POST["mail"])){
 	$gelenmail=Guvenlik($_POST["mail"]);	
 }else{
@@ -45,7 +41,6 @@ if(isset($_POST["uyeliksozlesmeonay"])){
 }
 
 $gelenaktivasyonkodu=AktivasyonKoduuret();
-
 $md5liSifre=md5($gelensifre);
 
 if(($gelenmail!="") and ($gelensifre!="") and ($gelensifretekrar!="") and ($gelenisim!="")and ($gelentel!="") and ($gelencinsiyet!="")){

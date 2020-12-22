@@ -3,11 +3,6 @@ session_start(); ob_start();
 require_once("Ayarlar/ayar.php");
 require_once("Ayarlar/fonksiyonlar.php");
 require_once("Ayarlar/siteSayfalari.php");
-
-//unset($_SESSION["Kullanici"]);
-//unset($_SESSION["kullanici"]);
-//session_destroy();
-
 if(isset($_REQUEST["SK"])){
 	$sayfakodudegeri=RakamliIfadeler($_REQUEST["SK"]);
 }
@@ -49,16 +44,16 @@ else{
 					<?php 
 					if (isset($_SESSION["kullanici"])){
 						?>
-						<td width="20"><a href="xxxxx"><img src="Resimler/KullaniciBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
+						<td width="20"><a href="index.php?SK=50"><img src="Resimler/KullaniciBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
 						<td width="70" class="mansetalti"><a href="index.php?SK=50">Hesabım</a></td>
-						<td width="20"><a href="xxxxx"><img src="Resimler/CikisBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
+						<td width="20"><a href="index.php?SK=49"><img src="Resimler/CikisBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
 						<td width="85" class="mansetalti"><a href="index.php?SK=49">Çıkış Yap</a></td>							
 						<?php
 					}else{
 						?>
-						<td width="20"><a href="xxxxx"><img src="Resimler/KullaniciBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
+						<td width="20"><a href="index.php?SK=31"><img src="Resimler/KullaniciBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
 						<td width="70" class="mansetalti"><a href="index.php?SK=31">Giriş Yap</a></td>
-						<td width="20"><a href="xxxxx"><img src="Resimler/KullaniciEkleBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
+						<td width="20"><a href="index.php?SK=22"><img src="Resimler/KullaniciEkleBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
 						<td width="85" class="mansetalti"><a href="index.php?SK=22">Yeni Üyelik</a></td>
 						<?php
 					}
@@ -91,18 +86,18 @@ else{
 				include($sayfakodu[$sayfakodudegeri]);
 			}
 			?>
-			</td>
+		</td>
 	</tr>
 	<tr height="210">	
 		<td><table width="1065"  height="" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F9F9F9">
 			<tr height="30">
-				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b>&nbsp;<a href="xxxxx">KURUMSAL</a></b></td>
+				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b>&nbsp;>KURUMSAL</b></td>
 				<td width="22" >&nbsp;</td>
-				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b><a href="index.php?SK=2">ÜYELİK VE HİZMETLER</a></b></td>
+				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b>ÜYELİK VE HİZMETLER</b></td>
 				<td width="22" style="border-bottom: 1px solid ;" class="altmenu">&nbsp;</td>
-				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b><a href="xxxxx">SÖZLEŞMELER</a></b></td>
+				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b>SÖZLEŞMELER</b></td>
 				<td width="21">&nbsp;</td>
-				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b><a href="xxxxx">BİZİ TAKİP EDİN</a></b></td>
+				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b>BİZİ TAKİP EDİN</b></td>
 			</tr>
 			<br>
 			<tr height="30">
@@ -223,7 +218,6 @@ else{
 			</tr>
 		</table></td>
 	</tr>
-
 	<tr height="40">
 		<td><table width="1065"  height="" border="0" cellspacing="0" cellpadding="0" align="center">
 			<tr>
@@ -239,9 +233,7 @@ else{
 			</tr>
 		</table></td>
 	</tr>
-
 </table>
-
 </body>
 </html>
 <?php $DBConnection=null;

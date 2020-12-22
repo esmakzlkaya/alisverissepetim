@@ -99,6 +99,5 @@
 	</tr>
 </table>
 <?php 
-
 $DBConnection=null;
  ?>
