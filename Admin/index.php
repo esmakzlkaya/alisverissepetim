@@ -2,6 +2,7 @@
 session_start(); ob_start();
 require_once("../Ayarlar/ayar.php");
 require_once("../Ayarlar/fonksiyonlar.php");
+require_once("../Frameworks/Verot/src/class.upload.php");
 require_once("../Ayarlar/yonetimsayfalaridis.php");
 require_once("../Ayarlar/yonetimsayfalariic.php");
 if(isset($_REQUEST["SKI"])){

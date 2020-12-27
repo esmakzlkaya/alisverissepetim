@@ -2,6 +2,10 @@
 $IPAdresi = $_SERVER["REMOTE_ADDR"];
 $zamanDamgasi=time();
 $tarihSaat=date("d.m.Y H:i:s",$zamanDamgasi);
+$sitekokdizini=$_SERVER["DOCUMENT_ROOT"];
+$resimklasoruyolu="/AlışverişSepetim/Resimler/";
+$veroticinklasoryolu=$sitekokdizini . $resimklasoruyolu;
+
 function TarihBul($deger){
 	$cevir=date("d.m.Y",$deger);
 	return $cevir;		

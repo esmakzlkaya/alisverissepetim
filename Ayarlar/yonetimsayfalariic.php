@@ -1,9 +1,9 @@
 <?php 
 	$sayfaic[0]	  ="pano.php";
-	$sayfaic[1]	  =".php";
-	$sayfaic[2]	  =".php";
-	$sayfaic[3]	  =".php";
-	$sayfaic[4]	  =".php";
+	$sayfaic[1]	  ="siteayarlari.php";
+	$sayfaic[2]	  ="siteayarlarisonuc.php";
+	$sayfaic[3]	  ="siteayarlarisonuctamam.php";
+	$sayfaic[4]	  ="siteayarlarisonuchata.php";
 	$sayfaic[5]	  =".php";
 	$sayfaic[6]	  =".php";
 	$sayfaic[7]	  =".php";

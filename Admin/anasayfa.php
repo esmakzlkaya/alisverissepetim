@@ -27,7 +27,7 @@ if (isset($_SESSION["yonetici"])) {
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">YORUMLAR</a></td>
 					</tr>
 					<tr height="50">
-						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">SİTE AYARLARI</a></td>
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=1">SİTE AYARLARI</a></td>
 					</tr>
 					<tr height="50">
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">MENÜLER</a></td>
@@ -49,6 +49,9 @@ if (isset($_SESSION["yonetici"])) {
 					</tr>
 					<tr height="50">
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">YÖNETİCİLER</a></td>
+					</tr>
+					<tr height="50">
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=4">ÇIKIŞ YAP</a></td>
 					</tr>
 				</table>
 			</td>

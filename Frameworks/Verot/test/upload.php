@@ -1,5 +1,4 @@
 <?php
-namespace Verot\Upload;
 
 error_reporting(E_ALL);
 
@@ -72,7 +71,7 @@ if ($action == 'simple') {
     // we create an instance of the class, giving as argument the PHP object
     // corresponding to the file field from the form
     // All the uploads are accessible from the PHP object $_FILES
-    $handle = new Upload($_FILES['my_field']);
+    $handle = new upload($_FILES['my_field']);
 
     // then we check if the file has been uploaded properly
     // in its *temporary* location in the server (often, it is /tmp)
@@ -120,7 +119,7 @@ if ($action == 'simple') {
     // ---------- BASE64 FILE ----------
 
     // we create an instance of the class, giving as argument the data string
-    $handle = new Upload((isset($_POST['my_field']) ? $_POST['my_field'] : (isset($_GET['file']) ? $_GET['file'] : '')));
+    $handle = new upload((isset($_POST['my_field']) ? $_POST['my_field'] : (isset($_GET['file']) ? $_GET['file'] : '')));
 
     // check if a temporary file has been created with the file data
     if ($handle->uploaded) {
@@ -164,7 +163,7 @@ if ($action == 'simple') {
     // we create an instance of the class, giving as argument the PHP object
     // corresponding to the file field from the form
     // All the uploads are accessible from the PHP object $_FILES
-    $handle = new Upload($_FILES['my_field']);
+    $handle = new upload($_FILES['my_field']);
 
     // then we check if the file has been uploaded properly
     // in its *temporary* location in the server (often, it is /tmp)
@@ -249,13 +248,13 @@ if ($action == 'simple') {
 
         // we create an instance of the class, feeding in the name of the file
         // sent via a XMLHttpRequest request, prefixed with 'php:'
-        $handle = new Upload('php:'.$_SERVER['HTTP_X_FILE_NAME']);
+        $handle = new upload('php:'.$_SERVER['HTTP_X_FILE_NAME']);
 
     } else {
         // we create an instance of the class, giving as argument the PHP object
         // corresponding to the file field from the form
         // This is the fallback, using the standard way
-        $handle = new Upload($_FILES['my_field']);
+        $handle = new upload($_FILES['my_field']);
     }
 
     // then we check if the file has been uploaded properly
@@ -316,7 +315,7 @@ if ($action == 'simple') {
     foreach ($files as $file) {
 
         // we instanciate the class for each element of $file
-        $handle = new Upload($file);
+        $handle = new upload($file);
 
         // then we check if the file has been uploaded properly
         // in its *temporary* location in the server (often, it is /tmp)
@@ -364,7 +363,7 @@ if ($action == 'simple') {
     ini_set("max_execution_time",0);
 
     // we don't upload, we just send a local filename (image)
-    $handle = new Upload((isset($_POST['my_field']) ? $_POST['my_field'] : (isset($_GET['file']) ? $_GET['file'] : '')));
+    $handle = new upload((isset($_POST['my_field']) ? $_POST['my_field'] : (isset($_GET['file']) ? $_GET['file'] : '')));
 
     // then we check if the file has been "uploaded" properly
     // in our case, it means if the file is present on the local file system
@@ -524,9 +523,8 @@ if ($action == 'simple') {
         TestProcess($handle, '180 degrees rotation', "\$foo->image_rotate          = '180';");
 
         // -----------
-        $handle->image_convert         = 'webp';
         $handle->image_flip            = 'H';
-        TestProcess($handle, 'horizontal flip, into WEBP file', "\$foo->image_convert         = 'webp';\n\$foo->image_flip            = 'H';");
+        TestProcess($handle, 'horizontal flip', "\$foo->image_flip            = 'H';");
 
         // -----------
         $handle->image_convert         = 'gif';
@@ -537,7 +535,7 @@ if ($action == 'simple') {
         $handle->image_convert         = 'bmp';
         $handle->image_default_color   = '#00FF00';
         $handle->image_rotate          = '180';
-        TestProcess($handle, '180 degrees rotation, into BMP, green bg', "\$foo->image_convert         = 'bmp';\n\$foo->image_default_color   = '#00FF00';\n\$foo->image_rotate          = '180';");
+        TestProcess($handle, '180 degrees rotation, into GIF, green bg', "\$foo->image_convert         = 'gif';\n\$foo->image_default_color   = '#00FF00';\n\$foo->image_rotate          = '180';");
 
         // -----------
         $handle->image_convert         = 'png';
@@ -957,17 +955,6 @@ if ($action == 'simple') {
         $handle->image_convert         = 'png';
         $handle->png_compression       = 9;
         TestProcess($handle, 'PNG compression set to 9 (slow, smaller files)', "\$foo->image_convert         = 'png';\n\$foo->png_compression       = 9;");
-
-        // -----------
-        $handle->image_convert         = 'webp';
-        $handle->webp_quality          = 10;
-        TestProcess($handle, 'WEBP quality set to 10%', "\$foo->image_convert         = 'webp';\n\$foo->webp_quality          = 10;");
-
-        // -----------
-        $handle->image_convert         = 'webp';
-        $handle->webp_quality          = 80;
-        TestProcess($handle, 'WEBP quality set to 80%', "\$foo->image_convert         = 'webp';\n\$foo->webp_quality          = 80;");
-
 
     } else {
         // if we are here, the local file failed for some reasons

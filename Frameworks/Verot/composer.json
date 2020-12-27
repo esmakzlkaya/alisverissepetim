@@ -15,7 +15,7 @@
         "email":"colin@verot.net"
     },
     "require": {
-        "php": ">=5.3"
+        "php": ">=4"
     },
     "autoload": {
         "classmap": ["src/class.upload.php"]
