@@ -65,4 +65,8 @@ function ucgunileritarihbul(){
 		$bicimlendir=number_format($deger,"2",",",".");
 		return $bicimlendir;
 	}
+	function resimadiolustur(){
+		$olustur=substr(md5(uniqid(time())), 0,25);
+		return $olustur;
+	}
 	?>

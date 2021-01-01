@@ -4,22 +4,26 @@
 	$sayfaic[2]	  ="siteayarlarisonuc.php";
 	$sayfaic[3]	  ="siteayarlarisonuctamam.php";
 	$sayfaic[4]	  ="siteayarlarisonuchata.php";
-	$sayfaic[5]	  =".php";
-	$sayfaic[6]	  =".php";
-	$sayfaic[7]	  =".php";
-	$sayfaic[8]	  =".php";
-	$sayfaic[9]	  =".php";
-	$sayfaic[10]  =".php";
-	$sayfaic[11]  =".php";
-	$sayfaic[12]  =".php";
-	$sayfaic[13]  =".php";
-	$sayfaic[14]  =".php";
-	$sayfaic[15]  =".php";
-	$sayfaic[16]  =".php";
-	$sayfaic[17]  =".php";
-	$sayfaic[18]  =".php";
-	$sayfaic[19]  =".php";
-	$sayfaic[20]  =".php";
+	$sayfaic[5]	  ="sozlesmelervemetinler.php";
+	$sayfaic[6]	  ="sozlesmelervemetinlersonuc.php";
+	$sayfaic[7]	  ="sozlesmelervemetinlersonuctamam.php";
+	$sayfaic[8]	  ="sozlesmelervemetinlersonuchata.php";
+
+	$sayfaic[9]	  ="bankahesaplari.php";
+	
+	$sayfaic[10]  ="bankahesaplariekle.php";
+	$sayfaic[11]  ="bankahesaplarieklesonuc.php";
+	$sayfaic[12]  ="bankahesaplarieklesonuctamam.php";
+	$sayfaic[13]  ="bankahesaplarieklesonuchata.php";
+
+	$sayfaic[14]  ="bankahesaplariguncelle.php";
+	$sayfaic[15]  ="bankahesaplariguncellesonuc.php";
+	$sayfaic[16]  ="bankahesaplariguncellesonuctamam.php";
+	$sayfaic[17]  ="bankahesaplariguncellesonuchata.php";
+
+	$sayfaic[18]  ="bankahesaplarisilsonuc.php";
+	$sayfaic[19]  ="bankahesaplarisilsonuctamam.php";
+	$sayfaic[20]  ="bankahesaplarisilsonuchata.php";
 	$sayfaic[21]  =".php";
 	$sayfaic[22]  =".php";
 	$sayfaic[23]  =".php";

@@ -80,12 +80,12 @@ if(isset($_SESSION["yonetici"])){
 	$yoneticiSayisi=$yoneticiSorgusu->rowCount();
 	$yonetici=$yoneticiSorgusu->fetch(PDO::FETCH_ASSOC);
 	if($yoneticiSayisi>0){
-		$id=$yonetici["id"];
-		$mail=$yonetici["kullaniciadi"];
-		$sifre=$yonetici["sifre"];
-		$adsoyad=$yonetici["isimsoyisim"];
-		$telno=$yonetici["mail"];
-		$cinsiyet=$yonetici["telno"];
+		$yoneticiid=$yonetici["id"];
+		$yoneticikullaniciadi=$yonetici["kullaniciadi"];
+		$yoneticisifre=$yonetici["sifre"];
+		$yoneticiadsoyad=$yonetici["isimsoyisim"];
+		$yoneticimail=$yonetici["mail"];
+		$yoneticitelno=$yonetici["telno"];
 	}
 	else{
  		//echo "Ayar sorgusu hatası"->getMessage();
