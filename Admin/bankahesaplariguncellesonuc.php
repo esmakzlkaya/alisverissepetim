@@ -94,10 +94,11 @@ if (isset($_SESSION["yonetici"])) {
 		$bankalogoyukle->allowed				=	array("image/*");
 		$bankalogoyukle->file_new_name_body		=	$yeniresimadiolustur;
 		$bankalogoyukle->file_overwrite			=	true;
-		$bankalogoyukle->image_convert			=	"png";
+		//$bankalogoyukle->image_convert			=	"png";
 		$bankalogoyukle->image_quality			=	100;
 		$bankalogoyukle->image_background_color	="#FFFFFF";
 		$bankalogoyukle->image_resize			=	true;
+		$bankalogoyukle->image_ratio=true;
 		$bankalogoyukle->image_y				=	35;
 		$bankalogoyukle->process($veroticinklasoryolu);
 

@@ -8,34 +8,34 @@
 	$sayfaic[6]	  ="sozlesmelervemetinlersonuc.php";
 	$sayfaic[7]	  ="sozlesmelervemetinlersonuctamam.php";
 	$sayfaic[8]	  ="sozlesmelervemetinlersonuchata.php";
-
 	$sayfaic[9]	  ="bankahesaplari.php";
-	
 	$sayfaic[10]  ="bankahesaplariekle.php";
 	$sayfaic[11]  ="bankahesaplarieklesonuc.php";
 	$sayfaic[12]  ="bankahesaplarieklesonuctamam.php";
 	$sayfaic[13]  ="bankahesaplarieklesonuchata.php";
-
 	$sayfaic[14]  ="bankahesaplariguncelle.php";
 	$sayfaic[15]  ="bankahesaplariguncellesonuc.php";
 	$sayfaic[16]  ="bankahesaplariguncellesonuctamam.php";
 	$sayfaic[17]  ="bankahesaplariguncellesonuchata.php";
-
 	$sayfaic[18]  ="bankahesaplarisilsonuc.php";
 	$sayfaic[19]  ="bankahesaplarisilsonuctamam.php";
 	$sayfaic[20]  ="bankahesaplarisilsonuchata.php";
-	$sayfaic[21]  =".php";
-	$sayfaic[22]  =".php";
-	$sayfaic[23]  =".php";
-	$sayfaic[24]  =".php";
-	$sayfaic[25]  =".php";
-	$sayfaic[26]  =".php";
-	$sayfaic[27]  =".php";
-	$sayfaic[28]  =".php";
-	$sayfaic[29]  =".php";
-	$sayfaic[30]  =".php";
-	$sayfaic[31]  =".php";
-	$sayfaic[32]  =".php";
+
+	$sayfaic[21]  ="kargolar.php";
+
+	$sayfaic[22]  ="kargoekle.php";
+	$sayfaic[23]  ="kargoeklesonuc.php";
+	$sayfaic[24]  ="kargoeklesonuctamam.php";
+	$sayfaic[25]  ="kargoeklesonuchata.php";
+
+	$sayfaic[26]  ="kargoguncelle.php";
+	$sayfaic[27]  ="kargoguncellesonuc.php";
+	$sayfaic[28]  ="kargoguncellesonuctamam.php";
+	$sayfaic[29]  ="kargoguncellesonuchata.php";
+
+	$sayfaic[30]  ="kargosilsonuc.php";
+	$sayfaic[31]  ="kargosilsonuctamam.php";
+	$sayfaic[32]  ="kargosilsonuchata.php";
 	$sayfaic[33]  =".php";
 	$sayfaic[34]  =".php";
 	$sayfaic[35]  =".php";
