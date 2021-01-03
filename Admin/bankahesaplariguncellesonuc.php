@@ -1,55 +1,135 @@
 <?php
 if (isset($_SESSION["yonetici"])) {
+	if (isset($_GET["id"])) {
+		$gelenbankaid=Guvenlik($_GET["id"]);
+	}else{
+		$gelenbankaid="";
+	}
 
-	if(isset($_POST["hakkimizdametni"])){
-		$gelenhakkimizdametni=Guvenlik($_POST["hakkimizdametni"]);	
+	if(isset($_POST["bankaadi"])){
+		$gelenbankaadi=Guvenlik($_POST["bankaadi"]);	
 	}else{
-		$gelenhakkimizdametni="";
+		$gelenbankaadi="";
 	}
-	if(isset($_POST["uyeliksozlesmesimetni"])){
-		$gelenuyeliksozlesmesimetni=Guvenlik($_POST["uyeliksozlesmesimetni"]);	
+	if(isset($_POST["sehir"])){
+		$gelensehir=Guvenlik($_POST["sehir"]);	
 	}else{
-		$gelenuyeliksozlesmesimetni="";
+		$gelensehir="";
 	}
-	if(isset($_POST["kullanimkosullarimetni"])){
-		$gelenkullanimkosullarimetni=Guvenlik($_POST["kullanimkosullarimetni"]);	
+	if(isset($_POST["ulke"])){
+		$gelenulke=Guvenlik($_POST["ulke"]);	
 	}else{
-		$gelenkullanimkosullarimetni="";
+		$gelenulke="";
 	}
-	if(isset($_POST["gizliliksozlesmesimetni"])){
-		$gelengizliliksozlesmesimetni=Guvenlik($_POST["gizliliksozlesmesimetni"]);	
+	if(isset($_POST["subeadi"])){
+		$gelensubeadi=Guvenlik($_POST["subeadi"]);	
 	}else{
-		$gelengizliliksozlesmesimetni="";
+		$gelensubeadi="";
 	}
-	if(isset($_POST["mesafelisatisozlesmesimetni"])){
-		$gelenmesafelisatisozlesmesimetni=Guvenlik($_POST["mesafelisatisozlesmesimetni"]);	
+	if(isset($_POST["subekodu"])){
+		$gelensubekodu=Guvenlik($_POST["subekodu"]);	
 	}else{
-		$gelenmesafelisatisozlesmesimetni="";
+		$gelensubekodu="";
 	}
-	if(isset($_POST["teslimatmetni"])){
-		$gelenteslimatmetni=Guvenlik($_POST["teslimatmetni"]);	
+	if(isset($_POST["parabirimi"])){
+		$gelenparabirimi=Guvenlik($_POST["parabirimi"]);	
 	}else{
-		$gelenteslimatmetni="";
+		$gelenparabirimi="";
 	}
-	if(isset($_POST["iptaliadedegisimmetni"])){
-		$geleniptaliadedegisimmetni=Guvenlik($_POST["iptaliadedegisimmetni"]);	
+	if(isset($_POST["hesapsahibi"])){
+		$gelenhesapsahibi=Guvenlik($_POST["hesapsahibi"]);	
 	}else{
-		$geleniptaliadedegisimmetni="";
+		$gelenhesapsahibi="";
 	}
-	
-	if(($gelenhakkimizdametni !="") and ($gelenuyeliksozlesmesimetni !="") and ($gelenkullanimkosullarimetni !="") and ($gelengizliliksozlesmesimetni !="") and ($gelenmesafelisatisozlesmesimetni !="") and ($gelenteslimatmetni !="") and ($geleniptaliadedegisimmetni !="")){
+	if(isset($_POST["hesapno"])){
+		$gelenhesapno=Guvenlik($_POST["hesapno"]);	
+	}else{
+		$gelenhesapno="";
+	}
+	if(isset($_POST["ibanno"])){
+		$gelenibanno=Guvenlik($_POST["ibanno"]);	
+	}else{
+		$gelenibanno="";
+	}
 
-		$SozlesmeveMetinlerGuncelleSorgusu=$DBConnection->prepare("UPDATE sozlesmelervemetinler SET hakkimizdametni=?, uyeliksozlesmesimetni=?, kullanimkosullarimetni=?, gizliliksozlesmesimetni=?, mesafelisatisozlesmesimetni=?, teslimatmetni=?, iptaliadedegisimmetni=?");
-		$SozlesmeveMetinlerGuncelleSorgusu->execute([$gelenhakkimizdametni, $gelenuyeliksozlesmesimetni, $gelenkullanimkosullarimetni, $gelengizliliksozlesmesimetni,$gelenmesafelisatisozlesmesimetni,$gelenteslimatmetni, $geleniptaliadedegisimmetni]);
+	$gelenbankalogosu=$_FILES["bankalogo"];
+
+	if(($gelenbankaadi !="") and ($gelensehir !="") and 
+		($gelenulke !="") and ($gelensubeadi !="") and ($gelensubekodu !="") and
+		($gelenhesapsahibi !="") and ($gelenhesapno !="") and ($gelenibanno !="")){
+
+
+
+		$bankahesabiguncelleSorgusu=$DBConnection->prepare("UPDATE bankahesaplari SET bankaadi=?, konumsehir=?, konumulke=?, subeadi=?, subekodu=?,parabirimi=?, hesapsahibi=?, hesapno=?,ibanno=? WHERE id=? LIMIT 1");
+	$bankahesabiguncelleSorgusu->execute([$gelenbankaadi,$gelensehir, $gelenulke, $gelensubeadi,$gelensubekodu,$gelenparabirimi,$gelenhesapsahibi, $gelenhesapno,$gelenibanno,$gelenbankaid]);
+	$bankahesabisayisi=$bankahesabiguncelleSorgusu->rowCount();
+
+	if (($gelenbankalogosu["name"]!="") and ($gelenbankalogosu["type"]!="") and
+		($gelenbankalogosu["tmp_name"]!="") and ($gelenbankalogosu["error"]==0) and 
+		($gelenbankalogosu["size"]>0)) {
 		
-		header("Location:index.php?SKD=0&SKI=7");
-		exit();
-	}else{
-		header("Location:index.php?SKD=0&SKI=8");
-		exit();
+		$bankalogosorgusu=$DBConnection->prepare("SELECT * FROM bankahesaplari WHERE id=? LIMIT 1");
+	$bankalogosorgusu->execute([$gelenbankaid]);
+	$logokontrol=$bankalogosorgusu->rowCount();
+	$bankalogo=$bankalogosorgusu->fetch(PDO::FETCH_ASSOC);
+
+	$silinecekdosyayolu="../Resimler/".$bankalogo["bankalogo"];
+
+	unlink($silinecekdosyayolu);
+
+
+	$yeniresimadiolustur= resimadiolustur();
+	$gelenresminuzantisi=substr($gelenbankalogosu["name"],-4);
+
+	if ($gelenresminuzantisi=="jpeg") {
+		$gelenresminuzantisi=".".$gelenresminuzantisi;
 	}
+
+	$yenidosyaadi=$yeniresimadiolustur.$gelenresminuzantisi;
+
+	$bankalogoyukle	=	new upload($gelenbankalogosu, "tr-TR");
+	if($bankalogoyukle->uploaded){
+
+		$bankalogoyukle->mime_magic_check		=	true;
+		$bankalogoyukle->allowed				=	array("image/*");
+		$bankalogoyukle->file_new_name_body		=	$yeniresimadiolustur;
+		$bankalogoyukle->file_overwrite			=	true;
+		$bankalogoyukle->image_convert			=	"png";
+		$bankalogoyukle->image_quality			=	100;
+		$bankalogoyukle->image_background_color	="#FFFFFF";
+		$bankalogoyukle->image_resize			=	true;
+		$bankalogoyukle->image_y				=	35;
+		$bankalogoyukle->process($veroticinklasoryolu);
+
+		if($bankalogoyukle->processed){
+			$bankalogoguncelleSorgusu=$DBConnection->prepare("UPDATE bankahesaplari SET bankalogo=? WHERE id=? LIMIT 1");
+			$bankalogoguncelleSorgusu->execute([$yenidosyaadi,$gelenbankaid]);
+			$bankalogosayisi=$bankalogoguncelleSorgusu->rowCount();
+			if ($bankalogosayisi<1) {
+				header("Location:index.php?SKD=0&SKI=17");
+				exit();	
+			}
+			$bankalogoyukle->clean();
+		}else{
+			header("Location:index.php?SKD=0&SKI=17");
+			exit();
+		} 
+	}
+}
+
+if (($bankahesabisayisi>0) or ($bankalogosayisi>0)) {
+	header("Location:index.php?SKD=0&SKI=16");
+	exit();
 }else{
-	header("Location:index.php?SKD=0&SKI=0");
+	header("Location:index.php?SKD=0&SKI=17");
+	exit();
+}
+}else{
+	header("Location:index.php?SKD=0&SKI=17");
+	exit();
+}
+}else{
+	header("Location:index.php?SKD=0&SKI=1");
 	exit();
 }
 ?>

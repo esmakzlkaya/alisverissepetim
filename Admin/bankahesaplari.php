@@ -29,6 +29,8 @@ if (isset($_SESSION["yonetici"])) {
 					$hesapno=$bankalar["hesapno"];
 					$ibanno=$bankalar["ibanno"];
 					$bankalogo=$bankalar["bankalogo"];
+
+					
 					
 					?>
 					<tr height="120" bgcolor="#001d26" valign="top">

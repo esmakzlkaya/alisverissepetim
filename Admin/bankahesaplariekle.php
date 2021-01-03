@@ -38,9 +38,14 @@ if (isset($_SESSION["yonetici"])) {
 							<td width="500" valign="top"><input type="text" class="inputAlanlari" name="subeadi"></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
-							<td width="230" style="color: white;">Para Birimi</td>
+							<td width="230" style="color: white;">Şube Kodu</td>
 							<td width="20" style="color: white;" > : </td>
 							<td width="500" valign="top"><input type="text" class="inputAlanlari" name="subekodu"></td>
+						</tr>
+						<tr height="50" style="border: solid 1px white;">
+							<td width="230" style="color: white;">Para Birimi</td>
+							<td width="20" style="color: white;" > : </td>
+							<td width="500" valign="top"><input type="text" class="inputAlanlari" name="parabirimi"></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
 							<td width="230" style="color: white;">Hesap Sahibi</td>
@@ -60,7 +65,7 @@ if (isset($_SESSION["yonetici"])) {
 						<tr height="50" style="border: solid 1px white;">
 							<td></td>
 							<td></td>
-							<td width="500" valign="top"><input class="yesilbuton" type="submit" value="Ekle"></td>
+							<td width="500" valign="top"><input class="yesilbuton" type="submit" value="EKLE"></td>
 						</tr>
 					</table>
 				</td>

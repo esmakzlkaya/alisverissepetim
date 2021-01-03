@@ -91,7 +91,7 @@ else{
 	<tr height="210">	
 		<td><table width="1065"  height="" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#F9F9F9">
 			<tr height="30">
-				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b>&nbsp;>KURUMSAL</b></td>
+				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b>&nbsp;KURUMSAL</b></td>
 				<td width="22" >&nbsp;</td>
 				<td width="250" style="border-bottom: 1px solid ;" class="altmenu"><b>ÜYELİK VE HİZMETLER</b></td>
 				<td width="22" style="border-bottom: 1px solid ;" class="altmenu">&nbsp;</td>

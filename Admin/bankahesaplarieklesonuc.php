@@ -26,6 +26,11 @@ if (isset($_SESSION["yonetici"])) {
 	}else{
 		$gelensubekodu="";
 	}
+	if(isset($_POST["parabirimi"])){
+		$gelenparabirimi=Guvenlik($_POST["parabirimi"]);	
+	}else{
+		$gelenparabirimi="";
+	}
 	if(isset($_POST["hesapsahibi"])){
 		$gelenhesapsahibi=Guvenlik($_POST["hesapsahibi"]);	
 	}else{
@@ -59,8 +64,8 @@ if (isset($_SESSION["yonetici"])) {
 
 	$yenidosyaadi=$yeniresimadiolustur.$gelenresminuzantisi;
 
-	$bankahesabiekleSorgusu=$DBConnection->prepare("INSERT INTO bankahesaplari (bankaadi, konumsehir, konumulke, subeadi, subekodu, hesapsahibi, hesapno,ibanno,bankalogo) VALUES (?,?,?,?,?,?,?,?,?)");
-	$bankahesabiekleSorgusu->execute([$gelenbankaadi,$gelensehir, $gelenulke, $gelensubeadi,$gelensubekodu,$gelenhesapsahibi, $gelenhesapno,$gelenibanno,$yenidosyaadi]);
+	$bankahesabiekleSorgusu=$DBConnection->prepare("INSERT INTO bankahesaplari (bankaadi, konumsehir, konumulke, subeadi, subekodu,parabirimi, hesapsahibi, hesapno,ibanno,bankalogo) VALUES (?,?,?,?,?,?,?,?,?,?)");
+	$bankahesabiekleSorgusu->execute([$gelenbankaadi,$gelensehir, $gelenulke, $gelensubeadi,$gelensubekodu,$gelenparabirimi,$gelenhesapsahibi, $gelenhesapno,$gelenibanno,$yenidosyaadi]);
 	$bankahesabisayisi=$bankahesabiekleSorgusu->rowCount();
 	if ($bankahesabisayisi>0) {
 
