@@ -44,19 +44,19 @@ if (isset($_SESSION["yonetici"])) {
 
 			if($bankalogoyukle->processed){
 				$bankalogoyukle->clean();
-				header("Location:index.php?SKD=0&SKI=28");
+				header("Location:index.php?SKD=0&SKI=24");
 				exit();
 			}else{
-				header("Location:index.php?SKD=0&SKI=29");
+				header("Location:index.php?SKD=0&SKI=25");
 				exit();
 			} 
 		}
 	}else{
-		header("Location:index.php?SKD=0&SKI=29");
+		header("Location:index.php?SKD=0&SKI=25");
 		exit();
 	}
 }else{
-	header("Location:index.php?SKD=0&SKI=29");
+	header("Location:index.php?SKD=0&SKI=25");
 	exit();
 }
 }else{

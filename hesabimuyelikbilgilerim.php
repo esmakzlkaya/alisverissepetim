@@ -79,7 +79,7 @@ if(isset($_SESSION["kullanici"])){
 						<td style="border-bottom: 1px solid #CCCCCC;">REKLAM</td>
 					</tr>
 					<tr height="30">
-						<td align="left" width="30"><img src="Resimler/Banner/545x340Reklam.jpg" border="0" style="margin-top: 3px;"></td>
+						<td align="left" width="30"><img src="Resimler/545x340Reklam.jpg" border="0" style="margin-top: 3px;"></td>
 					</tr>
 				</table>
 			</td>

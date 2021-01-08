@@ -3,13 +3,13 @@
 		<td>&nbsp;</td>
 	</tr>
 	<tr height="100">
-		<td align="center"><img src="../Resimler/Tamam.png" border="0"></td>
+		<td align="center"><img src="../Resimler/Hata.png" border="0"></td>
 	</tr>
 	<tr height="50">
-		<td align="center"><b>TEBRİKLER. Sık Sorulan Soru <b style="color: green;">eklendi.</b></td>
+		<td align="center"><b>HATA. Sık Sorulan Soru <b style="color: red;">güncellenemedi.</b></td>
 	</tr>
 	<tr>
-		<td align="center">İşlem başarıyla tamamlandı.</td>
+		<td align="center">İşlem sırasında beklenmeyen bir hata oluştu. Tekrar deneyiniz.</td>
 	</tr>
 	<tr>
 		<td align="center" class="sonucsayfalari">Anasayfaya dönmek için <a href="index.php?SKD=0&SKI=0">tıklayınız</a>.</td>

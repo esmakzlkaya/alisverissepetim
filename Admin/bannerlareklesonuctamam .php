@@ -6,7 +6,7 @@
 		<td align="center"><img src="../Resimler/Tamam.png" border="0"></td>
 	</tr>
 	<tr height="50">
-		<td align="center"><b>TEBRİKLER. Sık Sorulan Soru <b style="color: green;">eklendi.</b></td>
+		<td align="center"><b>TEBRİKLER. Banner <b style="color: green;">eklendi.</b></td>
 	</tr>
 	<tr>
 		<td align="center">İşlem başarıyla tamamlandı.</td>

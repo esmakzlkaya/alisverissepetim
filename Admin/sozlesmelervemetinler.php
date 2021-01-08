@@ -10,41 +10,41 @@ if (isset($_SESSION["yonetici"])) {
 				<td style="border: solid 1px #F50000;"></td>
 			</tr>
 			<tr>
-				<td width="750" align="center" bgcolor="#001d26" valign="top">
+				<td width="750" align="center"colo valign="top">
 					<table width="750" align="center" border="0" cellpadding="0" cellspacing="0">
 						<tr height="50" style="border: solid 1px white;">
-							<td width="230" style="color: white;">Hakkımızda Metni</td>
-							<td width="20" style="color: white;" > : </td>
+							<td width="230" style="color: black;"><b>Hakkımızda Metni</b></td>
+							<td width="20" style="color: black;" > : </td>
 							<td width="500" valign="top"><textarea  class="textareaalanlari" name="hakkimizdametni"><?php echo DonusumleriGeriDondur($hakkimizdametni); ?></textarea></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
-							<td width="230" style="color: white;">Üyelik Sözleşmesi Metni</td>
-							<td width="20" style="color: white;" > : </td>
+							<td width="230" style="color: black;"><b>Üyelik Sözleşmesi Metni</b></td>
+							<td width="20" style="color: black;" > : </td>
 							<td width="500" valign="top"><textarea  class="textareaalanlari" name="uyeliksozlesmesimetni"><?php echo DonusumleriGeriDondur($uyeliksozlesmesimetni); ?></textarea></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
-							<td width="230" style="color: white;">Kullanım Koşulları Metni</td>
-							<td width="20" style="color: white;" > : </td>
+							<td width="230" style="color: black;"><b>Kullanım Koşulları Metni</b></td>
+							<td width="20" style="color: black;" > : </td>
 							<td width="500" valign="top"><textarea  class="textareaalanlari" name="kullanimkosullarimetni"><?php echo DonusumleriGeriDondur($kullanimkosullarimetni); ?></textarea></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
-							<td width="230" style="color: white;">Gizlilik Sözleşmesi Metni</td>
-							<td width="20" style="color: white;" > : </td>
+							<td width="230" style="color: black;"><b>Gizlilik Sözleşmesi Metni</b></td>
+							<td width="20" style="color: black;" > : </td>
 							<td width="500" valign="top"><textarea  class="textareaalanlari" name="gizliliksozlesmesimetni"><?php echo DonusumleriGeriDondur($gizliliksozlesmesimetni); ?></textarea></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
-							<td width="230" style="color: white;">Mesafeli Satış Sözleşmesi Metni</td>
-							<td width="20" style="color: white;" > : </td>
+							<td width="230" style="color: black;"><b>Mesafeli Satış Sözleşmesi Metni</b></td>
+							<td width="20" style="color: black;" > : </td>
 							<td width="500" valign="top"><textarea  class="textareaalanlari" name="mesafelisatisozlesmesimetni"><?php echo DonusumleriGeriDondur($mesafelisatisozlesmesimetni); ?></textarea></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
-							<td width="230" style="color: white;">Teslimat Metni</td>
-							<td width="20" style="color: white;" > : </td>
+							<td width="230" style="color: black;"><b>Teslimat Metni</b></td>
+							<td width="20" style="color: black;" > : </td>
 							<td width="500" valign="top"><textarea  class="textareaalanlari" name="teslimatmetni"><?php echo DonusumleriGeriDondur($teslimatmetni); ?></textarea></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
-							<td width="230" style="color: white;">İptal & İade & Değişim Metni</td>
-							<td width="20" style="color: white;" > : </td>
+							<td width="230" style="color: black;"><b>İptal & İade & Değişim Metni</b></td>
+							<td width="20" style="color: black;" > : </td>
 							<td width="500" valign="top"><textarea  class="textareaalanlari" name="iptaliadedegisimmetni"><?php echo DonusumleriGeriDondur($iptaliadedegisimmetni); ?></textarea></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">

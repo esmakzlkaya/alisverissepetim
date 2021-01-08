@@ -88,7 +88,7 @@ if(isset($_GET["id"])){
 							if ($BannerSayisi>0) {
 								?>
 								<tr height="350">
-									<td><img src="Resimler/Banner/<?php echo $BannerKaydi["bannerresmi"]; ?>" border="0"></td>
+									<td><img src="Resimler/<?php echo $BannerKaydi["bannerresmi"]; ?>" border="0"></td>
 								</tr>
 								<?php
 								$BannerGuncelle		=	$DBConnection->prepare("UPDATE bannerlar SET gosterimsayisi=gosterimsayisi+1 WHERE id = ? LIMIT 1");

@@ -42,10 +42,10 @@ if (isset($_SESSION["yonetici"])) {
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=21">KARGO AYARLARI</a></td>
 					</tr>
 					<tr height="50">
-						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">BANNER AYARLARI</a></td>
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=33">BANNER AYARLARI</a></td>
 					</tr>
 					<tr height="50">
-						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">DESTEK İÇERİKLERİ</a></td>
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=45">DESTEK İÇERİKLERİ</a></td>
 					</tr>
 					<tr height="50">
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">YÖNETİCİLER</a></td>
