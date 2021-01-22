@@ -7,17 +7,15 @@ if (isset($_SESSION["yonetici"])) {
 		$gelensoru="";
 	}
 	if(isset($_POST["cevap"])){
-		$gelencevap=Guvenlik($_POST["cevap"]);	
+		$gelencevap=Guvenlik($_POST["cevap"]);		
 	}else{
 		$gelencevap="";
 	}
-	
 
 	if(($gelensoru !="") and ($gelencevap !="")){
-
-		$kargoekleSorgusu=$DBConnection->prepare("INSERT INTO sorular (soru, cevap) VALUES (?,?)");
-		$kargoekleSorgusu->execute([$gelensoru,$gelencevap]);
-		$sayisi=$kargoekleSorgusu->rowCount();
+		$soruekleSorgusu=$DBConnection->prepare("INSERT INTO sorular (soru, cevap) VALUES (?,?)");
+		$soruekleSorgusu->execute([$gelensoru,$gelencevap]);
+		$sayisi=$soruekleSorgusu->rowCount();
 		if ($sayisi>0) {
 			header("Location:index.php?SKD=0&SKI=48");
 			exit();

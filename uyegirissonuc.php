@@ -18,8 +18,8 @@ if(isset($_POST["sifre"])){
 $md5liSifre=md5($gelensifre);
 
 if(($gelenmail!="") and ($gelensifre!="")){
-	$kontrolSorgusu=$DBConnection->prepare("SELECT * FROM uyeler WHERE mail= ? AND sifre=? LIMIT 1");
-	$kontrolSorgusu->execute([$gelenmail,$md5liSifre]);
+	$kontrolSorgusu=$DBConnection->prepare("SELECT * FROM uyeler WHERE mail= ? AND sifre=? AND silinmedurumu=? LIMIT 1");
+	$kontrolSorgusu->execute([$gelenmail,$md5liSifre,0]);
 	$sayisi=$kontrolSorgusu->rowCount();
 	$kullanicikaydi=$kontrolSorgusu->fetch(PDO::FETCH_ASSOC);
 	if ($sayisi>0) {

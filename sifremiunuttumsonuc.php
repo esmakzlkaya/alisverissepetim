@@ -16,8 +16,8 @@ if(isset($_POST["tel"])){
 	$gelentelno="";
 }
 if(($gelenmail!="") or ($gelentelno!="")){
-	$kontrolSorgusu=$DBConnection->prepare("SELECT * FROM uyeler WHERE mail= ? OR telno=? LIMIT 1");
-	$kontrolSorgusu->execute([$gelenmail,$gelentelno]);
+	$kontrolSorgusu=$DBConnection->prepare("SELECT * FROM uyeler WHERE mail= ? OR telno=? AND silinmedurumu=?LIMIT 1");
+	$kontrolSorgusu->execute([$gelenmail,$gelentelno,0]);
 	$sayisi=$kontrolSorgusu->rowCount();
 	$kullanicikaydi=$kontrolSorgusu->fetch(PDO::FETCH_ASSOC);
 	if ($sayisi>0) {

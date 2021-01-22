@@ -33,7 +33,7 @@ if (isset($_SESSION["yonetici"])) {
 		exit();
 	}
 }else{
-	header("Location:index.php");
+	header("Location:index.php?SKI=0&SKD=0");
 	exit();
 }
 ?>

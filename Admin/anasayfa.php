@@ -18,19 +18,19 @@ if (isset($_SESSION["yonetici"])) {
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">HAVALE BİLDİRİMLERİ X/X</a></td>
 					</tr>
 					<tr height="50">
-						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">ÜRÜNLER</a></td>
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=94">ÜRÜNLER</a></td>
 					</tr>
 					<tr height="50">
-						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">ÜYELER</a></td>
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=82">ÜYELER</a></td>
 					</tr>
 					<tr height="50">
-						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">YORUMLAR</a></td>
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=90">YORUMLAR</a></td>
 					</tr>
 					<tr height="50">
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=1">SİTE AYARLARI</a></td>
 					</tr>
 					<tr height="50">
-						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">MENÜLER</a></td>
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=57">MENÜLER</a></td>
 					</tr>
 					<tr height="50">
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=9">BANKA HESAP AYARLARI</a></td>
@@ -48,7 +48,7 @@ if (isset($_SESSION["yonetici"])) {
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=45">DESTEK İÇERİKLERİ</a></td>
 					</tr>
 					<tr height="50">
-						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=0">YÖNETİCİLER</a></td>
+						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=0&SKI=69">YÖNETİCİLER</a></td>
 					</tr>
 					<tr height="50">
 						<td class="anamenusayfalari" align="center" bgcolor="#f50000" style="color: black;"><a href="index.php?SKD=4">ÇIKIŞ YAP</a></td>

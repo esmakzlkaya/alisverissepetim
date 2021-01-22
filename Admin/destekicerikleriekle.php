@@ -20,7 +20,7 @@ if (isset($_SESSION["yonetici"])) {
 						<tr height="50" style="border: solid 1px white;">
 							<td width="230" style="color: black;"><b>Cevap</b></td>
 							<td width="20" style="color: black;" > : </td>
-							<td width="500" valign="top"><textarea name="cevap" class="selectAlanlari"></textarea></td>
+							<td width="500" valign="top"><textarea name="cevap" class="textareaalanlari"></textarea></td>
 						</tr>
 						<tr height="50" style="border: solid 1px white;">
 							<td></td>
