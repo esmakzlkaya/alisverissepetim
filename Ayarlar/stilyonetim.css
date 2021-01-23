@@ -14,8 +14,8 @@ html,body{
 	text-decoration: none;
 }
 .inputAlanlari{
-	width: 90%;
-	height: 40px;
+	width: 95%;
+	height: 30px;
 	padding: 0px 10px;
 }
 .yesilbuton{
@@ -47,14 +47,14 @@ html,body{
 	font-variant: normal;
 }
 .textareaalanlari{
-	padding: 10px 10px;
 	width: 95%;
-	height: 100px;	
+	height: 150px;
+	padding: 10px 10px;	
 }
 .selectAlanlari{
-	padding: 0px 10px;
-	width: 95%;
+	width: 100%;
 	height: 40px;
+	padding: 0px 10px;
 }
 .sorualani{
 	width: 100%;
