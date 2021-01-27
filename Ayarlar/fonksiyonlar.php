@@ -4,6 +4,8 @@ $zamanDamgasi=time();
 $tarihSaat=date("d.m.Y H:i:s",$zamanDamgasi);
 $sitekokdizini=$_SERVER["DOCUMENT_ROOT"];
 $resimklasoruyolu="/AlışverişSepetim/Resimler/";
+$urunresimklasoruyolu="/AlışverişSepetim/Resimler/UrunResimleri/";
+$verotiUrunResimcinklasoryolu=$sitekokdizini . $urunresimklasoruyolu;
 $veroticinklasoryolu=$sitekokdizini . $resimklasoruyolu;
 
 function TarihBul($deger){

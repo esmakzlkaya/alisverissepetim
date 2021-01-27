@@ -44,15 +44,25 @@ if (isset($_SESSION["yonetici"])) {
 							<td width="20" style="color: black;">:</td>
 							<td width="500" valign="top"><input class="inputAlanlari" type="text" name="urunfiyati"></td>
 						</tr>
-						<tr height="50" >
-							<td width="230" style="color: black;"><b>Para Birimi</b></td>
-							<td width="20" style="color: black;" > : </td>
-							<td width="500" valign="top"><input type="text" class="inputAlanlari" name="parabirimi"></td>
+						<tr height="50">
+							<td width="230"style="color: black;"><b>Para Birimi</b></td>
+							<td width="20" style="color: black;">:</td>
+							<td width="500" ><select name="parabirimi" class="selectAlanlari">
+								<option value="">Lütfen Seçiniz</option>
+								<option value="TRY">Türk Lirası</option>
+								<option value="USD">Amerikan Doları</option>
+								<option value="EUR">Euro</option>
+							</select></td>
 						</tr>
 						<tr height="50">
 							<td width="230" style="color: black;"><b>KDV Oranı</b></td>
 							<td width="20" style="color: black;" > : </td>
 							<td width="500" valign="top"><input type="text" class="inputAlanlari" name="kdvorani"></td>
+						</tr>
+						<tr height="50">
+							<td width="230" style="color: black;"><b>Kargo Ücreti</b></td>
+							<td width="20" style="color: black;" > : </td>
+							<td width="500" valign="top"><input type="text" class="inputAlanlari" name="kargoucreti"></td>
 						</tr>
 						<tr height="50" >
 							<td width="230" style="color: black;"><b>Ürün Açıklaması</b></td>
