@@ -182,9 +182,6 @@ if (isset($_SESSION["yonetici"])) {
 		$urunlersayisi=$urunlerekleSorgusu->rowCount();
 		if ($urunlersayisi>0) {
 			$soneklenenurunidsi=$DBConnection->lastInsertId();
-			echo $soneklenenurunidsi;
-			die();
-
 
 			$urunresimbiryukle	=	new upload($gelenresimbir, "tr-TR");
 			if($urunresimbiryukle->uploaded){
@@ -216,6 +213,182 @@ if (isset($_SESSION["yonetici"])) {
 			$menuguncellesayisi=$menuGuncelleSorgusu->rowCount();	
 			if ($menuguncellesayisi>0) {
 				
+				$BirincivaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+				$BirincivaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi1,$gelenstokadedi1]);
+				$birincivaryantsayisi=$BirincivaryantekleSorgusu->rowCount();
+				if ($birincivaryantsayisi>0) {
+					if (($gelenvaryantadi2!="")and($gelenstokadedi2!="")) {
+						$ikivaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$ikivaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi2,$gelenstokadedi2]);
+					}
+					if (($gelenvaryantadi3!="")and($gelenstokadedi3!="")) {
+						$ucvaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$ucvaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi3,$gelenstokadedi3]);
+					}
+					if (($gelenvaryantadi4!="")and($gelenstokadedi4!="")) {
+						$dortvaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$dortvaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi4,$gelenstokadedi4]);
+					}
+					if (($gelenvaryantadi5!="")and($gelenstokadedi5!="")) {
+						$besvaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$besvaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi5,$gelenstokadedi5]);
+					}
+					if (($gelenvaryantadi6!="")and($gelenstokadedi6!="")) {
+						$altivaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$altivaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi6,$gelenstokadedi6]);
+					}
+					if (($gelenvaryantadi7!="")and($gelenstokadedi7!="")) {
+						$yedivaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$yedivaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi7,$gelenstokadedi7]);
+					}
+					if (($gelenvaryantadi8!="")and($gelenstokadedi8!="")) {
+						$sekizvaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$sekizvaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi8,$gelenstokadedi8]);
+					}
+					if (($gelenvaryantadi9!="")and($gelenstokadedi9!="")) {
+						$dokuzvaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$dokuzvaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi9,$gelenstokadedi9]);
+					}
+					if (($gelenvaryantadi10!="")and($gelenstokadedi10!="")) {
+						$onvaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
+						$onvaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi10,$gelenstokadedi10]);
+					}
+					if (($gelenresimiki["name"]!="") and ($gelenresimiki["type"]!="") and($gelenresimiki["tmp_name"]!="") and ($gelenresimiki["error"]==0) and ($gelenresimiki["size"]>0)) {
+						
+						$ikiResimicinDosyaAdi= resimadiolustur();
+						$gelenikinciresminuzantisi=substr($gelenresimiki["name"],-4);
+
+						if ($gelenikinciresminuzantisi=="jpeg") {
+							$gelenikinciresminuzantisi=".".$gelenikinciresminuzantisi;
+						}
+
+						$ikiresimyenidosyaadi=$ikiResimicinDosyaAdi.$gelenikinciresminuzantisi;
+
+						$urunresimikiyukle	=	new upload($gelenresimiki, "tr-TR");
+						if($urunresimikiyukle->uploaded){
+							$urunresimikiyukle->mime_magic_check		=	true;
+							$urunresimikiyukle->allowed				=	array("image/*");
+							$urunresimikiyukle->file_new_name_body		=	$ikiResimicinDosyaAdi;
+							$urunresimikiyukle->file_overwrite			=	true;
+			//$urunresimbiryukle->image_convert			=	"png";
+							$urunresimikiyukle->image_quality			=	100;
+							$urunresimikiyukle->image_background_color	="#FFFFFF";
+							$urunresimikiyukle->image_resize			=	true;
+							$urunresimikiyukle->image_ratio=true;
+							$urunresimikiyukle->image_y				=	600;
+							$urunresimikiyukle->image_x				=	800;
+							$urunresimikiyukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
+
+							if($urunresimikiyukle->processed){
+								$menuGuncelleSorgusu=$DBConnection->prepare("UPDATE urunler SET resimiki=? WHERE id=? LIMIT 1");
+								$menuGuncelleSorgusu->execute([$ikiresimyenidosyaadi,$soneklenenurunidsi]);
+								$urunresimikiyukle->clean();
+							}
+						}
+					}
+					if (($gelenresimiki["name"]!="") and ($gelenresimiki["type"]!="") and($gelenresimiki["tmp_name"]!="") and ($gelenresimiki["error"]==0) and ($gelenresimiki["size"]>0)) {
+						
+						$ikiResimicinDosyaAdi= resimadiolustur();
+						$gelenikinciresminuzantisi=substr($gelenresimiki["name"],-4);
+
+						if ($gelenikinciresminuzantisi=="jpeg") {
+							$gelenikinciresminuzantisi=".".$gelenikinciresminuzantisi;
+						}
+
+						$ikiresimyenidosyaadi=$ikiResimicinDosyaAdi.$gelenikinciresminuzantisi;
+
+						$urunresimikiyukle	=	new upload($gelenresimiki, "tr-TR");
+						if($urunresimikiyukle->uploaded){
+							$urunresimikiyukle->mime_magic_check		=	true;
+							$urunresimikiyukle->allowed				=	array("image/*");
+							$urunresimikiyukle->file_new_name_body		=	$ikiResimicinDosyaAdi;
+							$urunresimikiyukle->file_overwrite			=	true;
+			//$urunresimbiryukle->image_convert			=	"png";
+							$urunresimikiyukle->image_quality			=	100;
+							$urunresimikiyukle->image_background_color	="#FFFFFF";
+							$urunresimikiyukle->image_resize			=	true;
+							$urunresimikiyukle->image_ratio=true;
+							$urunresimikiyukle->image_y				=	600;
+							$urunresimikiyukle->image_x				=	800;
+							$urunresimikiyukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
+
+							if($urunresimikiyukle->processed){
+								$ikimenuGuncelleSorgusu=$DBConnection->prepare("UPDATE urunler SET resimiki=? WHERE id=? LIMIT 1");
+								$ikimenuGuncelleSorgusu->execute([$ikiresimyenidosyaadi,$soneklenenurunidsi]);
+								$urunresimikiyukle->clean();
+							}
+						}
+					}
+					if (($gelenresimuc["name"]!="") and ($gelenresimuc["type"]!="") and($gelenresimuc["tmp_name"]!="") and ($gelenresimuc["error"]==0) and ($gelenresimuc["size"]>0)) {
+						
+						$ucResimicinDosyaAdi= resimadiolustur();
+						$gelenucuncuresminuzantisi=substr($gelenresimuc["name"],-4);
+
+						if ($gelenucuncuresminuzantisi=="jpeg") {
+							$gelenucuncuresminuzantisi=".".$gelenucuncuresminuzantisi;
+						}
+						$ucresimyenidosyaadi=$ucResimicinDosyaAdi.$gelenucuncuresminuzantisi;
+
+						$urunresimucyukle	=	new upload($gelenresimuc, "tr-TR");
+						if($urunresimucyukle->uploaded){
+							$urunresimucyukle->mime_magic_check		=	true;
+							$urunresimucyukle->allowed				=	array("image/*");
+							$urunresimucyukle->file_new_name_body		=	$ucResimicinDosyaAdi;
+							$urunresimucyukle->file_overwrite			=	true;
+			//$urunresimbiryukle->image_convert			=	"png";
+							$urunresimucyukle->image_quality			=	100;
+							$urunresimucyukle->image_background_color	="#FFFFFF";
+							$urunresimucyukle->image_resize			=	true;
+							$urunresimucyukle->image_ratio=true;
+							$urunresimucyukle->image_y				=	600;
+							$urunresimucyukle->image_x				=	800;
+							$urunresimucyukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
+
+							if($urunresimucyukle->processed){
+								$ucmenuGuncelleSorgusu=$DBConnection->prepare("UPDATE urunler SET resimuc=? WHERE id=? LIMIT 1");
+								$ucmenuGuncelleSorgusu->execute([$ucresimyenidosyaadi,$soneklenenurunidsi]);
+								$urunresimucyukle->clean();
+							}
+						}
+					}
+					if (($gelenresimdort["name"]!="") and ($gelenresimdort["type"]!="") and($gelenresimdort["tmp_name"]!="") and ($gelenresimdort["error"]==0) and ($gelenresimdort["size"]>0)) {
+						
+						$dortResimicinDosyaAdi= resimadiolustur();
+						$gelendorduncuresminuzantisi=substr($gelenresimdort["name"],-4);
+
+						if ($gelendorduncuresminuzantisi=="jpeg") {
+							$gelendorduncuresminuzantisi=".".$gelendorduncuresminuzantisi;
+						}
+
+						$dortresimyenidosyaadi=$dortResimicinDosyaAdi.$gelendorduncuresminuzantisi;
+
+						$urunresimdortyukle	=	new upload($gelenresimdort, "tr-TR");
+						if($urunresimdortyukle->uploaded){
+							$urunresimdortyukle->mime_magic_check		=	true;
+							$urunresimdortyukle->allowed				=	array("image/*");
+							$urunresimdortyukle->file_new_name_body		=	$dortResimicinDosyaAdi;
+							$urunresimdortyukle->file_overwrite			=	true;
+			//$urunresimbiryukle->image_convert			=	"png";
+							$urunresimdortyukle->image_quality			=	100;
+							$urunresimdortyukle->image_background_color	="#FFFFFF";
+							$urunresimdortyukle->image_resize			=	true;
+							$urunresimdortyukle->image_ratio=true;
+							$urunresimdortyukle->image_y				=	600;
+							$urunresimdortyukle->image_x				=	800;
+							$urunresimdortyukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
+
+							if($urunresimdortyukle->processed){
+								$dortmenuGuncelleSorgusu=$DBConnection->prepare("UPDATE urunler SET resimdort=? WHERE id=? LIMIT 1");
+								$dortmenuGuncelleSorgusu->execute([$dortresimyenidosyaadi,$soneklenenurunidsi]);
+								$urunresimdortyukle->clean();
+							}
+						}
+					}
+
+				}else{
+					header("Location:index.php?SKD=0&SKI=98");
+					exit();
+				}
 
 
 			}else{
@@ -226,21 +399,15 @@ if (isset($_SESSION["yonetici"])) {
 			header("Location:index.php?SKD=0&SKI=97");
 			exit();
 		}else{
-			echo "2";
-			die();
 			header("Location:index.php?SKD=0&SKI=98");
 			exit();
 		}
 	}
 	else{
-		echo "3";
-		die();
 		header("Location:index.php?SKD=0&SKI=98");
 		exit();
 	}
 }else{
-	echo "4";
-	die();
 	header("Location:index.php?SKD=0&SKI=98");
 	exit();
 }
