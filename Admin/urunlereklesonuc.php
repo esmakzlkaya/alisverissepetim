@@ -157,26 +157,22 @@ if (isset($_SESSION["yonetici"])) {
 	$menuturukontrol=$menuturuSorgusu->rowCount();
 	$menuler=$menuturuSorgusu->fetch(PDO::FETCH_ASSOC);
 
+$gelenurunturu=$menuler["urunturu"];
+	if($menuler["urunturu"] == "Erkek Ayakkabısı"){
+		$urunresmiklasoru	=	"UrunResimleri/Erkek/";
+	}elseif($menuler["urunturu"] == "Kadın Ayakkabısı"){
+		$urunresmiklasoru	=	"UrunResimleri/Kadin/";
+	}elseif($menuler["urunturu"] == "Çocuk Ayakkabısı"){
+		$urunresmiklasoru	=	"UrunResimleri/Cocuk/";
+	}
 	if ($menuturukontrol>0) {
-
-		$gelenurunturu=$menuler["urunturu"];
-		if ($gelenurunturu=="Çocuk Ayakkabısı") {
-			$urunresmiklasoru="Cocuk";
-		}elseif($gelenurunturu=="Kadın Ayakkabısı"){
-			$urunresmiklasoru="Kadin";
-		}elseif($gelenurunturu=="Erkek"){
-			$urunresmiklasoru="Erkek";
-		}
-
 		$birinciResimicinDosyaAdi= resimadiolustur();
 		$gelenbirinciresminuzantisi=substr($gelenresimbir["name"],-4);
 
 		if ($gelenbirinciresminuzantisi=="jpeg") {
 			$gelenbirinciresminuzantisi=".".$gelenbirinciresminuzantisi;
 		}
-
 		$birinciresimyenidosyaadi=$birinciResimicinDosyaAdi.$gelenbirinciresminuzantisi;
-
 		$urunlerekleSorgusu=$DBConnection->prepare("INSERT INTO urunler (menuid,urunturu,urunadi, urunfiyati,parabirimi,kdvorani,urunaciklamasi,resimbir,varyantbasligi, durumu, kargoucreti) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 		$urunlerekleSorgusu->execute([$gelenurunmenusu,$gelenurunturu,$gelenurunadi, $gelenurunfiyati, $gelenparabirimi,$gelenkdvorani,$gelenurunaciklamasi,$birinciresimyenidosyaadi,$gelenurunvaryant,1,$gelenkargoucreti]);
 		$urunlersayisi=$urunlerekleSorgusu->rowCount();
@@ -185,34 +181,28 @@ if (isset($_SESSION["yonetici"])) {
 
 			$urunresimbiryukle	=	new upload($gelenresimbir, "tr-TR");
 			if($urunresimbiryukle->uploaded){
+
 				$urunresimbiryukle->mime_magic_check		=	true;
 				$urunresimbiryukle->allowed				=	array("image/*");
 				$urunresimbiryukle->file_new_name_body		=	$birinciResimicinDosyaAdi;
 				$urunresimbiryukle->file_overwrite			=	true;
-			//$urunresimbiryukle->image_convert			=	"png";
+
 				$urunresimbiryukle->image_quality			=	100;
 				$urunresimbiryukle->image_background_color	="#FFFFFF";
 				$urunresimbiryukle->image_resize			=	true;
 				$urunresimbiryukle->image_ratio=true;
 				$urunresimbiryukle->image_y				=	600;
 				$urunresimbiryukle->image_x				=	800;
-				$urunresimbiryukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
+				$urunresimbiryukle->process($veroticinklasoryolu.$urunresmiklasoru);
 
 				if($urunresimbiryukle->processed){
 					$urunresimbiryukle->clean();
-				}else{
-					echo "1";
-					die();
-					header("Location:index.php?SKD=0&SKI=98");
-					exit();
-				} 
+				}
 			}
-
 			$menuGuncelleSorgusu=$DBConnection->prepare("UPDATE menuler SET urunsayisi=urunsayisi+1 WHERE id=? LIMIT 1");
 			$menuGuncelleSorgusu->execute([$gelenurunmenusu]);
 			$menuguncellesayisi=$menuGuncelleSorgusu->rowCount();	
 			if ($menuguncellesayisi>0) {
-				
 				$BirincivaryantekleSorgusu=$DBConnection->prepare("INSERT INTO urunvaryantlari (urunid,varyantadi,stokadedi) VALUES (?,?,?)");
 				$BirincivaryantekleSorgusu->execute([$soneklenenurunidsi,$gelenvaryantadi1,$gelenstokadedi1]);
 				$birincivaryantsayisi=$BirincivaryantekleSorgusu->rowCount();
@@ -270,51 +260,18 @@ if (isset($_SESSION["yonetici"])) {
 							$urunresimikiyukle->allowed				=	array("image/*");
 							$urunresimikiyukle->file_new_name_body		=	$ikiResimicinDosyaAdi;
 							$urunresimikiyukle->file_overwrite			=	true;
-			//$urunresimbiryukle->image_convert			=	"png";
+
 							$urunresimikiyukle->image_quality			=	100;
 							$urunresimikiyukle->image_background_color	="#FFFFFF";
 							$urunresimikiyukle->image_resize			=	true;
 							$urunresimikiyukle->image_ratio=true;
 							$urunresimikiyukle->image_y				=	600;
 							$urunresimikiyukle->image_x				=	800;
-							$urunresimikiyukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
+							$urunresimikiyukle->process($veroticinklasoryolu.$urunresmiklasoru);
 
 							if($urunresimikiyukle->processed){
 								$menuGuncelleSorgusu=$DBConnection->prepare("UPDATE urunler SET resimiki=? WHERE id=? LIMIT 1");
 								$menuGuncelleSorgusu->execute([$ikiresimyenidosyaadi,$soneklenenurunidsi]);
-								$urunresimikiyukle->clean();
-							}
-						}
-					}
-					if (($gelenresimiki["name"]!="") and ($gelenresimiki["type"]!="") and($gelenresimiki["tmp_name"]!="") and ($gelenresimiki["error"]==0) and ($gelenresimiki["size"]>0)) {
-						
-						$ikiResimicinDosyaAdi= resimadiolustur();
-						$gelenikinciresminuzantisi=substr($gelenresimiki["name"],-4);
-
-						if ($gelenikinciresminuzantisi=="jpeg") {
-							$gelenikinciresminuzantisi=".".$gelenikinciresminuzantisi;
-						}
-
-						$ikiresimyenidosyaadi=$ikiResimicinDosyaAdi.$gelenikinciresminuzantisi;
-
-						$urunresimikiyukle	=	new upload($gelenresimiki, "tr-TR");
-						if($urunresimikiyukle->uploaded){
-							$urunresimikiyukle->mime_magic_check		=	true;
-							$urunresimikiyukle->allowed				=	array("image/*");
-							$urunresimikiyukle->file_new_name_body		=	$ikiResimicinDosyaAdi;
-							$urunresimikiyukle->file_overwrite			=	true;
-			//$urunresimbiryukle->image_convert			=	"png";
-							$urunresimikiyukle->image_quality			=	100;
-							$urunresimikiyukle->image_background_color	="#FFFFFF";
-							$urunresimikiyukle->image_resize			=	true;
-							$urunresimikiyukle->image_ratio=true;
-							$urunresimikiyukle->image_y				=	600;
-							$urunresimikiyukle->image_x				=	800;
-							$urunresimikiyukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
-
-							if($urunresimikiyukle->processed){
-								$ikimenuGuncelleSorgusu=$DBConnection->prepare("UPDATE urunler SET resimiki=? WHERE id=? LIMIT 1");
-								$ikimenuGuncelleSorgusu->execute([$ikiresimyenidosyaadi,$soneklenenurunidsi]);
 								$urunresimikiyukle->clean();
 							}
 						}
@@ -335,14 +292,14 @@ if (isset($_SESSION["yonetici"])) {
 							$urunresimucyukle->allowed				=	array("image/*");
 							$urunresimucyukle->file_new_name_body		=	$ucResimicinDosyaAdi;
 							$urunresimucyukle->file_overwrite			=	true;
-			//$urunresimbiryukle->image_convert			=	"png";
+
 							$urunresimucyukle->image_quality			=	100;
 							$urunresimucyukle->image_background_color	="#FFFFFF";
 							$urunresimucyukle->image_resize			=	true;
 							$urunresimucyukle->image_ratio=true;
 							$urunresimucyukle->image_y				=	600;
 							$urunresimucyukle->image_x				=	800;
-							$urunresimucyukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
+							$urunresimucyukle->process($veroticinklasoryolu.$urunresmiklasoru);
 
 							if($urunresimucyukle->processed){
 								$ucmenuGuncelleSorgusu=$DBConnection->prepare("UPDATE urunler SET resimuc=? WHERE id=? LIMIT 1");
@@ -368,14 +325,14 @@ if (isset($_SESSION["yonetici"])) {
 							$urunresimdortyukle->allowed				=	array("image/*");
 							$urunresimdortyukle->file_new_name_body		=	$dortResimicinDosyaAdi;
 							$urunresimdortyukle->file_overwrite			=	true;
-			//$urunresimbiryukle->image_convert			=	"png";
+
 							$urunresimdortyukle->image_quality			=	100;
 							$urunresimdortyukle->image_background_color	="#FFFFFF";
 							$urunresimdortyukle->image_resize			=	true;
 							$urunresimdortyukle->image_ratio=true;
 							$urunresimdortyukle->image_y				=	600;
 							$urunresimdortyukle->image_x				=	800;
-							$urunresimdortyukle->process($verotiUrunResimcinklasoryolu.$urunresmiklasoru);
+							$urunresimdortyukle->process($veroticinklasoryolu.$urunresmiklasoru);
 
 							if($urunresimdortyukle->processed){
 								$dortmenuGuncelleSorgusu=$DBConnection->prepare("UPDATE urunler SET resimdort=? WHERE id=? LIMIT 1");
@@ -384,30 +341,35 @@ if (isset($_SESSION["yonetici"])) {
 							}
 						}
 					}
-
 				}else{
+					echo "1";
+					die();
 					header("Location:index.php?SKD=0&SKI=98");
 					exit();
 				}
-
-
 			}else{
+				echo "2";
+					die();
 				header("Location:index.php?SKD=0&SKI=98");
 				exit();
 			}
-
 			header("Location:index.php?SKD=0&SKI=97");
 			exit();
 		}else{
+			echo "3";
+					die();
 			header("Location:index.php?SKD=0&SKI=98");
 			exit();
 		}
-	}
-	else{
+	}else{
+		echo "4";
+					die();
 		header("Location:index.php?SKD=0&SKI=98");
 		exit();
 	}
 }else{
+	echo "6";
+					die();
 	header("Location:index.php?SKD=0&SKI=98");
 	exit();
 }

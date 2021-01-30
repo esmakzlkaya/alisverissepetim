@@ -94,7 +94,6 @@ $sayfaic[91]  ="yorumlarsilsonuc.php";
 $sayfaic[92]  ="yorumlarsilsonuctamam.php";
 $sayfaic[93]  ="yorumlarsilsonuchata.php";
 $sayfaic[94]  ="urunler.php";
-
 $sayfaic[95]  ="urunlerekle.php";
 $sayfaic[96]  ="urunlereklesonuc.php";
 $sayfaic[97]  ="urunlereklesonuctamam.php";
