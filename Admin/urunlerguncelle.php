@@ -11,7 +11,7 @@ if (isset($_SESSION["yonetici"])) {
 	$urunler=$urunlerSorgusu->fetch(PDO::FETCH_ASSOC);
 	if($urunsayisi>0){
 		?>
-		<form method="post" action="index.php?SKD=0&SKI=100&id=<?php echo DonusumleriGeriDondur($gelenyoneticiid); ?>" enctype="multipart/form-data">
+		<form method="post" action="index.php?SKD=0&SKI=100&id=<?php echo DonusumleriGeriDondur($gelenurunid); ?>" enctype="multipart/form-data">
 			<table width="760" height="100%" align="center" border="0" cellpadding="0" cellspacing="0">
 				<tr height="70">
 					<td bgcolor="#001d26" align="center" height="100" style="color: #FF0000;"><h3>ÜRÜNLER GÜNCELLE</h3></td>
