@@ -316,7 +316,7 @@ if (isset($_SESSION["yonetici"])) {
 								<tr height="50" >
 									<td></td>
 									<td></td>
-									<td width="500" valign="top"><input class="yesilbuton" type="submit" value="EKLE"></td>
+									<td width="500" valign="top"><input class="yesilbuton" type="submit" value="GÜNCELLE"></td>
 								</tr>
 							</table>
 						</td>
