@@ -98,19 +98,19 @@ $sayfaic[95]  ="urunlerekle.php";
 $sayfaic[96]  ="urunlereklesonuc.php";
 $sayfaic[97]  ="urunlereklesonuctamam.php";
 $sayfaic[98]  ="urunlereklesonuchata.php";
-
 $sayfaic[99]  ="urunlerguncelle.php";
 $sayfaic[100] ="urunlerguncellesonuc.php";
 $sayfaic[101] ="urunlerguncellesonuctamam.php";
 $sayfaic[102] ="urunlerguncellesonuchata.php";
-
 $sayfaic[103] ="urunlersilsonuc.php";
 $sayfaic[104] ="urunlersilsonuctamam.php";
 $sayfaic[105] ="urunlersilsonuchata.php";
 
-$sayfaic[106] =".php";
-$sayfaic[107] =".php";
-$sayfaic[108] =".php";
+$sayfaic[106] ="siparisler.php";
+
+$sayfaic[107] ="siparislertamamlanan.php";
+ 
+$sayfaic[108] ="siparisdetay.php";
 $sayfaic[109] =".php";
 $sayfaic[110] =".php";
 $sayfaic[111] =".php";
