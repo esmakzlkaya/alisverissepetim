@@ -108,10 +108,11 @@ $sayfaic[105] ="urunlersilsonuchata.php";
 
 $sayfaic[106] ="siparisler.php";
 
-$sayfaic[107] ="siparislertamamlanan.php";
+$sayfaic[107] ="siparisdetay.php";
  
-$sayfaic[108] ="siparisdetay.php";
-$sayfaic[109] =".php";
+$sayfaic[108] ="siparislertamamlanan.php";
+
+$sayfaic[109] ="siparislertamamlanandetay.php";
 $sayfaic[110] =".php";
 $sayfaic[111] =".php";
 $sayfaic[112] =".php";
