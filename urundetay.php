@@ -260,10 +260,10 @@ if(isset($_GET["id"])){
 	<?php
 }
 else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 }
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

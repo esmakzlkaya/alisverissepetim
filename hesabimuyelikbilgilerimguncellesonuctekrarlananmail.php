@@ -15,7 +15,7 @@ if(isset($_SESSION["kullanici"])){
 		<td align="center">Bu e posta adresine ait kullanıcı bulunmakta.</td>
 	</tr>
 	<tr>
-		<td align="center" class="sonucsayfalari">Hesabım sayfasına dönmek için <a href="index.php?SK=51"> buraya tıklayınız</a>. Anasayfaya dönmek için <a href="index.php">tıklayınız</a>.</td>
+		<td align="center" class="sonucsayfalari">Hesabım sayfasına dönmek için <a href="index.php?SK=51"> buraya tıklayınız</a>. Anasayfaya dönmek için <a href="anasayfa">tıklayınız</a>.</td>
 	</tr>
 	<tr>
 		<td height="50">&nbsp;</td>
@@ -24,7 +24,7 @@ if(isset($_SESSION["kullanici"])){
 <?php 
 }
 else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

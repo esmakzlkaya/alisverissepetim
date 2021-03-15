@@ -46,9 +46,14 @@ if (isset($_SESSION["yonetici"])) {
 		}
 		else{
 			?>
-			<tr height="50">
-				<td colspan="" style="border: solid 1px #F50000; color: black;">Sık Sorulan Soru bulunmamaktadır. </td>
+			<tr>
+				<td colspan=""><table width="750" align="right" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="750">Sık Sorulan Soru bulunmamaktadır.</td>
+					</tr>
+				</table></td>
 			</tr>
+			
 			<?php
 		}
 		?>

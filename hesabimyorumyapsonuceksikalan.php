@@ -15,7 +15,7 @@ if(isset($_SESSION["kullanici"])){
 		<td align="center">Tekrar deneyiniz.</td>
 	</tr>
 	<tr>
-		<td align="center" class="sonucsayfalari">Siparişler sayfasına dönmek için <a href="index.php?SK=61"> buraya tıklayınız</a>. Anasayfaya dönmek için <a href="index.php">tıklayınız</a>.</td>
+		<td align="center" class="sonucsayfalari">Siparişler sayfasına dönmek için <a href="hesabim-siparisler"> buraya tıklayınız</a>. Anasayfaya dönmek için <a href="anasayfa">tıklayınız</a>.</td>
 	</tr>
 	<tr>
 		<td height="50">&nbsp;</td>
@@ -24,7 +24,7 @@ if(isset($_SESSION["kullanici"])){
 <?php 
 }
 else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

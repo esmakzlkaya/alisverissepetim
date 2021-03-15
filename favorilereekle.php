@@ -27,11 +27,11 @@ if(isset($_SESSION["kullanici"])){
 		}
 	}
 	}else{ // eksik alanlar var
-		header("Location:index.php");
+		header("Location:anasayfa");
 		exit();
 	} 
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

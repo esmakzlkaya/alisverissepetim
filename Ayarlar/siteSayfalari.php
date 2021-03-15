@@ -104,5 +104,5 @@
 	$sayfakodu[102]="sepetkredikartiodemesonuc.php";
 	$sayfakodu[103]="sepetkredikartiodemesonuctamam.php";
 	$sayfakodu[104]="sepetkredikartiodemesonuchata.php";
-	$sayfakodu[105]=".php";
+	$sayfakodu[105]="sipariskargokodugiris.php";
 	$sayfakodu[106]=".php";

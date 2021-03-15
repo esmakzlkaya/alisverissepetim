@@ -12,7 +12,7 @@
 		<td align="center">Hesabınızı kullanmaya devam edebilirsiniz. </td>
 	</tr>
 	<tr>
-		<td align="center" class="sonucsayfalari">Adreslerim sayfasına dönmek için <a href="index.php?SK=58">tıklayınız</a>. Anasayfaya dönmek için <a href="index.php">tıklayınız</a>.</td>
+		<td align="center" class="sonucsayfalari">Adreslerim sayfasına dönmek için <a href="hesabim-adresler">tıklayınız</a>. Anasayfaya dönmek için <a href="anasayfa">tıklayınız</a>.</td>
 	</tr>
 	<tr>
 		<td height="50">&nbsp;</td>

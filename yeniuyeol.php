@@ -55,7 +55,7 @@
 					</tr>
 					<tr height="30"> 
 						<td align="left" width="25"><input type="checkbox" name="uyeliksozlesmeonay" value="1"></td>
-						<td  align="left" width="475" class="uyelikFormu"><a href="index.php?SK=2" target="_blank">Üyelik sözleşmesi </a>' ni okudum, onaylıyorum. (*) </td>
+						<td  align="left" width="475" class="uyelikFormu"><a href="uyelik-sozlesmesi" target="_blank">Üyelik sözleşmesi </a>' ni okudum, onaylıyorum. (*) </td>
 					</tr>
 					<tr height="40">
 						<td align="center" colspan="2"><input type="submit" value="ÜYE OL" class="yesilbuton"></td>

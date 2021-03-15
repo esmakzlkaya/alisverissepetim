@@ -41,7 +41,7 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 						<td bgcolor="#F1F1F1"><b>&nbsp;MENÜLER</b></td>
 					</tr>
 					<tr height="30">
-						<td><a class="hesabimlink" href="index.php?SK=84" style="text-decoration: none; <?php if($gelenmenuid==""){ ?>color: #FF9900;<? }else{ ?>color: #646464;<?php } ?> font-weight: bold;">&nbsp;Tüm Ürünler (<?php echo $tumurunlersayisikaydi["toplamurunsayisi"]; ?>) </a></td>
+						<td><a class="hesabimlink" href="kadin-giyim" style="text-decoration: none; <?php if($gelenmenuid==""){ ?>color: #FF9900;<? }else{ ?>color: #646464;<?php } ?> font-weight: bold;">&nbsp;Tüm Ürünler (<?php echo $tumurunlersayisikaydi["toplamurunsayisi"]; ?>) </a></td>
 					</tr>
 					<?php
 					$MenulerSorgusu		=	$DBConnection->prepare("SELECT * FROM menuler WHERE urunturu = 'Kadın Ayakkabısı' ORDER BY menuadi ASC");
@@ -52,7 +52,7 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 					foreach($MenuKayitlari as $Menu){
 						?>
 						<tr height="30">
-							<td><a class="hesabimlink" href="index.php?SK=84&menuid=<?php echo $Menu["id"]; ?>" style="text-decoration: none; <?php if($gelenmenuid==$Menu["id"]){ ?>color: #FF9900;<? }else{ ?>color: #646464;<?php } ?> font-weight: bold;">&nbsp;<?php echo DonusumleriGeriDondur($Menu["menuadi"]); ?> (<?php echo DonusumleriGeriDondur($Menu["urunsayisi"]); ?>)</a></td>
+							<td><a class="hesabimlink" href="kadin-giyim/menu/<?php echo $Menu["id"]; ?>" style="text-decoration: none; <?php if($gelenmenuid==$Menu["id"]){ ?>color: #FF9900;<? }else{ ?>color: #646464;<?php } ?> font-weight: bold;">&nbsp;<?php echo DonusumleriGeriDondur($Menu["menuadi"]); ?> (<?php echo DonusumleriGeriDondur($Menu["urunsayisi"]); ?>)</a></td>
 						</tr>
 						<?php
 					}
@@ -86,7 +86,7 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 		<td width="11" align="left">&nbsp;</td>
 		<td width="795" align="left" valign="top"><table width="795" align="center" border="0" cellpadding="0" cellspacing="0">
 			<tr>
-				<td><div class="aramaalani"><form method="post" action="<?php if ($MenuKosulu!=""){ ?> index.php?SK=84&menuid=<?php echo $gelenmenuid; }else{ ?> index.php?SK=84 <?php	} ?> ">
+				<td><div class="aramaalani"><form method="post" action="<?php if ($MenuKosulu!=""){ ?> kadin-giyim/menu/<?php echo $Menu["id"]; ?> }else{ ?> kadin-giyim <?php	} ?> ">
 					<div class="aramaalanibuton">
 						<input type="submit" value="" class="aramabutonu">
 					</div>
@@ -150,19 +150,19 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 											<td width="191" valign="top">
 												<table width="191" align="left" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;"> <!-- border: 1px solid #CCCCCC; -->
 													<tr height="40">
-														<td align="center"><a href="index.php?SK=82&id=<?php echo DonusumleriGeriDondur($urun["id"]); ?>"><img src="Resimler/UrunResimleri/Kadin/<?php echo DonusumleriGeriDondur($urun["resimbir"]); ?>" border="0" width="180" height="240"></a></td>
+														<td align="center"><a href="kadin-giyim/<?php echo SEO(DonusumleriGeriDondur($urun["urunadi"])); ?>/<?php echo DonusumleriGeriDondur($urun["id"]); ?>"><img src="Resimler/UrunResimleri/Kadin/<?php echo DonusumleriGeriDondur($urun["resimbir"]); ?>" border="0" width="180" height="240"></a></td>
 													</tr>
 													<tr height="25">
-														<td width="191" align="center"><a href="index.php?SK=82&id=<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: #FF9900; font-weight: bold; text-decoration: none;">Kadın Ayakkabısı</a></td>
+														<td width="191" align="center"><a href="kadin-giyim/<?php echo SEO(DonusumleriGeriDondur($urun["urunadi"])); ?>/<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: #FF9900; font-weight: bold; text-decoration: none;">Kadın Ayakkabısı</a></td>
 													</tr>
 													<tr height="25">
-														<td width="191" align="center"><a href="index.php?SK=82&id=<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: black; text-decoration: none;"><div style="width: 191px; max-width: 191px; height: 28px; overflow: hidden; line-height: 14px;"><?php echo DonusumleriGeriDondur($urun["urunadi"]); ?></div></a></td>
+														<td width="191" align="center"><a href="kadin-giyim/<?php echo SEO(DonusumleriGeriDondur($urun["urunadi"])); ?>/<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: black; text-decoration: none;"><div style="width: 191px; max-width: 191px; height: 28px; overflow: hidden; line-height: 14px;"><?php echo DonusumleriGeriDondur($urun["urunadi"]); ?></div></a></td>
 													</tr>
 													<tr height="25">
-														<td width="191" align="center"><a href="index.php?SK=82&id=<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: #646464; text-decoration: none;"><div><img src="Resimler/<?php echo $puanresmi; ?>" border="0"></div></a></td>
+														<td width="191" align="center"><a href="kadin-giyim/<?php echo SEO(DonusumleriGeriDondur($urun["urunadi"])); ?>/<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: #646464; text-decoration: none;"><div><img src="Resimler/<?php echo $puanresmi; ?>" border="0"></div></a></td>
 													</tr>
 													<tr height="25">
-														<td width="191" align="center"><a href="index.php?SK=82&id=<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: #990000; text-decoration: none; font-weight: bold;"><div style="width: 191px; max-width: 191px; height: 28px; overflow: hidden; line-height: 14px;"><?php echo fiyatbicimlendir($urunfiyatihesapla); ?> TL </div></a></td>
+														<td width="191" align="center"><a href="kadin-giyim/<?php echo SEO(DonusumleriGeriDondur($urun["urunadi"])); ?>/<?php echo DonusumleriGeriDondur($urun["id"]); ?>" style="color: #990000; text-decoration: none; font-weight: bold;"><div style="width: 191px; max-width: 191px; height: 28px; overflow: hidden; line-height: 14px;"><?php echo fiyatbicimlendir($urunfiyatihesapla); ?> TL </div></a></td>
 													</tr>
 												</table>
 											</td>
@@ -204,23 +204,23 @@ $tumurunlersayisikaydi = $tumurunlersayisisorgusu->fetch(PDO::FETCH_ASSOC);
 										<div class="numaraalanikapsayici">
 											<?php
 											if($sayfalama>1){
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=1'><<</a></span>";
+												echo "<span class='sayfalamapasif'><a href='kadin-giyim" . $SayfalamaKosulu . "/page/1'><<</a></span>";
 												$SayfalamaIcinSayfaDegeriniBirGeriAl	=	$sayfalama-1;
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaDegeriniBirGeriAl . "'><</a></span>";
+												echo "<span class='sayfalamapasif'><a href='kadin-giyim" . $SayfalamaKosulu . "/page/" . $SayfalamaIcinSayfaDegeriniBirGeriAl . "'><</a></span>";
 											}
 											for($SayfalamaIcinSayfaIndexDegeri=$sayfalama-$SayfalamaIcinSolVeSagButonSayisi; $SayfalamaIcinSayfaIndexDegeri<=$sayfalama+$SayfalamaIcinSolVeSagButonSayisi; $SayfalamaIcinSayfaIndexDegeri++){
 												if(($SayfalamaIcinSayfaIndexDegeri>0) and ($SayfalamaIcinSayfaIndexDegeri<=$BulunanSayfaSayisi)){
 													if($sayfalama==$SayfalamaIcinSayfaIndexDegeri){
 														echo "<span class='sayfalamaaktif'>" . $SayfalamaIcinSayfaIndexDegeri . "</span>";
 													}else{
-														echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaIndexDegeri . "'> " . $SayfalamaIcinSayfaIndexDegeri . "</a></span>";
+														echo "<span class='sayfalamapasif'><a href='kadin-giyim" . $SayfalamaKosulu . "/page/" . $SayfalamaIcinSayfaIndexDegeri . "'> " . $SayfalamaIcinSayfaIndexDegeri . "</a></span>";
 													}
 												}
 											}
 											if($sayfalama!=$BulunanSayfaSayisi){
 												$SayfalamaIcinSayfaDegeriniBirIleriAl	=	$sayfalama+1;
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $SayfalamaIcinSayfaDegeriniBirIleriAl . "'>></a></span>";
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=84" . $SayfalamaKosulu . "&page=" . $BulunanSayfaSayisi . "'>>></a></span>";
+												echo "<span class='sayfalamapasif'><a href='kadin-giyim" . $SayfalamaKosulu . "/page/" . $SayfalamaIcinSayfaDegeriniBirIleriAl . "'>></a></span>";
+												echo "<span class='sayfalamapasif'><a href='kadin-giyim" . $SayfalamaKosulu . "/page/" . $BulunanSayfaSayisi . "'>>></a></span>";
 											}
 											?>
 										</div>

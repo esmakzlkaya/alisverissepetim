@@ -12,6 +12,6 @@
 		<td align="center">İlgili birimimiz tarafından kontrol edildikten sonra siparişiniz kargoya verilecektir. </td>
 	</tr>
 	<tr>
-		<td class="SonucSayfalari" align="center">Ana sayfaya dönmek için lütfen buraya <a href="index.php"><b>tıklayınız.</b></a></td>
+		<td class="SonucSayfalari" align="center">Ana sayfaya dönmek için lütfen buraya <a href="anasayfa"><b>tıklayınız.</b></a></td>
 	</tr>
 </table>

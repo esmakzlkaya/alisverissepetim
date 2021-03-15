@@ -78,7 +78,7 @@
 	</table>
 	<?php 
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

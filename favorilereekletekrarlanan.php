@@ -12,7 +12,7 @@
 		<td align="center"></td>
 	</tr>
 	<tr>
-		<td align="center" class="sonucsayfalari">Favoriler sayfasına gitmek için <a href="index.php?SK=59"> buraya tıklayınız</a>. Anasayfaya dönmek için <a href="index.php">tıklayınız</a>.</td>
+		<td align="center" class="sonucsayfalari">Favoriler sayfasına gitmek için <a href="hesabim-favoriler"> buraya tıklayınız</a>. Anasayfaya dönmek için <a href="anasayfa">tıklayınız</a>.</td>
 	</tr>
 	<tr>
 		<td height="50">&nbsp;</td>

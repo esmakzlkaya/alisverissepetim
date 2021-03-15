@@ -12,7 +12,7 @@
 		<td align="center">Üyelik aktivasyonu için mailinizi kontrol ediniz.</td>
 	</tr>
 	<tr>
-		<td align="center" class="sonucsayfalari">Anasayfaya dönmek için <a href="index.php">tıklayınız</a>.</td>
+		<td align="center" class="sonucsayfalari">Anasayfaya dönmek için <a href="anasayfa">tıklayınız</a>.</td>
 	</tr>
 	<tr>
 		<td height="50">&nbsp;</td>

@@ -6,7 +6,7 @@
 			<td align="left" style="border-bottom: 1px solid #CCCCCC;">En çok merak edilen soruları burada cevaplandırdık.</td>
 		</tr>
 		<tr height="50">
-			<td align="left">Aradığınızı bulamadınız mı? Yeni bir soru sormak için <a class="sonucsayfalari" href="index.php?SK=16">buraya tıklayınız.</a></td>
+			<td align="left">Aradığınızı bulamadınız mı? Yeni bir soru sormak için <a class="sonucsayfalari" href="iletisim">buraya tıklayınız.</a></td>
 		</tr>
 		<tr>
 			<td><?php 

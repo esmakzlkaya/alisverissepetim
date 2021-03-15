@@ -10,18 +10,18 @@ if (isset($_SESSION["kullanici"])) {
 		$silsorgusu->execute([$sepetid,$id]);
 		$sayisi=$silsorgusu->rowCount();
 		if ($sayisi>0) {
-			header("Location:index.php?SK=92");
+			header("Location:sepet");
 			exit();
 		}else{
-			header("Location:index.php?SK=92");
+			header("Location:sepet");
 			exit();
 		}
 	}else{
-		header("Location:index.php?SK=92");
+		header("Location:sepet");
 		exit();
 	}
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

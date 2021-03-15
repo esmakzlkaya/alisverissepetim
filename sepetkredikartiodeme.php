@@ -175,11 +175,11 @@ if(isset($_SESSION["kullanici"])){
 			</form>
 			<?php
 		}else{
-			header("Location:index.php");
+			header("Location:anasayfa");
 			exit();
 		}
 	}else{
-		header("Location:index.php");
+		header("Location:anasayfa");
 		exit();
 	}
 	?>

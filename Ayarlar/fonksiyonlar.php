@@ -71,4 +71,15 @@ function ucgunileritarihbul(){
 		$olustur=substr(md5(uniqid(time())), 0,25);
 		return $olustur;
 	}
+	function SEO($Deger){
+	$icerik=trim($Deger);
+	$degisecekler=array("Ç","ç","Ö","ö","İ","ı","Ğ","ğ","Ş","ş","Ü","ü");
+	$degisenler=array("c","c","o","o","i","i","g","g","s","s","u","u");
+	$icerik=str_replace($degisecekler, $degisenler, $icerik);
+	$icerik=mb_strtolower($icerik,"UTF-8");
+	$icerik=preg_replace("/[^a-z0-9.]/", "-", $icerik);
+	$icerik=preg_replace("/-+/", "-", $icerik);
+	$icerik=trim($icerik,"-");
+	return $icerik;
+}
 	?>

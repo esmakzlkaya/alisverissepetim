@@ -24,7 +24,7 @@ if(isset($_SESSION["kullanici"])){
 <?php 
 }
 else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

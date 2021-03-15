@@ -1,0 +1,46 @@
+RewriteEngine On
+RewriteBase /alisverissepetim/
+
+RewriteRule	^anasayfa$	/alisverissepetim/index.php [L,NC]
+RewriteRule	^hakkimizda$	/alisverissepetim/index.php?SK=1 [L,NC]
+RewriteRule	^uyelik-sozlesmesi$	/alisverissepetim/index.php?SK=2 [L,NC]
+RewriteRule	^kullanim-kosullari$	/alisverissepetim/index.php?SK=3 [L,NC]
+RewriteRule	^gizlilik-sozlesmesi$	/alisverissepetim/index.php?SK=4 [L,NC]
+RewriteRule	^mesafeli-satis-sozlesmesi$	/alisverissepetim/index.php?SK=5 [L,NC]
+RewriteRule	^teslimat$	/alisverissepetim/index.php?SK=6 [L,NC]
+RewriteRule	^iptal-iade-degisim$	/alisverissepetim/index.php?SK=7 [L,NC]
+RewriteRule	^banka-hesaplarimiz$	/alisverissepetim/index.php?SK=8 [L,NC]
+RewriteRule	^havale-bildirim-formu$	/alisverissepetim/index.php?SK=9 [L,NC]
+
+RewriteRule	^kargom-nerede$	/alisverissepetim/index.php?SK=14 [L,NC]
+RewriteRule	^iletisim$	/alisverissepetim/index.php?SK=16 [L,NC]
+
+RewriteRule	^sss$	/alisverissepetim/index.php?SK=21 [L,NC]
+RewriteRule	^yeni-uye-kayit$	/alisverissepetim/index.php?SK=22 [L,NC]
+
+RewriteRule	^uye-giris$	/alisverissepetim/index.php?SK=31 [L,NC]
+
+RewriteRule	^cikis-yap$	/alisverissepetim/index.php?SK=49 [L,NC]
+RewriteRule	^hesabim$	/alisverissepetim/index.php?SK=50 [L,NC]
+
+RewriteRule	^hesabim-adresler$	/alisverissepetim/index.php?SK=58 [L,NC]
+RewriteRule	^hesabim-favoriler$	/alisverissepetim/index.php?SK=59 [L,NC]
+RewriteRule	^hesabim-yorumlar$	/alisverissepetim/index.php?SK=60 [L,NC]
+RewriteRule	^hesabim-siparisler$	/alisverissepetim/index.php?SK=61 [L,NC]
+
+RewriteRule	^erkek-giyim$	/alisverissepetim/index.php?SK=83 [L,NC]
+RewriteRule	^erkek-giyim/([^page,^menu].*)/(.*)$	/alisverissepetim/index.php?SK=82&id=$2 [L,NC]
+RewriteRule	^erkek-giyim/page/(.*)$	/alisverissepetim/index.php?SK=83&page=$1 [L,NC]
+RewriteRule	^erkek-giyim/menu/(.*)$	/alisverissepetim/index.php?SK=83&menuid=$1 [L,NC]
+
+RewriteRule	^kadin-giyim$	/alisverissepetim/index.php?SK=84 [L,NC]
+RewriteRule	^kadin-giyim/([^page,^menu].*)/(.*)$	/alisverissepetim/index.php?SK=82&id=$2 [L,NC]
+RewriteRule	^kadin-giyim/page/(.*)$	/alisverissepetim/index.php?SK=84&page=$1 [L,NC]
+RewriteRule	^kadin-giyim/menu/(.*)$	/alisverissepetim/index.php?SK=84&menuid=$1 [L,NC]
+
+RewriteRule	^cocuk-giyim$	/alisverissepetim/index.php?SK=85 [L,NC]
+RewriteRule	^cocuk-giyim/([^page,^menu].*)/(.*)$	/alisverissepetim/index.php?SK=82&id=$2 [L,NC]
+RewriteRule	^cocuk-giyim/page/(.*)$	/alisverissepetim/index.php?SK=85&page=$1 [L,NC]
+RewriteRule	^cocuk-giyim/menu/(.*)$	/alisverissepetim/index.php?SK=85&menuid=$1 [L,NC]
+
+RewriteRule	^sepet$	/alisverissepetim/index.php?SK=92 [L,NC]

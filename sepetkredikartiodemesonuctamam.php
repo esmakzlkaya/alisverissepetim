@@ -12,6 +12,6 @@
 		<td align="center">İlgili birim en kısa sürede ürün / ürünlerinizi kargoya teslim edilecektir.</td>
 	</tr>
 	<tr>
-		<td class="SonucSayfalari" align="center">Ana sayfaya dönmek için lütfen buraya <a href="index.php"><b>tıklayınız.</b></a></td>
+		<td class="SonucSayfalari" align="center">Ana sayfaya dönmek için lütfen buraya <a href="anasayfa"><b>tıklayınız.</b></a></td>
 	</tr>
 </table>

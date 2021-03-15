@@ -30,7 +30,7 @@ if(isset($_SESSION["kullanici"])){
 								exit();	
 							}else{
 							// echo "guncelleme yapamadı hata";
-								header("Location:index.php");
+								header("Location:anasayfa");
 								exit();
 							}
 							echo "KREDİ KARTI İŞLEMLERİ";
@@ -42,7 +42,7 @@ if(isset($_SESSION["kullanici"])){
 					}
 				}
 			}else{
-				header("Location:index.php");
+				header("Location:anasayfa");
 				exit();
 			}
 		}else{
@@ -148,16 +148,16 @@ if(isset($_SESSION["kullanici"])){
 				header("Location:index.php?SK=99");
 				exit();
 			}else{
-				header("Location:index.php");
+				header("Location:anasayfa");
 				exit();
 			}
 		}
 	}else{
-		header("Location:index.php");
+		header("Location:anasayfa");
 		exit();
 	}
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 } 
 ?>

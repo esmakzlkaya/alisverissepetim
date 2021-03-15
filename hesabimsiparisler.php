@@ -19,15 +19,15 @@ if(isset($_SESSION["kullanici"])){
 			<td colspan="3">
 				<table width="1065" align="center" border="0" cellpadding="0" cellspacing="0">
 					<tr>
-						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=50" style="text-decoration: none; color: black;">Üyelik Bilgileri</a></td>
+						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim" style="text-decoration: none; color: black;">Üyelik Bilgileri</a></td>
 						<td width="10">&nbsp;</td>
-						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=58" style="text-decoration: none; color: black;">Adresler</a></td>
+						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim-adresler" style="text-decoration: none; color: black;">Adresler</a></td>
 						<td width="10">&nbsp;</td>
-						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=59" style="text-decoration: none; color: black;">Favoriler</a></td>
+						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim-favoriler" style="text-decoration: none; color: black;">Favoriler</a></td>
 						<td width="10">&nbsp;</td>
-						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=60" style="text-decoration: none; color: black;">Yorumlar</a></td>
+						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim-yorumlar" style="text-decoration: none; color: black;">Yorumlar</a></td>
 						<td width="10">&nbsp;</td>
-						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=61" style="text-decoration: none; color: black;">Siparişler</a></td>
+						<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim-siparisler" style="text-decoration: none; color: black;">Siparişler</a></td>
 					</tr>
 				</table>
 			</td>
@@ -88,7 +88,7 @@ if(isset($_SESSION["kullanici"])){
 								<tr height="40" bgcolor="" style="color: black; ">
 									<td width="150" align="center" style="padding: 0px 5px;">#<?php echo DonusumleriGeriDondur($adress["siparisnumarasi"]); ?></td>
 									<td width="100" align="center" ><img src="Resimler/UrunResimleri/<?php echo $klasoradi; ?>/<?php echo DonusumleriGeriDondur($adress["urunresmibir"]) ?>" width="60" height="80" border="0"></td>
-									<td width="80" align="center" ><a href="index.php?SK=75&urunid=<?php echo $adress["urunid"]; ?>"><img src="Resimler/DokumanKirmiziKalemli20x20.png"></a></td>
+									<td width="80" align="center" ><a href="hesabim-adresler&urunid=<?php echo $adress["urunid"]; ?>"><img src="Resimler/DokumanKirmiziKalemli20x20.png"></a></td>
 									<td width="205" align="center" ><?php echo DonusumleriGeriDondur($adress["urunadi"]); ?></td>
 									<td width="100" align="center" ><?php echo fiyatbicimlendir(DonusumleriGeriDondur($adress["urunfiyati"])); ?> TL </td>
 									<td width="90" align="center" ><?php echo DonusumleriGeriDondur($adress["urunadedi"]); ?></td>
@@ -114,23 +114,23 @@ if(isset($_SESSION["kullanici"])){
 										<div class="numaraalanikapsayici">
 											<?php 
 											if ($sayfalama>1) {
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=61&page=1'> << </a></span>";
+												echo "<span class='sayfalamapasif'><a href='hesabim-adresler&page=1'> << </a></span>";
 												$gerial=$sayfalama-1;
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=61&page=".$gerial."'> < </a></span>";
+												echo "<span class='sayfalamapasif'><a href='hesabim-adresler&page=".$gerial."'> < </a></span>";
 											}
 											for ($i=$sayfalama-$sayfalamaSagsolbutonsayisi; $i <=$sayfalama+$sayfalamaSagsolbutonsayisi; $i++) { 
 												if (($i>0) and ($i<=$bulunansayfasayisi)) {
 													if ($i==$sayfalama) {
 														echo "<span class='sayfalamaaktif'>" . $sayfalama . "</span>";
 													}else{
-														echo "<span class='sayfalamapasif'><a href='index.php?SK=61&page=".$i."'>" . $i . "</a></span>";
+														echo "<span class='sayfalamapasif'><a href='hesabim-adresler&page=".$i."'>" . $i . "</a></span>";
 													}
 												}
 											}
 											if ($sayfalama!=$bulunansayfasayisi) {
 												$ilerial=$sayfalama+1;
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=61&page=".$ilerial."'> > </a></span>";
-												echo "<span class='sayfalamapasif'><a href='index.php?SK=61&page=".$bulunansayfasayisi."'> >> </a></span>";
+												echo "<span class='sayfalamapasif'><a href='hesabim-adresler&page=".$ilerial."'> > </a></span>";
+												echo "<span class='sayfalamapasif'><a href='hesabim-adresler&page=".$bulunansayfasayisi."'> >> </a></span>";
 											}
 											?>
 										</div>
@@ -153,7 +153,7 @@ if(isset($_SESSION["kullanici"])){
 	</table>
 	<?php 
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 } 
 ?>

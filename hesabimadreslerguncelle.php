@@ -13,15 +13,15 @@ if(isset($_SESSION["kullanici"])){
 		<tr>
 			<td colspan="3"><table width="1065" align="center" border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=50" style="text-decoration: none; color: black;">Üyelik Bilgileri</a></td>
+					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim" style="text-decoration: none; color: black;">Üyelik Bilgileri</a></td>
 					<td width="10">&nbsp;</td>
-					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=58" style="text-decoration: none; color: black;">Adresler</a></td>
+					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim-adresler" style="text-decoration: none; color: black;">Adresler</a></td>
 					<td width="10">&nbsp;</td>
-					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=59" style="text-decoration: none; color: black;">Favoriler</a></td>
+					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim-favoriler" style="text-decoration: none; color: black;">Favoriler</a></td>
 					<td width="10">&nbsp;</td>
-					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=60" style="text-decoration: none; color: black;">Yorumlar</a></td>
+					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim-yorumlar" style="text-decoration: none; color: black;">Yorumlar</a></td>
 					<td width="10">&nbsp;</td>
-					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="index.php?SK=61" style="text-decoration: none; color: black;">Siparişler</a></td>
+					<td width="203" style="border: 1px solid #CCCCCC; padding: 10px 0px; text-align: center; font-weight: bold;"><a href="hesabim-siparisler" style="text-decoration: none; color: black;">Siparişler</a></td>
 				</tr>
 			</table></td>
 		</tr>
@@ -95,7 +95,7 @@ if(isset($_SESSION["kullanici"])){
 	</table>
 	<?php 
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 } 
 ?>

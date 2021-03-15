@@ -15,7 +15,7 @@ if(isset($_SESSION["kullanici"])){
 		<td align="center">İşlem sırasında beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.</td>
 	</tr>
 	<tr>
-		<td align="center" class="sonucsayfalari">Siparişlerim sayfasına dönmek için <a href="index.php?SK=61">tıklayınız</a>. Yorumlar sayfasına dönmek için <a href="index.php?SK=60">tıklayınız</a>.</td>
+		<td align="center" class="sonucsayfalari">Siparişlerim sayfasına dönmek için <a href="hesabim-siparisler">tıklayınız</a>. Yorumlar sayfasına dönmek için <a href="hesabim-yorumlar">tıklayınız</a>.</td>
 	</tr>
 	<tr>
 		<td height="50">&nbsp;</td>
@@ -24,7 +24,7 @@ if(isset($_SESSION["kullanici"])){
 <?php 
 }
 else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

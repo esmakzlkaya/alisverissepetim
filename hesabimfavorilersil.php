@@ -23,7 +23,7 @@ if (isset($_SESSION["kullanici"])) {
 	}
 	
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

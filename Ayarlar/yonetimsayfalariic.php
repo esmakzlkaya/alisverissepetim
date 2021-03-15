@@ -105,24 +105,21 @@ $sayfaic[102] ="urunlerguncellesonuchata.php";
 $sayfaic[103] ="urunlersilsonuc.php";
 $sayfaic[104] ="urunlersilsonuctamam.php";
 $sayfaic[105] ="urunlersilsonuchata.php";
-
 $sayfaic[106] ="siparisler.php";
-
-$sayfaic[107] ="siparisdetay.php";
- 
+$sayfaic[107] ="siparisdetay.php"; 
 $sayfaic[108] ="siparislertamamlanan.php";
-
 $sayfaic[109] ="siparislertamamlanandetay.php";
-$sayfaic[110] =".php";
-$sayfaic[111] =".php";
-$sayfaic[112] =".php";
-$sayfaic[113] =".php";
-$sayfaic[114] =".php";
-$sayfaic[115] =".php";
-$sayfaic[116] =".php";
-$sayfaic[117] =".php";
-$sayfaic[118] =".php";
-$sayfaic[119] =".php";
+$sayfaic[110] ="sipariskargokodugirissonuc.php";
+$sayfaic[111] ="sipariskargokodugirissonuctamam.php";
+$sayfaic[112] ="sipariskargokodugirissonuchata.php";
+$sayfaic[113] ="siparissilsonuc.php";
+$sayfaic[114] ="siparissilsonuctamam.php";
+$sayfaic[115] ="siparissilsonuchata.php";
+
+$sayfaic[116] ="havalebildirimleri.php";
+$sayfaic[117] ="havalebildirimlerisilsonuc.php";
+$sayfaic[118] ="havalebildirimlerisilsonuctamam.php";
+$sayfaic[119] ="havalebildirimlerisilsonuchata.php";
 $sayfaic[120] =".php";
 $sayfaic[121] =".php";
 $sayfaic[122] =".php";

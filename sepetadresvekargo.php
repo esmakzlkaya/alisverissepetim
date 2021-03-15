@@ -183,7 +183,7 @@ if(isset($_SESSION["kullanici"])){
 						<?php
 
 					}else{
-						header("Location:index.php?SK=92");
+						header("Location:sepet");
 						exit();
 					}
 					?>
@@ -218,7 +218,7 @@ if(isset($_SESSION["kullanici"])){
 	</form>
 	<?php 
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 } 
 ?>

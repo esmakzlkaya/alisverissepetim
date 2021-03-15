@@ -29,7 +29,7 @@ if(isset($_SESSION["kullanici"])){
 		$sepetnosayisi=$urunadediguncellemesorgusu->rowCount();
 
 		if ($sepetnosayisi>0) {
-			header("Location:index.php?SK=92");
+			header("Location:sepet");
 			exit();
 		}else{
 			header("Location:index.php?SK=91");
@@ -47,7 +47,7 @@ if(isset($_SESSION["kullanici"])){
 			$sepetnoguncellesayisi=$sepetnoguncelle->rowCount();
 
 			if ($sepetnoguncellesayisi>0) {
-				header("Location:index.php?SK=92");
+				header("Location:sepet");
 				exit();
 			}else{
 				header("Location:index.php?SK=91");
@@ -69,7 +69,7 @@ if(isset($_SESSION["kullanici"])){
 			$sepetnoguncelle->execute([$sonurununiddegeri, $id]);
 			$sepetnoguncellesayisi=$sepetnoguncelle->rowCount();
 			if ($sepetnoguncellesayisi>0) {
-				header("Location:index.php?SK=92");
+				header("Location:sepet");
 				exit();
 			}else{
 				header("Location:index.php");
@@ -81,11 +81,11 @@ if(isset($_SESSION["kullanici"])){
 		}
 	}
 }else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 }else{
-	header("Location:index.php?SK=31");
+	header("Location:uye-giris");
 	exit();
 }
 ?>

@@ -26,7 +26,7 @@ if(($gelenmail!="") and ($gelensifre!="")){
 		if($kullanicikaydi["durumu"]==1){
 			$_SESSION["kullanici"]=$gelenmail;
 			if ($_SESSION["kullanici"]==$gelenmail){
-				header("Location:index.php?SK=50");
+				header("Location:hesabim");
 				exit();
 			}
 			else{

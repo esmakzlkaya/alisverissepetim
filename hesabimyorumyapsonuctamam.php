@@ -15,7 +15,7 @@ if(isset($_SESSION["kullanici"])){
 		<td align="center">Yorumunuz yetkililer tarafından kontrol edilip yayına alınacaktır..</td>
 	</tr>
 	<tr>
-		<td align="center" class="sonucsayfalari">Yorumlar sayfasına dönmek için <a href="index.php?SK=60">tıklayınız</a>. Siparişlerim sayfasına dönmek için <a href="index.php?SK=61">tıklayınız</a>.</td>
+		<td align="center" class="sonucsayfalari">Yorumlar sayfasına dönmek için <a href="hesabim-yorumlar">tıklayınız</a>. Siparişlerim sayfasına dönmek için <a href="hesabim-siparisler">tıklayınız</a>.</td>
 	</tr>
 	<tr>
 		<td height="50">&nbsp;</td>
@@ -24,7 +24,7 @@ if(isset($_SESSION["kullanici"])){
 <?php 
 }
 else{
-	header("Location:index.php");
+	header("Location:anasayfa");
 	exit();
 }
 ?>

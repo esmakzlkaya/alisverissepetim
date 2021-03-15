@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start(); ob_start();
 require_once("Ayarlar/ayar.php");
 require_once("Ayarlar/fonksiyonlar.php");
@@ -25,6 +25,7 @@ else{
 	<meta name="googlebot" content="index, follow">
 	<meta name="revisit-after" content="7 Days">
 	<title><?php echo DonusumleriGeriDondur($sitebaslik); ?></title>
+	<base href="/alisverissepetim/">
 	<link rel="icon" type="image/png" href="Resimler/logo.png">
 	<meta name="description" content="<?php echo DonusumleriGeriDondur($sitetanim); ?>">
 	<meta name="KeyWords" content="<?php echo DonusumleriGeriDondur($siteanahtarkelimeler); ?>">
@@ -44,34 +45,34 @@ else{
 					<?php 
 					if (isset($_SESSION["kullanici"])){
 						?>
-						<td width="20"><a href="index.php?SK=50"><img src="Resimler/KullaniciBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
-						<td width="70" class="mansetalti"><a href="index.php?SK=50">Hesabım</a></td>
-						<td width="20"><a href="index.php?SK=49"><img src="Resimler/CikisBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
-						<td width="85" class="mansetalti"><a href="index.php?SK=49">Çıkış Yap</a></td>							
+						<td width="20"><a href="hesabim"><img src="Resimler/KullaniciBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
+						<td width="70" class="mansetalti"><a href="hesabim">Hesabım</a></td>
+						<td width="20"><a href="cikis-yap"><img src="Resimler/CikisBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
+						<td width="85" class="mansetalti"><a href="cikis-yap">Çıkış Yap</a></td>							
 						<?php
 					}else{
 						?>
-						<td width="20"><a href="index.php?SK=31"><img src="Resimler/KullaniciBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
-						<td width="70" class="mansetalti"><a href="index.php?SK=31">Giriş Yap</a></td>
-						<td width="20"><a href="index.php?SK=22"><img src="Resimler/KullaniciEkleBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
-						<td width="85" class="mansetalti"><a href="index.php?SK=22">Yeni Üyelik</a></td>
+						<td width="20"><a href="uye-giris"><img src="Resimler/KullaniciBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
+						<td width="70" class="mansetalti"><a href="uye-giris">Giriş Yap</a></td>
+						<td width="20"><a href="yeni-uye-kayit"><img src="Resimler/KullaniciEkleBeyaz16x16.png" border="0" style="margin-top: 5px;"></a></td>
+						<td width="85" class="mansetalti"><a href="yeni-uye-kayit">Yeni Üyelik</a></td>
 						<?php
 					}
 					?>
-					<td width="20"><?php if(isset($_SESSION["kullanici"])){ ?><a href="index.php?SK=92"><img src="Resimler/SepetBeyaz16x16.png" border="0" style="margin-top: 5px;"></a><?php }else{ ?><img src="Resimler/SepetBeyaz16x16.png" border="0" style="margin-top: 5px;"> <?php } ?></td>
-					<td width="103" class="mansetalti"><?php if(isset($_SESSION["kullanici"])){ ?> <a href="index.php?SK=92">Sepet</a> <?php }else{ ?> Sepet <?php } ?></td>
+					<td width="20"><?php if(isset($_SESSION["kullanici"])){ ?><a href="sepet"><img src="Resimler/SepetBeyaz16x16.png" border="0" style="margin-top: 5px;"></a><?php }else{ ?><img src="Resimler/SepetBeyaz16x16.png" border="0" style="margin-top: 5px;"> <?php } ?></td>
+					<td width="103" class="mansetalti"><?php if(isset($_SESSION["kullanici"])){ ?> <a href="sepet">Sepet</a> <?php }else{ ?> Sepet <?php } ?></td>
 				</tr>
 			</table>
 			<table width="1065"  height="60" border="0" cellspacing="0" cellpadding="0" align="center">
 				<tr>
-					<td width="192"><a href="index.php"><img src="Resimler/<?php echo DonusumleriGeriDondur($sitelogosu); ?>" border="0"></a></td>
+					<td width="192"><a href="anasayfa"><img src="Resimler/<?php echo DonusumleriGeriDondur($sitelogosu); ?>" border="0"></a></td>
 					<td><table width="876"  height="30" border="0" cellspacing="0" cellpadding="0" align="center">
 						<tr bgcolor="">
 							<td width="456">&nbsp;</td>
-							<td width="90" class="anamenu"><b><a href="index.php?SK=0">Ana Sayfa</a></b></td>
-							<td width="100" class="anamenu"><b><a href="index.php?SK=84">Kadın Giyim</a></b></td>
-							<td width="110" class="anamenu"><b><a href="index.php?SK=85">Çocuk Giyim</a></b></td>
-							<td width="120" class="anamenu"><b><a href="index.php?SK=83">Erkek Giyim</a></b></td>
+							<td width="90" class="anamenu"><b><a href="anasayfa">Ana Sayfa</a></b></td>
+							<td width="100" class="anamenu"><b><a href="kadin-giyim">Kadın Giyim</a></b></td>
+							<td width="110" class="anamenu"><b><a href="cocuk-giyim">Çocuk Giyim</a></b></td>
+							<td width="120" class="anamenu"><b><a href="erkek-giyim">Erkek Giyim</a></b></td>
 						</tr>
 					</table></td>
 				</tr>
@@ -101,21 +102,21 @@ else{
 			</tr>
 			<br>
 			<tr height="30">
-				<td width="250" class="altmenu">&nbsp;<a href="index.php?SK=1">Hakkımızda</a></td>
+				<td width="250" class="altmenu">&nbsp;<a href="hakkimizda">Hakkımızda</a></td>
 				<td width="22" >&nbsp;</td>
 				<?php 
 				if (isset($_SESSION["kullanici"])){
 					?>
-					<td width="250" class="altmenu"><a href="index.php?SK=49">Çıkış Yap</a></td>
+					<td width="250" class="altmenu"><a href="cikis-yap">Çıkış Yap</a></td>
 					<?php 
 				}else{
 					?>
-					<td width="250" class="altmenu"><a href="index.php?SK=31">Giriş Yap</a></td>
+					<td width="250" class="altmenu"><a href="uye-giris">Giriş Yap</a></td>
 					<?php 
 				}
 				?>
 				<td width="22">&nbsp;</td>
-				<td width="250" class="altmenu"><a href="index.php?SK=2">Üyelik Sözleşmesi</a></td>
+				<td width="250" class="altmenu"><a href="uyelik-sozlesmesi">Üyelik Sözleşmesi</a></td>
 				<td width="21">&nbsp;</td>
 				<td width="250">
 					<table width=""  height="" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -127,21 +128,21 @@ else{
 				</td>
 			</tr>
 			<tr height="30">
-				<td width="250" class="altmenu">&nbsp;<a href="index.php?SK=8">Banka Hesaplarımız</a></td>
+				<td width="250" class="altmenu">&nbsp;<a href="banka-hesaplarimiz">Banka Hesaplarımız</a></td>
 				<td width="22" >&nbsp;</td>
 				<?php 
 				if (isset($_SESSION["kullanici"])){
 					?>
-					<td width="250" class="altmenu"><a href="index.php?SK=50">Hesabım</a></td>	
+					<td width="250" class="altmenu"><a href="hesabim">Hesabım</a></td>	
 					<?php 
 				}else{
 					?>
-					<td width="250" class="altmenu"><a href="index.php?SK=22">Yeni Üye Ol</a></td>
+					<td width="250" class="altmenu"><a href="yeni-uye-kayit">Yeni Üye Ol</a></td>
 					<?php 
 				}
 				?>
 				<td width="22">&nbsp;</td>
-				<td width="250" class="altmenu"><a href="index.php?SK=3">Kullanım Koşulları</a></td>
+				<td width="250" class="altmenu"><a href="kullanim-kosullari">Kullanım Koşulları</a></td>
 				<td width="21">&nbsp;</td>
 				<td width="250">
 					<table width="250"  height="" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -153,11 +154,11 @@ else{
 				</td>
 			</tr>
 			<tr height="30">
-				<td width="250" class="altmenu">&nbsp;<a href="index.php?SK=9">Havale Bildirim Formu</a></td>
+				<td width="250" class="altmenu">&nbsp;<a href="havale-bildirim-formu">Havale Bildirim Formu</a></td>
 				<td width="22" >&nbsp;</td>
-				<td width="250" class="altmenu"><a href="index.php?SK=21">Sık Sorulan Sorular</a></td>
+				<td width="250" class="altmenu"><a href="sss">Sık Sorulan Sorular</a></td>
 				<td width="22">&nbsp;</td>
-				<td width="250" class="altmenu"><a href="index.php?SK=4">Gizlilik Sözleşmesi</a></td>
+				<td width="250" class="altmenu"><a href="gizlilik-sozlesmesi">Gizlilik Sözleşmesi</a></td>
 				<td width="21">&nbsp;</td>
 				<td width="250">
 					<table width="250"  height="" border="0" cellspacing="0" cellpadding="0" align="center" >
@@ -169,11 +170,11 @@ else{
 				</td>
 			</tr>
 			<tr height="30">
-				<td width="250" class="altmenu">&nbsp;<a href="index.php?SK=14">Kargom Nerede?</a></td>
+				<td width="250" class="altmenu">&nbsp;<a href="kargom-nerede">Kargom Nerede?</a></td>
 				<td width="22" >&nbsp;</td>
 				<td width="250"></td>
 				<td width="22">&nbsp;</td>
-				<td width="250" class="altmenu"><a href="index.php?SK=5">Mesafeli Satış Sözleşmesi</a></td>
+				<td width="250" class="altmenu"><a href="mesafeli-satis-sozlesmesi">Mesafeli Satış Sözleşmesi</a></td>
 				<td width="21">&nbsp;</td>
 				<td width="250">
 					<table width="250"  height="" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -185,11 +186,11 @@ else{
 				</td>
 			</tr>
 			<tr height="30">
-				<td width="250" class="altmenu">&nbsp;<a href="index.php?SK=16">İletişim</a></td>
+				<td width="250" class="altmenu">&nbsp;<a href="iletisim">İletişim</a></td>
 				<td width="22" >&nbsp;</td>
 				<td width="250"></td>
 				<td width="22">&nbsp;</td>
-				<td width="250" class="altmenu"><a href="index.php?SK=6">Teslimat</a></td>
+				<td width="250" class="altmenu"><a href="teslimat">Teslimat</a></td>
 				<td width="21">&nbsp;</td>
 				<td width="250">
 					<table width="250"  height="" border="0" cellspacing="0" cellpadding="0" align="center">
@@ -205,7 +206,7 @@ else{
 				<td width="22" >&nbsp;</td>
 				<td width="250"></td>
 				<td width="22">&nbsp;</td>
-				<td width="250" class="altmenu"><a href="index.php?SK=7">İptal & İade & Değişim</a></td>
+				<td width="250" class="altmenu"><a href="iptal-iade-degisim">İptal & İade & Değişim</a></td>
 				<td width="21">&nbsp;</td>
 				<td width="250">
 					<table width="250"  height="" border="0" cellspacing="0" cellpadding="0" align="center">
